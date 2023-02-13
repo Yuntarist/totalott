@@ -1,6 +1,6 @@
 <template>
   <hr />
-  <div>영화</div>
+  <div></div>
 </template>
 
 <script>
