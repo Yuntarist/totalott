@@ -1,6 +1,6 @@
 <template>
   <hr />
-  <div>드라마</div>
+  <div></div>
 </template>
 
 <script>
