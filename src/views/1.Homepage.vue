@@ -15,9 +15,8 @@
   <br />
   <button id="btn" @click="move">START</button>
   <!-- 버튼 왼쪽에도 마크 추가하기 -->
-
-  <div>이름정하기 / 로고 만들기 / 왼쪽 상단에 버튼 추가하기</div>
   <div>배경사진 1 = 어두운 곳에서 게임하는 게이머의 뒷모습</div>
+  <div>배경사진 편집하기</div>
   <img src="../assets/steam.png" id="steam" />
   <img src="../assets/epic.png" id="epic" />
   <img src="../assets/xbox.png" id="xbox" />
