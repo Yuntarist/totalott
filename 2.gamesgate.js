@@ -11,6 +11,7 @@ const gamersgate_title = [];
 const gamersgate_price = [];
 const gamersgate_discount_percent = [];
 const gamersgate_discount_price = [];
+
 (async () => {
   // puppeteer 실행 (puppeteer-core가 아닌 puppeteer를 설치하면 내장 크로미움으로 실행되므로 executablePath 설정 불필요)
   const browser = await puppeteer.launch({
@@ -71,7 +72,4 @@ const gamersgate_discount_price = [];
 
   await browser.close();
 })();
-// body > main > section > div > div > div.column.column-content > div > div.catalog-list-decorator > div > div:nth-child(1) > div > div.catalog-item--description > div.catalog-item--title > a
-// body > main > section > div > div > div.column.column-content > div > div.catalog-list-decorator > div > div:nth-child(19) > div > div.catalog-item--description > div.catalog-item--price > div
-// body > main > section > div > div > div.column.column-content > div > div.catalog-list-decorator > div > div:nth-child(19) > div > ul > li > span
-// body > main > section > div > div > div.column.column-content > div > div.catalog-list-decorator > div > div:nth-child(19) > div > div.catalog-item--description > div.catalog-item--price > span
+// body > main > section > div > div > div.column.column-content > div > div.catalog-list-decorator > div > div:nth-child(7) > div > div.catalog-item--image > a > img
