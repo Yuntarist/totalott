@@ -75,10 +75,10 @@ exports.ax =async () => {
       // (플랫폼)titles,(플랫폼)price,(플랫폼)discountPercent,(플랫폼)discountPrice
     }
     for(let j= 0; j<10; j++){
-      const game = `${'게임 명: '+ steam_titles[j]} ${'할인률: '+steam_discount_percent[j]} ${'원가 : ' + steam_price[j]}${'할인가 : ' +steam_discount_price[j]}  <br>`
-      steam.push(game) 
-      console.log(steam)
+      const game = `${'게임 명: '+ steam_titles[j] +'할인률: '+steam_discount_percent[j] +'원가 : ' + steam_price[j]+ '할인가 : ' +steam_discount_price[j]}  <br>`
+      steam.push(game)
     }
+    console.log(steam)
   }
   await browser.close()
   return steam

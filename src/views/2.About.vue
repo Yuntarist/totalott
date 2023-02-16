@@ -1,7 +1,6 @@
 <template>
   <hr />
   <div>이벤트 모달 창 만들고 이름과 전화번호 주소 몽고DB로 저장하기.</div>
-  <button @click="main()">크롤링 추출</button>
   <div v-html="number"></div>
 </template>
 
@@ -16,14 +15,13 @@ export default {
       number: "",
     };
   },
-  methods: {
-    main() {
-      this.number = "크롤링중...";
-      axios.get("/about1").then((res) => {
-        this.number = res.data;
-      });
-    },
+  mounted() {
+    this.number = "크롤링중...";
+    axios.get("/about1").then((res) => {
+      this.number = res.data;
+    });
   },
+  methods: {},
 };
 </script>
 

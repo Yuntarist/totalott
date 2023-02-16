@@ -279,9 +279,8 @@ const dream_discount_price = [];
     console.log(v + " (dispercent)", dream_discount_percent);
     console.log(v + " (disprice)", dream_discount_price);
     for(let j= 0; j<10; j++){
-      const game4 = `${'게임 명: '+ steam_titles[j]} ${'할인률: '+steam_discount_percent[j]} ${'원가 : ' + steam_price[j]}${'할인가 : ' +steam_discount_price[j]}  <br>`
+      const game4 = `${'게임 명: '+ _title[j]} ${'할인률: '+steam_discount_percent[j]} ${'원가 : ' + steam_price[j]}${'할인가 : ' +steam_discount_price[j]}  <br>`
       dreamgame.push(game4) 
-      console.log(steam)
     }
   }
 
