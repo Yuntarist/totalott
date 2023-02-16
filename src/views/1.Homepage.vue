@@ -36,7 +36,7 @@ export default {
   },
   methods: {
     move: function () {
-      window.location.href = './about1'
+      window.location.href = './about2'
     }
   }
 }
