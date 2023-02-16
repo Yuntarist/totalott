@@ -27,21 +27,21 @@
 // eslint-disable-next-line
 /* eslint-disable */
 export default {
-  name: 'app',
+  name: "app",
   data() {
-    return {}
+    return {};
   },
   methods: {
     move: function () {
-      window.location.href = './2.About.vue'
-    }
-  }
-}
+      window.location.href = "./2.About.vue";
+    },
+  },
+};
 </script>
 
 <style>
 body {
-  background-image: url('D:\yhs\PROJECT_FIN\totalott\src\assets\gamer.jpg');
+  /* background-image: url('D:\yhs\PROJECT_FIN\totalott\src\assets\gamer.jpg'); */
   background-color: #1b1b1b;
 }
 div {
