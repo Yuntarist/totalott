@@ -1,47 +1,57 @@
 <template>
-  <hr />
-  <img src="../assets/TRIFlogo.png" id="Homelogo" />
-  <div>We are TRIF</div>
-  <div id="txt1">
-    <div>
-      당신이 하고싶은 <span>게임</span><br />
-      여러개의 <span>플랫폼</span><br />
-      <div><span> 할인폭</span> 지금 바로 확인</div>
+  <div class="background">
+    <hr />
+    <img src="../assets/TRIFlogo.png" id="Homelogo" />
+    <div>We are TRIF</div>
+    <div id="txt1">
+      <div>
+        당신이 하고싶은 <span>게임</span><br />
+        여러개의 <span>플랫폼</span><br />
+        <div><span> 할인폭</span> 지금 바로 확인</div>
+      </div>
     </div>
+    <br />
+    <div id="txt2">간단하게 검색하고 빠르게 조회하실 수 있습니다</div>
+    <div id="txt2">실시간으로 가장 큰 할인폭을 확인하세요</div>
+    <br />
+    <button id="btn" @click="move">START</button>
+    <!-- 버튼 왼쪽에도 마크 추가하기 -->
+    <div>배경사진 1 = 어두운 곳에서 게임하는 게이머의 뒷모습</div>
+    <div>배경사진 편집하기</div>
+    <img src="../assets/steam.png" id="steam" />
+    <img src="../assets/xbox.png" id="xbox" />
+    <img src="../assets/gamersgate.png" id="gamersgate" />
+    <img src="../assets/greenmangaming.png" id="greenmangaming" />
+    <img src="../assets/dreamgame.png" id="dreamgame" />
   </div>
-  <br />
-  <div id="txt2">간단하게 검색하고 빠르게 조회하실 수 있습니다</div>
-  <div id="txt2">실시간으로 가장 큰 할인폭을 확인하세요</div>
-  <br />
-  <button id="btn" @click="move">START</button>
-  <!-- 버튼 왼쪽에도 마크 추가하기 -->
-  <div>배경사진 1 = 어두운 곳에서 게임하는 게이머의 뒷모습</div>
-  <div>배경사진 편집하기</div>
-  <img src="../assets/steam.png" id="steam" />
-  <img src="../assets/xbox.png" id="xbox" />
 </template>
 
 <script>
 // eslint-disable-next-line
 /* eslint-disable */
 export default {
-  name: "app",
+  name: 'app',
   data() {
-    return {};
+    return {}
   },
   methods: {
     move: function () {
-      window.location.href = "./2.About.vue";
-    },
-  },
-};
+      window.location.href = './about2'
+    }
+  }
+}
 </script>
 
 <style>
 body {
-  /* background-image: url('D:\yhs\PROJECT_FIN\totalott\src\assets\gamer.jpg'); */
   background-color: #1b1b1b;
   background-size: cover;
+}
+.background {
+  background-image: url('D:/yhs/PROJECT_FIN/totalott/src/assets/gamer.jpg');
+  background-size: cover;
+  width: auto;
+  height: 800px;
 }
 div {
   color: white;
@@ -82,6 +92,18 @@ span {
 }
 #xbox {
   width: 250px;
+  height: 100px;
+}
+#gamersgate {
+  width: 100px;
+  height: 100px;
+}
+#greenmangaming {
+  width: 130px;
+  height: 130px;
+}
+#dreamgame {
+  width: 100px;
   height: 100px;
 }
 </style>
