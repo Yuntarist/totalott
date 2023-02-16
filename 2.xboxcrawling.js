@@ -2,7 +2,7 @@ const puppeteer = require('puppeteer-core')
 
 // 각 원자재 이름과 URL 정보가 있는 MAP을 생성
 const urlMap = new Map([
-  ['xbox', 'https://www.xbox.com/ko-kr/games/all-games?cat=pcsale'] // xbox 타이틀
+  ['xbox', 'https://www.xbox.com/ko-kr/games/all-games?cat=onsale'] // xbox 타이틀
 ])
 ;(async () => {
   // puppeteer 실행 (puppeteer-core가 아닌 puppeteer를 설치하면 내장 크로미움으로 실행되므로 executablePath 설정 불필요)
