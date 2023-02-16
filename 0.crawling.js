@@ -323,5 +323,3 @@ const urlMap5 = new Map([
   }
   await browser.close()
 })()
-
-// 현재 steam, gamersgate, greenmangaming, xbox, dream 이 5개의 사이트에서 크롤링하고 있는 중
