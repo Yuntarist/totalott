@@ -1,13 +1,11 @@
 <template>
-  <hr />
   <div>
-    <h2>아이디 / 비밀번호 찾기</h2>
+    <hr />
+    ddd
   </div>
 </template>
 
 <script>
-// eslint-disable-next-line
-/* eslint-disable */
 export default {
   name: "app",
   data() {

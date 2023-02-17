@@ -36,7 +36,7 @@ export default {
   },
   methods: {
     move: function () {
-      window.location.href = "./2.About.vue";
+      window.location.href = "./about2";
     },
   },
 };
@@ -48,7 +48,7 @@ body {
   background-size: cover;
 }
 .background {
-  background-image: url("C:/Users/ds/Desktop/totalott/src/assets/gamer.jpg");
+  background-image: url("C:/Users/ds/Desktop/totalott/src/assets/홈페이지백그라운드화면.png");
   background-size: cover;
   width: auto;
   height: 800px;

@@ -5,17 +5,29 @@
     <form>
       <div class="form-item">
         <span class="material-icons-outlined"> account_circle </span>
-        <input type="text" id="user" placeholder="아이디" required />
+        <input
+          class="login-input"
+          type="text"
+          id="user"
+          placeholder="아이디"
+          required
+        />
       </div>
 
       <div class="form-item">
         <span class="material-icons-outlined"> lock </span>
-        <input type="password" id="pass" placeholder="비밀번호" required />
+        <input
+          class="login-input"
+          type="password"
+          id="pass"
+          placeholder="비밀번호"
+          required
+        />
       </div>
 
       <button type="submit">LOGIN</button><br />
       <div class="find-login">
-        <a href="#">아이디 / 비밀번호찾기</a>
+        <a href="./about5">아이디 / 비밀번호찾기</a>
       </div>
       <br />
       <p class="new-login">
@@ -72,6 +84,7 @@ body {
   box-shadow: 0 0 15px rgb(255, 255, 255);
   border-radius: 25px;
 }
+
 h2 {
   font-size: 30px;
 }
@@ -94,7 +107,7 @@ form {
 .form-item:hover {
   border: 1px solid white;
 }
-input {
+.login-input {
   background: transparent;
   width: 80%;
   height: 30px;
