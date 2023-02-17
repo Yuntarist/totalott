@@ -22,7 +22,7 @@ export default {
     }
   },
   mounted() {
-    this.number = '할인정보를 불러오는중...'
+    this.number = `<div class="spinner-border text-info" role="status"></div>`
     axios.get('/about1').then((res) => {
       this.number = res.data
     })
