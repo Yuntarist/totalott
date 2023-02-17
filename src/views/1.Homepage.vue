@@ -74,7 +74,7 @@ body {
   background-size: cover;
 }
 .background {
-  background-image: url('D:/yhs/PROJECT_FIN/totalott/src/assets/홈페이지백그라운드화면.png');
+  background-image: url('D:/yhs/PROJECT_FIN/totalott/src/assets/홈페이지백그라운드화면.jpg');
   background-size: cover;
   width: auto;
   height: 800px;
