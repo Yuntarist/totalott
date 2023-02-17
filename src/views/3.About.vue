@@ -5,12 +5,24 @@
     <form>
       <div class="form-item">
         <span class="material-icons-outlined"> account_circle </span>
-        <input type="text" id="user" placeholder="아이디" required />
+        <input
+          class="login-input"
+          type="text"
+          id="user"
+          placeholder="아이디"
+          required
+        />
       </div>
 
       <div class="form-item">
         <span class="material-icons-outlined"> lock </span>
-        <input type="password" id="pass" placeholder="비밀번호" required />
+        <input
+          class="login-input"
+          type="password"
+          id="pass"
+          placeholder="비밀번호"
+          required
+        />
       </div>
 
       <button type="submit">LOGIN</button><br />
@@ -72,6 +84,7 @@ body {
   box-shadow: 0 0 15px rgb(255, 255, 255);
   border-radius: 25px;
 }
+
 h2 {
   font-size: 30px;
 }
@@ -94,7 +107,7 @@ form {
 .form-item:hover {
   border: 1px solid white;
 }
-input {
+.login-input {
   background: transparent;
   width: 80%;
   height: 30px;
@@ -105,7 +118,7 @@ input {
   font-size: 17px;
 }
 
-span {
+.material-icons-outlined {
   user-select: none;
   margin: 5px;
   color: rgb(172, 172, 172);

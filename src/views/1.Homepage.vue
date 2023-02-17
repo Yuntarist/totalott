@@ -1,13 +1,20 @@
 <template>
   <div class="background">
     <hr />
-    <img src="../assets/TRIFlogo.png" id="Homelogo" />
-    <div>We are TRIF</div>
-    <div id="txt1">
-      <div>
-        당신이 하고싶은 <span>게임</span><br />
-        여러개의 <span>플랫폼</span><br />
-        <div><span> 할인폭</span> 지금 바로 확인</div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <div id="homepageTitle">
+      We are <span id="title1">T</span><span id="title2">R</span
+      ><span id="title3">I</span><span id="title4">F</span>
+    </div>
+    <div>
+      <div id="txt1">
+        당신이 찾는 <span id="spanstyle">게임</span><br />
+        여러개의 <span id="spanstyle">플랫폼</span><br />
+        <div><span id="spanstyle"> 할인폭</span> 지금 바로 확인</div>
       </div>
     </div>
     <br />
@@ -15,15 +22,25 @@
     <div id="txt2">실시간으로 가장 큰 할인폭을 확인하세요</div>
     <br />
     <button id="btn" @click="move">START</button>
-    <!-- 버튼 왼쪽에도 마크 추가하기 -->
-    <div>배경사진 1 = 어두운 곳에서 게임하는 게이머의 뒷모습</div>
-    <div>배경사진 편집하기</div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <img src="../assets/TRIFlogo.png" id="triflogo" />
+  </div>
+  <footer>
+    <!-- 플랫폼 로고들 밑으로 내리기 -->
     <img src="../assets/steam.png" id="steam" />
     <img src="../assets/xbox.png" id="xbox" />
     <img src="../assets/gamersgate.png" id="gamersgate" />
     <img src="../assets/greenmangaming.png" id="greenmangaming" />
     <img src="../assets/dreamgame.png" id="dreamgame" />
-  </div>
+  </footer>
 </template>
 
 <script>
@@ -43,19 +60,29 @@ export default {
 </script>
 
 <style>
+#triflogo {
+  width: 150px;
+  height: 150px;
+}
+#homepageTitle {
+  font-size: 50px;
+  color: white;
+  text-shadow: -1px 0 #1b1b1b, 0 1px #1b1b1b, 1px 0 #1b1b1b, 0 -1px #1b1b1b;
+}
 body {
   background-color: #1b1b1b;
   background-size: cover;
 }
 .background {
-  background-image: url('D:/yhs/PROJECT_FIN/totalott/src/assets/gamer.jpg');
+  background-image: url('D:/yhs/PROJECT_FIN/totalott/src/assets/홈페이지백그라운드화면.png');
   background-size: cover;
   width: auto;
   height: 800px;
 }
 div {
-  color: white;
+  /* color: #1b1b1b; */
   font-weight: bold;
+  /* text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white; */
 }
 #btn {
   width: 600px;
@@ -71,39 +98,57 @@ div {
 }
 #txt1 {
   font-size: 45px;
+  color: #1b1b1b;
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 }
 #txt2 {
-  color: gray;
+  color: white;
 }
-span {
+#spanstyle {
   color: skyblue;
-}
-#Homelogo {
-  width: 100px;
-  height: 100px;
+  text-shadow: -1px 0 #1b1b1b, 0 1px #1b1b1b, 1px 0 #1b1b1b, 0 -1px #1b1b1b;
 }
 #steam {
   width: 100px;
   height: 100px;
+  margin-left: 10px;
 }
 #epic {
   width: 100px;
   height: 100px;
+  margin-left: 10px;
 }
 #xbox {
   width: 250px;
-  height: 100px;
+  height: 70px;
+  margin-left: 10px;
+  margin-bottom: 20px;
 }
 #gamersgate {
   width: 100px;
   height: 100px;
+  margin-left: 10px;
 }
 #greenmangaming {
-  width: 130px;
-  height: 130px;
+  width: 100px;
+  height: 100px;
+  margin-left: 10px;
 }
 #dreamgame {
   width: 100px;
   height: 100px;
+  margin-left: 10px;
+}
+#title1 {
+  color: blue;
+}
+#title2 {
+  color: red;
+}
+#title3 {
+  color: yellow;
+}
+#title4 {
+  color: white;
 }
 </style>
