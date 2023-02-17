@@ -76,12 +76,12 @@
 // eslint-disable-next-line
 /* eslint-disable */
 export default {
-  name: "app",
+  name: 'app',
   data() {
-    return {};
+    return {}
   },
-  methods: {},
-};
+  methods: {}
+}
 </script>
 
 <style>
@@ -136,7 +136,7 @@ input::placeholder {
   padding: 5px;
   border-radius: 18px;
 } */
-button[type="submit"] {
+button[type='submit'] {
   width: 180px;
   font-size: 20px;
   margin: 10px auto;

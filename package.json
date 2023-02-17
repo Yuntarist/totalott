@@ -13,6 +13,7 @@
     "core-js": "^3.8.3",
     "cors": "^2.8.5",
     "express": "^4.18.2",
+    "mongodb": "^5.0.1",
     "morgan": "^1.10.0",
     "node": "^19.6.0",
     "path": "^0.12.7",
@@ -56,5 +57,17 @@
     "last 2 versions",
     "not dead",
     "not ie 11"
-  ]
+  ],
+  "description": "## Project setup ``` npm install ```",
+  "main": "0.crawling.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yuntarist/totalott.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Yuntarist/totalott/issues"
+  },
+  "homepage": "https://github.com/Yuntarist/totalott#readme"
 }
