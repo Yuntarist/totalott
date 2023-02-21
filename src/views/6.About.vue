@@ -7,12 +7,12 @@
 // eslint-disable-next-line
 /* eslint-disable */
 export default {
-  name: 'app',
+  name: "app",
   data() {
-    return {}
+    return {};
   },
-  methods: {}
-}
+  methods: {},
+};
 </script>
 
 <style></style>

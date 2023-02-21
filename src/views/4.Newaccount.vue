@@ -4,12 +4,21 @@
     <h2>회원가입</h2>
     <form class="form">
       <div class="form-element">
-        <input class="inputHeight" id="id" placeholder="아이디" required />
-        <button>중복확인</button>
+        <input
+          v-model="ID"
+          class="inputHeight"
+          id="id"
+          placeholder="아이디"
+          required
+        />
+        <button class="bt">중복확인</button>
       </div>
-
+      <div v-if="!Username">
+        영문 대소문자, 숫자를사용하여 4~16자 이내로 사용 가능
+      </div>
       <div class="form-element">
         <input
+          v-model="pwd"
           class="inputHeight"
           type="password"
           id="password"
@@ -17,9 +26,12 @@
           required
         />
       </div>
-
+      <div v-if="!Password">
+        영문 대소문자, 숫자, 특수문자 중 3가지 이상을 포함해 8자리 이상 입력
+      </div>
       <div class="form-element">
         <input
+          v-model="pwd2"
           class="inputHeight"
           type="password"
           id="password2"
@@ -29,44 +41,20 @@
       </div>
       <div class="form-element">
         <input
+          v-model="email"
           class="inputHeight"
           id="eamiladdress"
           placeholder="이메일 주소"
           required
         />
       </div>
-      <div class="form-element">
-        <input class="inputHeight" id="name" placeholder="이름" required />
-      </div>
-      <div class="form-element">
-        <input
-          class="inputHeight"
-          id="nickname"
-          placeholder="닉네임"
-          required
-        />
-        <button>중복확인</button>
-      </div>
-      <div class="form-element">
-        <input
-          class="inputHeight"
-          type="tel"
-          id="phoneNum"
-          placeholder="휴대폰"
-          required
-        />
-      </div>
-      <div class="form-element">
-        <input class="inputHeight" id="address" placeholder="주소" required />
-        <button>우편번호 검색</button>
-      </div>
       <br />
       <div class="user-informaton">
-        <input type="checkbox" /> (필수) 개인정보 수집 및 이용 동의서
+        <input type="checkbox" required /> (필수) 개인정보 수집 및 이용 동의서
       </div>
       <br />
       <div>
-        <button>회원가입</button>
+        <button @click="submit">작성완료</button>
       </div>
     </form>
   </div>
@@ -75,12 +63,36 @@
 <script>
 // eslint-disable-next-line
 /* eslint-disable */
+import axios from "axios";
+import * as mongoose from "mongoose";
+// import * as mongodb from 'mongodb'
 export default {
   name: "app",
   data() {
-    return {};
+    return { ID: "", pwd: "", pwd2: "", email: "" };
   },
-  methods: {},
+  computed: {
+    Username: function () {
+      const usernameRegex = /^[a-zA-Z0-9_-]{4,16}$/;
+      return this.ID.match(usernameRegex) !== null;
+    },
+    Password: function () {
+      const passwordRegex =
+        /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
+      return this.pwd.match(passwordRegex) !== null;
+    },
+  },
+  methods: {
+    submit: function () {
+      let dtd = {
+        IDdtd: this.ID,
+        pwddtd: this.pwd,
+        pwd2dtd: this.pwd2,
+        emaildtd: this.email,
+      };
+      axios.post("./about4", dtd);
+    },
+  },
 };
 </script>
 
@@ -145,7 +157,7 @@ button[type="submit"] {
   border: none;
   color: white;
 }
-button {
+.bt {
   font-size: 18px;
   padding: 5px 16px;
   margin: 5px 15px;
@@ -156,3 +168,48 @@ button {
   transition: all 0.7s ease;
 }
 </style>
+<!-- <template>
+  <div>vue로작성하기</div>
+  <form action="">
+    <video id="video0"></video>
+    <input type="text" v-model="idruselt" placeholder="아이디를 입력하세요" />
+    <input type="text" v-model="pwruselt" placeholder="비밀번호를 입력하세요" />
+    <button @click="main()">제출</button>
+  </form>
+</template>
+
+<script>
+// eslint-disable-next-line
+/* eslint-disable */
+import axios from 'axios'
+export default {
+  name: 'app',
+  data() {
+    return {
+      idruselt: '',
+      pwruselt: ''
+    }
+  },
+  methods: {
+    main: async function () {
+      axios({
+        url: 'http://localhost:3000/about4',
+        method: 'POST', // 전송방식을 post로 지정
+        data: {
+          idruselt: this.idruselt,
+          pwruselt: this.pwruselt
+        }
+      }).then((res) => {
+        alert(res.data.message)
+      })
+    }
+  }
+}
+</script>
+
+<style>
+.video0 {
+  width: 300px;
+  height: 300px;
+}
+</style> -->
