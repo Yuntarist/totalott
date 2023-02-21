@@ -24,14 +24,14 @@
     <button id="btn" @click="move">START</button>
     <br />
     <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
     <img src="../assets/TRIFlogo.png" id="triflogo" />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
   </div>
   <footer>
     <!-- 플랫폼 로고들 밑으로 내리기 -->

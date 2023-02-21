@@ -10,4 +10,5 @@ const app = createApp(App)
 // app.config.globalProperties.$mongodb = mongodb
 app.config.globalProperties.$mongoose = mongoose
 app.config.globalProperties.$axios = axios
+
 createApp(App).use(store).use(router).mount('#app')
