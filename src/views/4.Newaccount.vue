@@ -1,15 +1,21 @@
-<!-- <template>
+<template>
   <hr />
   <div class="containers">
     <h2>회원가입</h2>
     <form class="form">
       <div class="form-element">
-        <input class="inputHeight" id="id" placeholder="아이디" required />
+        <input
+          v-model="ID"
+          class="inputHeight"
+          id="id"
+          placeholder="아이디"
+          required
+        />
         <button>중복확인</button>
       </div>
-
       <div class="form-element">
         <input
+          v-model="pwd"
           class="inputHeight"
           type="password"
           id="password"
@@ -17,9 +23,9 @@
           required
         />
       </div>
-
       <div class="form-element">
         <input
+          v-model="pwd2"
           class="inputHeight"
           type="password"
           id="password2"
@@ -29,36 +35,12 @@
       </div>
       <div class="form-element">
         <input
+          v-model="email"
           class="inputHeight"
           id="eamiladdress"
           placeholder="이메일 주소"
           required
         />
-      </div>
-      <div class="form-element">
-        <input class="inputHeight" id="name" placeholder="이름" required />
-      </div>
-      <div class="form-element">
-        <input
-          class="inputHeight"
-          id="nickname"
-          placeholder="닉네임"
-          required
-        />
-        <button>중복확인</button>
-      </div>
-      <div class="form-element">
-        <input
-          class="inputHeight"
-          type="tel"
-          id="phoneNum"
-          placeholder="휴대폰"
-          required
-        />
-      </div>
-      <div class="form-element">
-        <input class="inputHeight" id="address" placeholder="주소" required />
-        <button>우편번호 검색</button>
       </div>
       <br />
       <div class="user-informaton">
@@ -75,54 +57,23 @@
 <script>
 // eslint-disable-next-line
 /* eslint-disable */
-import * as axios from 'axios'
+import axios from 'axios'
 import * as mongoose from 'mongoose'
 // import * as mongodb from 'mongodb'
 export default {
   name: 'app',
   data() {
-    return {}
+    return { ID: '', pwd: '', pwd2: '', email: '' }
   },
   methods: {
     submit: function () {
-      const saveid = document.getElementById('id')
-      const savePWD = docuement.getElementById('password')
-      const savePWDagain = docuement.getElementById('password2')
-      const saveEmail = docuement.getElementById('eamiladdress')
-      const saveName = docuement.getElementById('name')
-      const saveNickName = docuement.getElementById('nickname')
-      const savePhoneNumber = docuement.getElementById('phoneNum')
-      const saveAdress = docuement.getElementById('address')
-
-      // p346
-      const user = process.env.VUE_APP_dbuser
-      const pwd = process.env.VUE_APP_dbpwd
-      const host = process.env.VUE_APP_dbhost
-      const db = 'trif'
-      const mongodbURL = `mongodb://${user}:${pwd}@${host}/${db}`
-      mongoose.set('useFindAndModify', false)
-      mongoose
-        .connect(mongodbURL, { useNewUrlparser: true })
-        .then(() => console.log('연결성공'))
-        .catch((err) => console.log(err))
-      const newaccount = require('../../test.js')
-      // p347
-      const main = async () => {
-        const _data = {
-          ID: saveid,
-          PWD: savePWD,
-          PWDagain: savePWDagain,
-          email: saveEmail,
-          Name: saveName,
-          NickName: saveNickName,
-          PhoneNumber: savePhoneNumber,
-          Address: saveAdress
-        }
-        const new_newaccount = new newaccount(_data)
-        const t = await new_newaccount.save()
-        console.log(t)
+      let dtd = {
+        IDdtd: this.ID,
+        pwddtd: this.pwd,
+        pwd2dtd: this.pwd2,
+        emaildtd: this.email
       }
-      main()
+      axios.post('./about4', dtd)
     }
   }
 }
@@ -199,8 +150,8 @@ button {
   cursor: pointer;
   transition: all 0.7s ease;
 }
-</style> -->
-<template>
+</style>
+<!-- <template>
   <div>vue로작성하기</div>
   <form action="">
     <video id="video0"></video>
@@ -244,4 +195,4 @@ export default {
   width: 300px;
   height: 300px;
 }
-</style>
+</style> -->
