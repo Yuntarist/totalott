@@ -8,6 +8,9 @@ const app = express();
 const port = 3000;
 const _path = path.join(__dirname, "./dist");
 
+// crypto 암호화 모듈
+// const crypto = require("crypto");
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
