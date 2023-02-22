@@ -90,10 +90,10 @@ h2 {
 }
 
 form {
-  padding: 10px;
+  /* padding: 10px;
   display: flex;
   flex-direction: column;
-  width: 85%;
+  width: 85%; */
 }
 .form-item {
   display: flex;
@@ -122,7 +122,7 @@ span {
   user-select: none;
   margin: 5px;
   color: rgb(172, 172, 172);
-  background: rgba(85, 81, 81, 0.637);
+  /* background: rgba(85, 81, 81, 0.637); */
   padding: 5px;
   border-radius: 18px;
 }
@@ -148,12 +148,21 @@ p:first-of-type {
   flex-wrap: wrap;
 }
 button {
-  font-size: 18px;
-  padding: 5px 16px;
-  margin: 5px 15px;
-  width: 180px;
-  background: transparent;
-  color: white;
+  font-size: 20px;
+  font-weight: 500;
+  margin-top: 30px;
+  padding: 15px 80px;
+  border-radius: 5px;
+  color: #888;
+  border: 2px solid #888;
+  background: #ddd;
+
+  /* font-size: 18px; */
+  /* padding: 5px 16px; */
+  /* margin: 5px 15px; */
+  /* width: 180px; */
+  /* background: transparent; */
+  /* color: white; */
   cursor: pointer;
   transition: all 0.7s ease;
 }
@@ -183,9 +192,6 @@ a:hover {
   .container {
     width: 90%;
   }
-}
-input::placeholder {
-  color: rgb(255, 250, 247);
 }
 .new-login {
   font-size: 15px;

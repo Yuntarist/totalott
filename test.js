@@ -14,10 +14,10 @@ app.use(express.urlencoded({ extended: true }));
 app.post("/about4", function (req, res) {
   // front 서버에서 post 방식으로 전송받음
   // console.log(req.body.resultgood);
-  const A = req.body.IDdtd;
-  const B = req.body.pwddtd;
-  const C = req.body.pwd2dtd;
-  const D = req.body.emaildtd;
+  const A = req.body.userID;
+  const B = req.body.userPW;
+  const C = req.body.userPW2;
+  const D = req.body.userEM;
   const main = async () => {
     const _data = {
       아이디: A,

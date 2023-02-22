@@ -80,7 +80,7 @@
     display: block;
     width: 100%;
     font-size: 12px;
-    color: tomato;
+    color: #A6B8c4;
     margin-bottom: 5px;
     padding-left: 130px;
   }
@@ -93,7 +93,7 @@
     height: 3px;
     margin-right: 5px;
     border-radius: 50%;
-    background: #333;
+    background: tomato;
   }
   .msg.hide {
     display: none;
