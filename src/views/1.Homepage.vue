@@ -36,7 +36,6 @@
   <footer>
     <!-- 플랫폼 로고들 밑으로 내리기 -->
     <img src="../assets/steam.png" id="steam" />
-    <img src="../assets/xbox.png" id="xbox" />
     <img src="../assets/gamersgate.png" id="gamersgate" />
     <img src="../assets/greenmangaming.png" id="greenmangaming" />
     <img src="../assets/dreamgame.png" id="dreamgame" />

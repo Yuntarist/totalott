@@ -22,25 +22,29 @@
   background: rgba(160, 160, 158, 0.72);
   border: none;
   color: white;
+  margin-left: 10px;
 }
 .newaccountbtn:hover {
   background: rgba(228, 225, 225, 0.678);
 }
+::placeholder {
+  color: rgba(160, 160, 158, 0.72);
+}
 /* .totalSteam {} */
 .totalSteamName {
-  background-color: white;
+  color: white;
 }
 /* .totalGamersgate{} */
 .totalGamersgateName {
-  background-color: blue;
+  color: blue;
 }
 /* .totalGreenmangaming{} */
 .totalGreenmangamingName {
-  background-color: green;
+  color: green;
 }
 /* .totalDreamgame{} */
 .totalDreamgameName {
-  background-color: white;
+  color: white;
 }
 
 /* allgame에서 지정한 클래스로도 css적용되는거 확인함
