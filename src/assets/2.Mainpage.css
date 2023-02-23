@@ -1,0 +1,47 @@
+.spinner-border {
+  width: 100px;
+  height: 100px;
+}
+.loginbtn {
+  width: 180px;
+  font-size: 20px;
+  margin: 10px auto;
+  padding: 8px;
+  background: rgba(160, 160, 158, 0.72);
+  border: none;
+  color: white;
+}
+.loginbtn:hover {
+  background: rgba(228, 225, 225, 0.678);
+}
+.newaccountbtn {
+  width: 180px;
+  font-size: 20px;
+  margin: 10px auto;
+  padding: 8px;
+  background: rgba(160, 160, 158, 0.72);
+  border: none;
+  color: white;
+}
+.newaccountbtn:hover {
+  background: rgba(228, 225, 225, 0.678);
+}
+/* .totalSteam {} */
+.totalSteamName {
+  background-color: white;
+}
+/* .totalGamersgate{} */
+.totalGamersgateName {
+  background-color: blue;
+}
+/* .totalGreenmangaming{} */
+.totalGreenmangamingName {
+  background-color: green;
+}
+/* .totalDreamgame{} */
+.totalDreamgameName {
+  background-color: white;
+}
+
+/* allgame에서 지정한 클래스로도 css적용되는거 확인함
+이제 좀 이쁘게 꾸며보기 */

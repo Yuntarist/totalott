@@ -80,14 +80,16 @@
           >
         </div>
       </fieldset>
-      <button id="subit-button" @click="submit">회원가입</button>
+      <button id="subit-button" @click=";[submit, movetologin]">
+        회원가입
+      </button>
     </form>
   </div>
 </template>
 
 <script>
 // eslint-disable-next-line
-
+/* eslint-disable */
 import axios, { formToJSON } from 'axios'
 
 /* eslint-disable */
@@ -448,9 +450,13 @@ export default {
         userEM: this.email
       }
       axios.post('./about4', userbt)
+    },
+    movetologin: function () {
+      window.location.href = './about3'
     }
   }
 }
+// 회원가입 버튼 누르면 로그인 페이지로 넘어갈 수 있게 만들기
 </script>
 
-<style src="../assets/user.css"></style>
+<style src="../assets/4.Newaccount.css"></style>
