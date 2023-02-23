@@ -98,3 +98,7 @@
   .msg.hide {
     display: none;
   }
+  .login-user-information{
+    margin-left: 10px ;
+    color: red
+  }

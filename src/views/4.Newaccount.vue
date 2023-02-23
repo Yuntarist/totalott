@@ -80,6 +80,11 @@
           >
         </div>
       </fieldset>
+      <br />
+      <div class="login-checkbox">
+        <input type="checkbox" class="login-user-information" required />
+        [필수] 개인정보 수집 및 이용동의
+      </div>
       <button id="subit-button" @click="submit">회원가입</button>
     </form>
   </div>
