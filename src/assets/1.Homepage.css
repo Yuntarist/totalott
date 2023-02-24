@@ -17,11 +17,7 @@ body {
   width: auto;
   height: 800px;
 }
-div {
-  /* color: #1b1b1b; */
-  font-weight: bold;
-  /* text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white; */
-}
+
 #btn {
   width: 600px;
   height: 80px;

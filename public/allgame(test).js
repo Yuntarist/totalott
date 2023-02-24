@@ -65,7 +65,7 @@ exports.ax = async () => {
       ${steam_price[j]}
       할인가 :
       ${steam_discount_price[j]}
-    </div>`
+    </div><hr/>`
     steam += game1
   }
   console.log(steam_title)
