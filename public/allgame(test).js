@@ -179,14 +179,14 @@ exports.ax = async () => {
   // console.log(greenmangaming_discount_percent);
   // console.log(greenmangaming_discount_price);
   for (let j = 0; j < 10; j++) {
-    let game3 = `<a href="www.naver.com"><div class="totalGreenmangaming"> <span class="totalGreenmangamingName">greenmangaming</span> : ${greenmangaming_title[j]}
+    let game3 = `<div class="totalGreenmangaming"> <span class="totalGreenmangamingName">greenmangaming</span> : ${greenmangaming_title[j]}
     할인률:
     ${greenmangaming_discount_percent[j]}
     원가 :
     ${greenmangaming_price[j]}
     할인가 :
     ${greenmangaming_discount_price[j]}
-  </div></a>`
+  </div>`
     greenmangaming += game3
   }
 

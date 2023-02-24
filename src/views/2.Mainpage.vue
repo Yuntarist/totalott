@@ -3,6 +3,8 @@
   <button class="loginbtn" @click="move1">로그인</button>
   <button class="newaccountbtn" @click="move2">회원가입</button>
   <br />
+  <br />
+  <br />
   <input class="searchBar" type="text" placeholder="검색" />
   <div class="item" v-html="number"></div>
 </template>
