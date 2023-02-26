@@ -80,7 +80,7 @@
           >
         </div>
       </fieldset>
-      <button id="subit-button" @click="[submit, movetologin]">회원가입</button>
+      <button id="subit-button" @click="submit()">회원가입</button>
     </form>
   </div>
 </template>
@@ -450,9 +450,6 @@ export default {
         userEM: this.email,
       };
       axios.post("/about4", userbt);
-    },
-    movetologin: function () {
-      window.location.href = "./about3";
     },
   },
 };

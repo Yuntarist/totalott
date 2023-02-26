@@ -15,7 +15,7 @@ exports.ax = async () => {
   // puppeteer는 비동기 함수이므로 모든 것에 async await가 들어가야함.
   const browser = await puppeteer.launch({
     executablePath:
-      'C:/Users/ds/AppData/Local/Google/Chrome/Application/chrome.exe' // 각자의 컴퓨터에 설치 되어있는 크롬의 경로를 적을것. \금지
+    'C:/Program Files/Google/Chrome/Application/chrome.exe', // 각자의 컴퓨터에 설치 되어있는 크롬의 경로를 적을것. \금지
     // headless: false
   })
   const page = await browser.newPage()

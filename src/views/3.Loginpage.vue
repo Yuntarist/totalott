@@ -6,6 +6,7 @@
       <div class="form-item">
         <span class="material-icons-outlined"> account_circle </span>
         <input
+          v-model="loginid"
           class="login-input"
           type="text"
           id="user"
@@ -17,15 +18,18 @@
       <div class="form-item">
         <span class="material-icons-outlined"> lock </span>
         <input
+          v-model="loginpwd"
           class="login-input"
           type="password"
           id="pass"
           placeholder="비밀번호"
           required
+          autoComplete="off"
         />
       </div>
+      <p>{{ data2 }}</p>
+      <button class="loginpagebtn" @click="read()">LOGIN</button><br />
 
-      <button class="loginpagebtn" type="submit">LOGIN</button><br />
       <div class="find-login">
         <a href="./about5">아이디 / 비밀번호찾기</a>
       </div>
@@ -40,12 +44,30 @@
 <script>
 // eslint-disable-next-line
 /* eslint-disable */
+import axios from "axios";
 export default {
   name: "app",
   data() {
-    return {};
+    return {
+      loginid: "",
+      loginpwd: "",
+      data2: "",
+    };
   },
-  methods: {},
+  methods: {
+    read: function () {
+      this.data2 = "DB 데이터 읽는중...";
+      axios
+        .post("/about3/" + this.loginid)
+        .then((res) => {
+          this.data2 = alert(res.data);
+          window.location.href = "/about2";
+        })
+        .catch((err) => {
+          this.data2 = alert(err.data);
+        });
+    },
+  },
 };
 </script>
 
