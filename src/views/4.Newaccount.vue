@@ -12,7 +12,6 @@
           id="username"
           placeholder="아이디를 입력해주세요."
         />
-
         <div class="failure-message hide msg">
           4자 이상의 영문 혹은 영문과 숫자를 조합
         </div>
@@ -20,10 +19,12 @@
           사용할 수 있는 아이디입니다.
         </div>
       </fieldset>
+      <a href="" target=""></a>
       <!-- 비밀번호 -->
       <fieldset>
         <label>비밀번호<span>*</span></label>
         <input
+          type="password"
           v-model="pwd"
           id="password"
           placeholder="비밀번호를 입력해주세요."
@@ -51,7 +52,7 @@
         <label>비밀번호 확인<span>*</span></label>
         <input
           v-model="pwd2"
-          type="text"
+          type="password"
           id="password-retype"
           placeholder="비밀번호를 한번 더 입력해주세요."
         />
@@ -83,7 +84,7 @@
       </fieldset>
       <br />
       <div class="login-checkbox">
-        <input type="checkbox" class="login-user-information" required />
+        <input type="checkbox" class="login-user-information" />
         [필수] 개인정보 수집 및 이용동의
       </div>
       <button id="subit-button" @click="submit">회원가입</button>
@@ -455,6 +456,9 @@ export default {
         userEM: sha256(this.email).toString(), // base64 코드로 바꿔줌
       };
       axios.post("./about4", userbt);
+    },
+    Duplicate: function () {
+      alert("dd");
     },
   },
 };
