@@ -39,4 +39,4 @@ export default {
 };
 </script>
 
-<style></style>
+<style src="../assets/2.Mainpage.css"></style>

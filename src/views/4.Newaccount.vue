@@ -12,6 +12,7 @@
           id="username"
           placeholder="아이디를 입력해주세요."
         />
+
         <div class="failure-message hide msg">
           4자 이상의 영문 혹은 영문과 숫자를 조합
         </div>
@@ -93,8 +94,8 @@
 <script>
 // eslint-disable-next-line
 
-import axios, { formToJSON } from "axios";
-
+import axios from "axios";
+import sha256 from "crypto-js/sha256";
 /* eslint-disable */
 export default {
   name: "app",
@@ -449,10 +450,10 @@ export default {
   methods: {
     submit: function () {
       let userbt = {
-        userID: this.ID,
-        userPW: this.pwd,
-        userPW2: this.pwd2,
-        userEM: this.email,
+        userID: sha256(this.ID).toString(),
+        userPW: sha256(this.pwd).toString(),
+        userPW2: sha256(this.pwd2).toString(),
+        userEM: sha256(this.email).toString(),
       };
       axios.post("./about4", userbt);
     },

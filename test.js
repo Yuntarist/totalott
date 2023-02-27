@@ -10,7 +10,7 @@ const app = express();
 const port = 3000;
 const _path = path.join(__dirname, "./dist");
 // crypto 암호화 모듈
-const crypto = require("crypto");
+// const crypto = require("crypto");
 
 const USER = process.env.dbid;
 const PWD = process.env.dbpwd;
@@ -36,23 +36,6 @@ app.post("/about4", function (req, res) {
   const B = req.body.userPW;
   const C = req.body.userPW2;
   const D = req.body.userEM;
-
-  // 암호화 하다가 맘
-  crypto.createHash("sha512").update(B).digest("base64");
-  crypto.createHash("sha512").update(B).digest("hax");
-
-  crypto.randomBytes(64, (err, salt) => {
-    crypto.pbkdf2(
-      B,
-      salt.toString("base64"),
-      100000,
-      64,
-      "sha512",
-      (err, key) => {
-        console.log(key.toString("base64"));
-      }
-    );
-  });
 
   const main = async () => {
     const _data = {
