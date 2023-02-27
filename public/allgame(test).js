@@ -28,7 +28,7 @@ exports.ax = async () => {
 
   // 가격 보여지는 DIV가 페이지 나타나면, 가격 값을 가져 옴
   await page.waitForSelector('a:nth-child(1)')
-  for (let i = 1; i < 19; i++) {
+  for (let i = 1; i < 18; i++) {
     const title = await page.$eval(
       'a:nth-child(' + i + ') div.col.search_name.ellipsis span.title',
       (x) => x.innerHTML
@@ -65,7 +65,7 @@ exports.ax = async () => {
       ${steam_price[j]}
       할인가 :
       ${steam_discount_price[j]}
-    </div><hr/>`
+    </div>`
     steam += game1
   }
   console.log(steam_title)
@@ -179,14 +179,14 @@ exports.ax = async () => {
   // console.log(greenmangaming_discount_percent);
   // console.log(greenmangaming_discount_price);
   for (let j = 0; j < 10; j++) {
-    let game3 = `<div class="totalGreenmangaming"> <span class="totalGreenmangamingName">greenmangaming</span> : ${greenmangaming_title[j]}
+    let game3 = `<a href=""><div class="totalGreenmangaming"><span class="totalGreenmangamingName">greenmangaming</span> : ${greenmangaming_title[j]}
     할인률:
     ${greenmangaming_discount_percent[j]}
     원가 :
     ${greenmangaming_price[j]}
     할인가 :
     ${greenmangaming_discount_price[j]}
-  </div>`
+  </div></a>`
     greenmangaming += game3
   }
 

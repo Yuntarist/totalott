@@ -7,8 +7,8 @@
   <input class="searchBar" type="text" placeholder="검색" />
   <br />
   <br />
-  <div class="item" v-html="number"></div>
-  <!--form @submit 도 안됨시발-->
+  <div class="item">{{ read() }}</div>
+  <!--form @submit 도 -->
   <!-- v-once를 위에다 추가하면 계속해서 로딩만 됨. -->
 </template>
 
@@ -21,22 +21,27 @@ export default {
   name: 'app',
   data() {
     return {
-      number: ''
+      number: '',
+      read: ''
     }
   },
-  created() {
-    this.number = `<div class="spinner-border text-info" role="status">ㅇㅅㅇ</div><br /`
-    axios.get('/about2').then((res) => {
-      this.number = res.data
-      console.log(res)
-    })
-  },
+  // created() {
+  //   this.number = `<div class="spinner-border text-info" role="status"></div><br /`
+  //   axios.get('/about2').then((res) => {
+  //     this.number = res.data
+  //     console.log(res)
+  //   })
+  // },
   methods: {
     move1: function () {
       window.location.href = './about3'
     },
     move2: function () {
       window.location.href = './about4'
+    },
+    read: function () {
+      this.read = '로딩중...'
+      axios.get('/read/' + this.read).then((res) => (this.read = res.data))
     }
   }
 }

@@ -68,18 +68,43 @@ app.post('/about4', function (req, res) {
   }
   main()
 })
+// const Photo1 = require('./DB/maincrawling.js')
+// module.exports = Photo1
+
+// app.post('/read', (req, res) => {
+//   const A = cw.ax().then((v) => {
+//     res.send(v)
+//   })
+
+//   const main2 = async () => {
+//     const _data = {
+//       메인컨텐츠: A
+//     }
+//     // console.log(_data.A, _data.B);
+//     const new_photo = new Photo1(_data)
+//     const t = await new_photo.save()
+//     console.log(t)
+//   }
+//   main2()
+// })
+
+// app.get('/dbr/:date', (req, res) => {
+//   const date = req.params.date
+//   const read = async () => {
+//     const t = await VSchema.find({ date }, { _id: 0, __v: 0 })
+//       .lean()
+//       .then((t) => {
+//         res.send(t)
+//         console.log(t)
+//       })
+//   }
+//   read()
+// })
 
 console.log(_path)
 app.use(history())
 app.use('/', express.static(_path))
 app.use(logger('tiny'))
-
-app.get('/about2', (req, res) => {
-  console.log('준비')
-  cw.ax().then((v) => {
-    res.send(v)
-  })
-})
 
 app.listen(port, () => {
   console.log(port + '에서 서버 동작 완료.')
