@@ -28,7 +28,7 @@ exports.ax = async () => {
 
   // 가격 보여지는 DIV가 페이지 나타나면, 가격 값을 가져 옴
   await page.waitForSelector('a:nth-child(1)')
-  for (let i = 1; i < 18; i++) {
+  for (let i = 1; i < 16; i++) {
     const title = await page.$eval(
       'a:nth-child(' + i + ') div.col.search_name.ellipsis span.title',
       (x) => x.innerHTML

@@ -72,11 +72,20 @@ app.get('/about3/:loginid',(req,res)=>{
   })
   })()
   })
-app.get('/about2', (req, res) => {
-  console.log('준비')
-  cw.ax().then((v) => {
-    res.send(v)
+app.get('/home', (req, res) => {
+ let vvv = req.body.number
+ ;(async () => {
+  await cw.ax().then((v) => {
+   vvv = v
   })
+  const dataaa ={
+    아이디 : vvv
+  }
+  const new_photo = new Photo(dataaa)
+  const t = await new_photo.save()
+  console.log(t)
+})()
+  
 })
 
 app.listen(port, () => {
