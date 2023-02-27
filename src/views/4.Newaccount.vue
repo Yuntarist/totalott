@@ -450,10 +450,10 @@ export default {
   methods: {
     submit: function () {
       let userbt = {
-        userID: sha256(this.ID).toString(),
-        userPW: sha256(this.pwd).toString(),
-        userPW2: sha256(this.pwd2).toString(),
-        userEM: sha256(this.email).toString(),
+        userID: sha256(this.ID).toString(), // base64 코드로 바꿔줌
+        userPW: sha256(this.pwd).toString(), // base64 코드로 바꿔줌
+        userPW2: sha256(this.pwd2).toString(), // base64 코드로 바꿔줌
+        userEM: sha256(this.email).toString(), // base64 코드로 바꿔줌
       };
       axios.post("./about4", userbt);
     },
