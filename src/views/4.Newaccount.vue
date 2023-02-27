@@ -12,6 +12,7 @@
           id="username"
           placeholder="아이디를 입력해주세요."
         />
+
         <div class="failure-message hide msg">
           4자 이상의 영문 혹은 영문과 숫자를 조합
         </div>
@@ -80,7 +81,12 @@
           >
         </div>
       </fieldset>
-      <button id="subit-button" @click="submit()">회원가입</button>
+      <br />
+      <div class="login-checkbox">
+        <input type="checkbox" class="login-user-information" required />
+        [필수] 개인정보 수집 및 이용동의
+      </div>
+      <button id="subit-button" @click="submit">회원가입</button>
     </form>
   </div>
 </template>
@@ -89,8 +95,7 @@
 // eslint-disable-next-line
 /* eslint-disable */
 import axios from "axios";
-
-/* eslint-disable */
+import sha256 from "crypto-js/sha256";
 export default {
   name: "app",
   data() {
@@ -103,7 +108,6 @@ export default {
   },
   mounted: function () {
     //-------- HTML 요소 셀렉팅 ---------//
-
     // 아이디
     const InputUsername = document.querySelector("#username");
     const FailureMessage = document.querySelector(".failure-message");
@@ -292,6 +296,7 @@ export default {
     // [회원가입 버튼] 클릭 이벤트 함수
     SubmitButton.onclick = function () {
       if (isAllCheck()) {
+        window.location.href = " ./about2";
         alert("회원가입이 완료되었습니다!");
         InputUsername.value = "";
         Password.value = "";
@@ -444,16 +449,15 @@ export default {
   methods: {
     submit: function () {
       let userbt = {
-        userID: this.ID,
-        userPW: this.pwd,
-        userPW2: this.pwd2,
-        userEM: this.email,
+        userID: sha256(this.ID).toString(), // base64 코드로 바꿔줌
+        userPW: sha256(this.pwd).toString(), // base64 코드로 바꿔줌
+        userPW2: sha256(this.pwd2).toString(), // base64 코드로 바꿔줌
+        userEM: sha256(this.email).toString(), // base64 코드로 바꿔줌
       };
-      axios.post("/about4", userbt);
+      axios.post("./about4", userbt);
     },
   },
 };
-// 회원가입 버튼 누르면 로그인 페이지로 넘어갈 수 있게 만들기
 </script>
 
 <style src="../assets/4.Newaccount.css"></style>

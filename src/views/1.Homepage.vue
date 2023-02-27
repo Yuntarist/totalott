@@ -52,7 +52,7 @@ export default {
   },
   methods: {
     move: function () {
-      window.location.href = "./about2";
+      window.location.href = "/about2";
     },
   },
 };

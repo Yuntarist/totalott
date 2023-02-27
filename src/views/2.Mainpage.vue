@@ -10,10 +10,8 @@
 </template>
 
 <script>
-// eslint-disable-next-line
 /* eslint-disable */
 import axios from "axios";
-// import puppeteer from 'puppeteer-core'
 export default {
   name: "app",
   data() {
@@ -30,10 +28,10 @@ export default {
   },
   methods: {
     move1: function () {
-      window.location.href = "./about3";
+      window.location.href = "/about3";
     },
     move2: function () {
-      window.location.href = "./about4";
+      window.location.href = "/about4";
     },
   },
 };
