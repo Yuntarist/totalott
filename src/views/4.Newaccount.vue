@@ -80,7 +80,7 @@
           >
         </div>
       </fieldset>
-      <button id="subit-button" @click="submit">회원가입</button>
+      <button id="subit-button" @click="submit()">회원가입</button>
     </form>
   </div>
 </template>

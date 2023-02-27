@@ -24,11 +24,14 @@
           id="pass"
           placeholder="비밀번호"
           required
+          autoComplete="off"
         />
       </div>
-
+      <p>{{ data2 }}</p>
+      <button class="loginpagebtn" @click="read()">LOGIN</button><br />
       <button @click="login()">LOGIN</button><br />
       <h1>{{ data3 }}</h1>
+
       <div class="find-login">
         <a href="./about5">아이디 / 비밀번호찾기</a>
       </div>
@@ -49,15 +52,22 @@ export default {
     return {
       loginid: "",
       loginpwd: "",
-      data3: "",
+      data2: "",
     };
   },
   methods: {
-    login: function () {
-      this.data3 = "DB 데이터 읽는중...";
-      axios.get("/about3/" + this.loginid).then((res) => {
-        this.data3 = res.data;
-      });
+    read: function () {
+      this.data2 = "DB 데이터 읽는중...";
+      axios
+        .post("/about3/" + this.loginid)
+        .then((res) => {
+          this.data2 = alert(res.data);
+          window.location.href = "/about2";
+        })
+        .catch((err) => {
+          this.data2 = alert(err.data);
+        });
+>>>>>>> 6d506c5a199aa592b9f4f86ad96c313e73bbd1a2
     },
   },
 };
