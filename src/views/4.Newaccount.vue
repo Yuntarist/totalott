@@ -93,7 +93,6 @@
 
 <script>
 // eslint-disable-next-line
-
 import axios from "axios";
 import sha256 from "crypto-js/sha256";
 /* eslint-disable */
@@ -109,7 +108,6 @@ export default {
   },
   mounted: function () {
     //-------- HTML 요소 셀렉팅 ---------//
-
     // 아이디
     const InputUsername = document.querySelector("#username");
     const FailureMessage = document.querySelector(".failure-message");
@@ -298,6 +296,7 @@ export default {
     // [회원가입 버튼] 클릭 이벤트 함수
     SubmitButton.onclick = function () {
       if (isAllCheck()) {
+        window.location.href = " ./about2";
         alert("회원가입이 완료되었습니다!");
         InputUsername.value = "";
         Password.value = "";
