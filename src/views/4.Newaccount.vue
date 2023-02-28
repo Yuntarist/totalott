@@ -457,9 +457,6 @@ export default {
       };
       axios.post("./about4", userbt);
     },
-    Duplicate: function () {
-      alert("dd");
-    },
   },
 };
 </script>

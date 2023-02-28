@@ -24,9 +24,6 @@ export default {
   },
   mounted() {
     this.number = `<div class="spinner-border text-info" role="status"></div>`;
-    axios.get("/about1").then((res) => {
-      this.number = res.data;
-    });
   },
   methods: {
     move1: function () {
