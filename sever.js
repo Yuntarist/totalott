@@ -3,9 +3,7 @@ const mongoose = require('mongoose')
 const express = require('express')
 const path = require('path')
 const logger = require('morgan')
-// const cw = require('./public/allgame(test)') //크롤링 js데이터 가져오기
 const history = require('connect-history-api-fallback') //새로고침후 데이터 유지
-// const Photo = require("./DB/ori.js");
 const app = express()
 const port = 3000
 const _path = path.join(__dirname, './dist')
@@ -24,7 +22,9 @@ mongoose
   .then(() => console.log('connection successful'))
   .catch((err) => console.log(err))
 const Photo = require('./DB/photo.js')
+const maincrawling = require('./DB/maincrawling.js')
 module.exports = Photo
+module.exports = maincrawling
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
@@ -57,12 +57,28 @@ app.use(history())
 app.use('/', express.static(_path))
 app.use(logger('tiny'))
 
-// app.get('/about1', (req, res) => {
-//   console.log('준비')
-//   cw.ax().then((v) => {
-//     res.send(v)
-//   })
-// })
+// 몽고디비에서 읽어오는형식
+// 엑시오스를 이용해 받고 보내고를 할 수 있도록 만들기
+app.get('/about2', (req, res) => {
+  const main2 = async () => {
+    const t2 = await maincrawling.find()
+    console.log(t2)
+    res.send(t2)
+  }
+  main2()
+})
+
+// app.get('/dbr/:date', (req, res) => {
+//   const date = req.params.date
+//   const read = async () => {
+//     const t = await VSchema.find({ date }, { _id: 0, __v: 0 })
+//       .lean()
+//       .then((t) => {
+//         res.send(t)
+//         console.log(t)
+//       })
+//   }
+//   read()
 
 app.listen(port, () => {
   console.log(port + '에서 서버 동작 완료.')

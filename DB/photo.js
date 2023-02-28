@@ -7,4 +7,4 @@ const PhotoSchema = new Schema({
   이메일: (Number, String)
 })
 
-module.exports = mongoose.model('trif', PhotoSchema, 'trif')
+module.exports = mongoose.model('Account', PhotoSchema, 'Account')
