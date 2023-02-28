@@ -19,10 +19,12 @@
           사용할 수 있는 아이디입니다.
         </div>
       </fieldset>
+      <a href="" target=""></a>
       <!-- 비밀번호 -->
       <fieldset>
         <label>비밀번호<span>*</span></label>
         <input
+          type="password"
           v-model="pwd"
           id="password"
           placeholder="비밀번호를 입력해주세요."
@@ -50,7 +52,7 @@
         <label>비밀번호 확인<span>*</span></label>
         <input
           v-model="pwd2"
-          type="text"
+          type="password"
           id="password-retype"
           placeholder="비밀번호를 한번 더 입력해주세요."
         />
@@ -80,18 +82,20 @@
           >
         </div>
       </fieldset>
-      <button id="subit-button" @click=";[submit, movetologin]">
-        회원가입
-      </button>
+      <br />
+      <div class="login-checkbox">
+        <input type="checkbox" class="login-user-information" />
+        [필수] 개인정보 수집 및 이용동의
+      </div>
+      <button id="subit-button" @click="submit">회원가입</button>
     </form>
   </div>
 </template>
 
 <script>
 // eslint-disable-next-line
-/* eslint-disable */
-import axios, { formToJSON } from 'axios'
-
+import axios from 'axios'
+import sha256 from 'crypto-js/sha256'
 /* eslint-disable */
 export default {
   name: 'app',
@@ -105,7 +109,6 @@ export default {
   },
   mounted: function () {
     //-------- HTML 요소 셀렉팅 ---------//
-
     // 아이디
     const InputUsername = document.querySelector('#username')
     const FailureMessage = document.querySelector('.failure-message')
@@ -292,6 +295,7 @@ export default {
     // [회원가입 버튼] 클릭 이벤트 함수
     SubmitButton.onclick = function () {
       if (isAllCheck()) {
+        window.location.href = ' ./about2'
         alert('회원가입이 완료되었습니다!')
         InputUsername.value = ''
         Password.value = ''
@@ -444,19 +448,18 @@ export default {
   methods: {
     submit: function () {
       let userbt = {
-        userID: this.ID,
-        userPW: this.pwd,
-        userPW2: this.pwd2,
-        userEM: this.email
+        userID: sha256(this.ID).toString(), // base64 코드로 바꿔줌
+        userPW: sha256(this.pwd).toString(), // base64 코드로 바꿔줌
+        userPW2: sha256(this.pwd2).toString(), // base64 코드로 바꿔줌
+        userEM: sha256(this.email).toString() // base64 코드로 바꿔줌
       }
       axios.post('./about4', userbt)
     },
-    movetologin: function () {
-      window.location.href = './about3'
+    Duplicate: function () {
+      alert('dd')
     }
   }
 }
-// 회원가입 버튼 누르면 로그인 페이지로 넘어갈 수 있게 만들기
 </script>
 
 <style src="../assets/4.Newaccount.css"></style>
