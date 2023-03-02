@@ -1,9 +1,3 @@
-.spinner-border {
-  width: 100px;
-  height: 100px;
-  margin-left: 700px;
-  display: flex;
-}
 .loginbtn {
   width: 100px;
   height: 35px;
@@ -39,31 +33,7 @@
   text-align: center;
   color: rgba(160, 160, 158, 0.72);
 }
-
-.totalSteamName {
-  color: white;
-}
-/* .totalGamersgate{} */
-.totalGamersgateName {
-  color: blue;
-}
-/* .totalGreenmangaming{} */
-.totalGreenmangamingName {
-  color: green;
-}
-/* .totalDreamgame{} */
-.totalDreamgameName {
-  color: white;
-}
-.item {
-  margin-left: 100px;
+.steam {
   text-align: left;
+  contain: '';
 }
-.searchBar {
-  float: left;
-  margin-left: 98px;
-  border-radius: 5px;
-  width: 213px;
-}
-/* allgame에서 지정한 클래스로도 css적용되는거 확인함
-이제 좀 이쁘게 꾸며보기 */
