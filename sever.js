@@ -59,15 +59,77 @@ app.use(logger('tiny'))
 
 // 몽고디비에서 읽어오는형식
 // 엑시오스를 이용해 받고 보내고를 할 수 있도록 만들기
-app.get('/about2', (req, res) => {
-  const main2 = async () => {
-    const t2 = await maincrawling.find()
-    console.log(t2)
-    res.send(t2)
-  }
-  main2()
-})
 
+// 전체 데이터 보내는거
+// app.get('/all', (req, res) => {
+//   const main2 = async () => {
+//     const t = await maincrawling.find()
+//     console.log(t)
+//     console.log(typeof t)
+//     res.send(t)
+//   }
+//   main2()
+// })
+app.get('/steam', (req, res) => {
+  const main3 = async () => {
+    const t = await maincrawling.find(
+      {},
+      {
+        steam_all: 1,
+        _id: 0
+      }
+    )
+    console.log(t)
+    console.log(typeof t)
+    res.send(t)
+  }
+  main3()
+})
+app.get('/gamersgate', (req, res) => {
+  const main3 = async () => {
+    const t = await maincrawling.find(
+      {},
+      {
+        gamersgate_all: 1,
+        _id: 0
+      }
+    )
+    console.log(t)
+    console.log(typeof t)
+    res.send(t)
+  }
+  main3()
+})
+app.get('/greenmangaming', (req, res) => {
+  const main3 = async () => {
+    const t = await maincrawling.find(
+      {},
+      {
+        greenmangaming_all: 1,
+        _id: 0
+      }
+    )
+    console.log(t)
+    console.log(typeof t)
+    res.send(t)
+  }
+  main3()
+})
+app.get('/dream', (req, res) => {
+  const main3 = async () => {
+    const t = await maincrawling.find(
+      {},
+      {
+        dream_all: 1,
+        _id: 0
+      }
+    )
+    console.log(t)
+    console.log(typeof t)
+    res.send(t)
+  }
+  main3()
+})
 app.listen(port, () => {
   console.log(port + '에서 서버 동작 완료.')
 })
