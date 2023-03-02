@@ -112,6 +112,7 @@ export default {
     const InputUsername = document.querySelector("#username");
     const FailureMessage = document.querySelector(".failure-message");
     const SuccessMessage = document.querySelector(".success-message");
+    const namecheck = document.querySelector("#namecheck");
 
     // 비밀번호
     const Password = document.querySelector("#password");
@@ -456,13 +457,12 @@ export default {
       };
       axios.post("./about4", userbt);
     },
-    idcheck: function () {
-      let UID = this.ID;
-      axios.get("/about4e1/" + UID).then((res) => {
+    idcheck() {
+      axios.get("/about4e1/" + this.ID).then((res) => {
         if (res.data.result === 1) {
-          alert("사용 할수있는 아이디 입니다.");
+          alert("사용가능한 아이디입니다.");
         } else if (res.data.result === 0) {
-          alert("아이디가 이미 존재합니다.");
+          alert("이미 사용중입니다.");
           this.ID = "";
         }
       });

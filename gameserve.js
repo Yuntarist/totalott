@@ -34,15 +34,16 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 //아이디 중복체크
-app.get('/about4e1/:UID',(req, res) =>{
-  let 아이디 = req.params.UID
+app.get('/about4e1/:ID',(req, res) =>{
+  let 아이디 = req.params.ID
+  console.log(아이디)
   ;(async()=>{
     const t = await Photo.find({아이디},{})
     .lean().then((t)=>{
       console.log(t)
       if(t[0] === undefined ){
         res.json({result: 1});
-      }else if(t[0].아이디 ===아이디 ){
+      }else if(t[0].아이디 === 아이디 ){
         res.json({result:0})
         }
   })
