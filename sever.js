@@ -85,6 +85,29 @@ app.get('/steam', (req, res) => {
   }
   main3()
 })
+app.get('/steam_title', (req, res) => {
+  const main3 = async () => {
+    const t = await maincrawling.find(
+      {},
+      {
+        steam_title: 1,
+        _id: 0
+      }
+    )
+    // 씨발 왜 배열로 안바뀜?
+    console.log(t)
+    console.log(typeof t + '1')
+    const t1 = Object.entries(t)
+    console.log(t1)
+    console.log(typeof t1 + '2')
+    const t2 = []
+    for (let i = 0; i < t1.length; i++) {
+      t2.push(t1[i])
+    }
+    res.send(t2)
+  }
+  main3()
+})
 app.get('/gamersgate', (req, res) => {
   const main3 = async () => {
     const t = await maincrawling.find(

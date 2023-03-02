@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 const PhotoSchema1 = new Schema(
   {
-    steam_Title: String,
+    steam_title: String,
     steam_price: String,
     steam_discount_percent: String,
     steam_discount_price: String,

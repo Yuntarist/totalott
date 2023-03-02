@@ -9,6 +9,7 @@
   <br />
   <!-- <div class="all">{{ all }}</div> -->
   <div class="steam">{{ steam }}</div>
+  <div class="steam_title">{{ steam_title }}</div>
   <div class="gamersgate">{{ gamersgate }}</div>
   <div class="greenmangaming">{{ greenmangaming }}</div>
   <div class="dream">{{ dream }}</div>
@@ -23,6 +24,7 @@ export default {
   data() {
     return {
       steam: '',
+      steam_title: '',
       gamersgate: '',
       greenmangaming: '',
       dream: ''
@@ -33,6 +35,9 @@ export default {
       axios.get('steam' + this.steam).then((res) => (this.steam = res.data))
     ]),
       axios
+        .get('steam_title' + this.steam_title)
+        .then((res) => (this.steam_title = res.data)),
+      axios
         .get('gamersgate' + this.gamersgate)
         .then((res) => (this.gamersgate = res.data)),
       axios
@@ -40,7 +45,6 @@ export default {
         .then((res) => (this.greenmangaming = res.data)),
       axios.get('dream' + this.dream).then((res) => (this.dream = res.data))
   },
-
   methods: {
     move1: function () {
       window.location.href = './about3'

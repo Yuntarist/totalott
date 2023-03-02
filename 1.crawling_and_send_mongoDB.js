@@ -8,7 +8,7 @@ const urlMap = new Map([
 ])
 
 // steam 시작
-const steam_titles = []
+const steam_title = []
 const steam_price = []
 const steam_discount_percent = []
 const steam_discount_price = []
@@ -47,12 +47,12 @@ const steam_discount_price = []
           ') div.responsive_search_name_combined div.col.search_price_discount_combined.responsive_secondrow div.col.search_price.discounted.responsive_secondrow',
         (x) => x.innerHTML
       )
-      steam_titles.push(title.replace('>', ''))
+      steam_title.push(title.replace('>', ''))
       steam_price.push(price.replace('>', ''))
       steam_discount_percent.push(discount_percent.replace('>', ''))
       steam_discount_price.push(discount_price.substr(-28, 9).replace('>', ''))
     }
-    console.log(v + ' (title)', steam_titles)
+    console.log(v + ' (title)', steam_title)
     console.log(v + ' (price)', steam_price)
     console.log(v + ' (dispercent)', steam_discount_percent)
     console.log(v + ' (disprice)', steam_discount_price)
@@ -281,7 +281,7 @@ const dream_discount_price = []
   const maincrawling = require('./DB/maincrawling.js')
   module.exports = maincrawling
 
-  const a1 = steam_titles
+  const a1 = steam_title
   const aa1 = Object.values(a1)
   const a2 = steam_price
   const aa2 = Object.values(a2)
@@ -296,6 +296,12 @@ const dream_discount_price = []
     a5.push(aa3[i])
     a5.push(aa4[i])
   }
+  // for (let i = 0; i < aa1.length; i++) {
+  //   ;`<div><a href= "#">${a5.push(aa1[i])}</a>
+  //   ${a5.push(aa2[i])}
+  //   ${a5.push(aa3[i])}
+  //   ${a5.push(aa4[i])}</div>`
+  // }
   const b1 = gamersgate_title
   const bb1 = Object.values(b1)
   const b2 = gamersgate_price
@@ -344,7 +350,7 @@ const dream_discount_price = []
 
   const main = async () => {
     const _data = {
-      steam_Title: `${a1}`,
+      steam_title: `${a1}`,
       steam_price: `${a2}`,
       steam_discount_percent: `${a3}`,
       steam_discount_price: `${a4}`,
