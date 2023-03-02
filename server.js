@@ -5,7 +5,6 @@ const path = require("path");
 const logger = require("morgan");
 const cw = require("./public/allgame"); //크롤링 js데이터 가져오기
 const history = require("connect-history-api-fallback"); //새로고침후 데이터 유지
-// const Photo = require("./DB/ori.js");
 const app = express();
 const port = 3000;
 const _path = path.join(__dirname, "./dist");
@@ -24,7 +23,9 @@ mongoose
   .then(() => console.log("connection successful"))
   .catch((err) => console.log(err));
 const Photo = require("./DB/photo.js");
+const maincrawling = require("./DB/maincrawling.js");
 module.exports = Photo;
+module.exports = maincrawling;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
