@@ -45,19 +45,12 @@
 <script>
 // eslint-disable-next-line
 /* eslint-disable */
-import axios from "axios";
 export default {
   name: "app",
   data() {
     return {
       crr: "",
     };
-  },
-  created() {
-    axios.get("/home").then((res) => {
-      this.crr = res.data;
-      console.log(res);
-    });
   },
   methods: {
     move: function () {

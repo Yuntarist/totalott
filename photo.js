@@ -7,4 +7,4 @@ const PhotoSchema = new Schema({
   이메일: (Number, String)
 })
 
-module.exports = mongoose.model('test', PhotoSchema, 'test')
+module.exports = mongoose.model('membership', PhotoSchema, 'membership')

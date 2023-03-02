@@ -12,7 +12,7 @@
           id="username"
           placeholder="아이디를 입력해주세요."
         />
-
+        <button @click="idcheck()">아이디중복확인</button>
         <div class="failure-message hide msg">
           4자 이상의 영문 혹은 영문과 숫자를 조합
         </div>
@@ -449,12 +449,23 @@ export default {
   methods: {
     submit: function () {
       let userbt = {
-        userID: sha256(this.ID).toString(), // base64 코드로 바꿔줌
-        userPW: sha256(this.pwd).toString(), // base64 코드로 바꿔줌
-        userPW2: sha256(this.pwd2).toString(), // base64 코드로 바꿔줌
-        userEM: sha256(this.email).toString(), // base64 코드로 바꿔줌
+        userID: this.ID,
+        userPW: this.pwd,
+        userPW2: this.pwd2,
+        userEM: this.email,
       };
       axios.post("./about4", userbt);
+    },
+    idcheck: function () {
+      let UID = this.ID;
+      axios.get("/about4e1/" + UID).then((res) => {
+        if (res.data.result === 1) {
+          alert("사용 할수있는 아이디 입니다.");
+        } else if (res.data.result === 0) {
+          alert("아이디가 이미 존재합니다.");
+          this.ID = "";
+        }
+      });
     },
   },
 };

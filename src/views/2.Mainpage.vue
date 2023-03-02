@@ -6,7 +6,7 @@
   <br />
   <br />
   <input class="searchBar" type="text" placeholder="검색" />
-  <div class="item" v-html="number"></div>
+  <div class="dtd">{{ dtd }}</div>
 </template>
 
 <script>
@@ -16,15 +16,11 @@ export default {
   name: "app",
   data() {
     return {
-      number: "",
+      dtd: "",
     };
   },
-  created() {
-    this.number = `<div class="spinner-border text-info" role="status"></div>정보를 불러오는 중`;
-    axios.get("/about2").then((res) => {
-      this.number = res.data;
-      console.log(res);
-    });
+  mounted() {
+    axios.get("/about2" + this.dtd).then((res) => (this.dtd = res.data));
   },
   methods: {
     move1: function () {
