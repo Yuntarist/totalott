@@ -68,18 +68,6 @@ app.get('/about2', (req, res) => {
   main2()
 })
 
-// app.get('/dbr/:date', (req, res) => {
-//   const date = req.params.date
-//   const read = async () => {
-//     const t = await VSchema.find({ date }, { _id: 0, __v: 0 })
-//       .lean()
-//       .then((t) => {
-//         res.send(t)
-//         console.log(t)
-//       })
-//   }
-//   read()
-
 app.listen(port, () => {
   console.log(port + '에서 서버 동작 완료.')
 })
