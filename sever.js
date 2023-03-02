@@ -95,6 +95,7 @@ app.get('/steam_title', (req, res) => {
       }
     )
     // 씨발 왜 배열로 안바뀜?
+    // 내가 뭘 잘못했는데 익 ㅐ새끼야
     console.log(t)
     console.log(typeof t + '1')
     const t1 = Object.entries(t)
