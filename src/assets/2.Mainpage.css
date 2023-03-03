@@ -29,10 +29,36 @@
 .newaccountbtn:hover {
   background: rgba(228, 225, 225, 0.678);
 }
-::placeholder {
-  text-align: center;
-  color: rgba(160, 160, 158, 0.72);
+.steam_title {
+  margin-left: 100px;
+  margin-right: 100px;
+  text-align: left;
 }
 .steam {
+  margin-left: 100px;
+  text-align: left;
+}
+.gamersgate_title {
+  margin-left: 100px;
+  text-align: left;
+}
+.gamersgate {
+  margin-left: 100px;
+  text-align: left;
+}
+.greenmangaming_title {
+  margin-left: 100px;
+  text-align: left;
+}
+.greenmangaming {
+  margin-left: 100px;
+  text-align: left;
+}
+.dream_title {
+  margin-left: 100px;
+  text-align: left;
+}
+.dream {
+  margin-left: 100px;
   text-align: left;
 }

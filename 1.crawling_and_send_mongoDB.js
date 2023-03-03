@@ -26,25 +26,28 @@ const steam_discount_price = []
     await page.waitForSelector('a:nth-child(1)')
     for (let i = 1; i < 21; i++) {
       const title = await page.$eval(
-        'a:nth-child(' + i + ') div.col.search_name.ellipsis span.title',
+        'a:nth-child(' + i + ') div.col.search_name.ellipsis span.title' + '\n',
         (x) => x.innerHTML
       )
       const price = await page.$eval(
         'a:nth-child(' +
           i +
-          ') div.responsive_search_name_combined div.col.search_price_discount_combined.responsive_secondrow div.col.search_price.discounted.responsive_secondrow span strike',
+          ') div.responsive_search_name_combined div.col.search_price_discount_combined.responsive_secondrow div.col.search_price.discounted.responsive_secondrow span strike' +
+          '\n',
         (x) => x.innerHTML
       )
       const discount_percent = await page.$eval(
         'a:nth-child(' +
           i +
-          ') div.responsive_search_name_combined div.col.search_price_discount_combined.responsive_secondrow div.col.search_discount.responsive_secondrow span',
+          ') div.responsive_search_name_combined div.col.search_price_discount_combined.responsive_secondrow div.col.search_discount.responsive_secondrow span' +
+          '\n',
         (x) => x.innerHTML
       )
       const discount_price = await page.$eval(
         'a:nth-child(' +
           i +
-          ') div.responsive_search_name_combined div.col.search_price_discount_combined.responsive_secondrow div.col.search_price.discounted.responsive_secondrow',
+          ') div.responsive_search_name_combined div.col.search_price_discount_combined.responsive_secondrow div.col.search_price.discounted.responsive_secondrow' +
+          '\n',
         (x) => x.innerHTML
       )
       steam_title.push(title.replace('>', ''))
@@ -52,7 +55,7 @@ const steam_discount_price = []
       steam_discount_percent.push(discount_percent.replace('>', ''))
       steam_discount_price.push(discount_price.substr(-28, 9).replace('>', ''))
     }
-    console.log(v + ' (title)', steam_title)
+    console.log(v + ' (title)', steam_title + '\n')
     console.log(v + ' (price)', steam_price)
     console.log(v + ' (dispercent)', steam_discount_percent)
     console.log(v + ' (disprice)', steam_discount_price)
@@ -147,14 +150,12 @@ const greenmangaming_discount_price = []
       'C:/Users/ds/AppData/Local/Google/Chrome/Application/chrome.exe'
   })
   const page = await browser.newPage()
-
   // url map에서 Key 값을 가져와서 반복문 실행
   let urlKeys = urlMap3.keys()
   for (var v of urlKeys) {
     // map에 저장된 url 가져와서 순차적으로 방문
     var url = urlMap3.get(v)
     await page.goto(url)
-
     // 가격 보여지는 DIV가 페이지 나타나면, 가격 값을 가져 옴
     await page.waitForSelector(
       '#hits > div:nth-child(2) > div > ol > li:nth-child(1)'
@@ -194,10 +195,8 @@ const greenmangaming_discount_price = []
     console.log(v + ' (dispercent)', greenmangaming_discount_percent)
     console.log(v + ' (disprice)', greenmangaming_discount_price)
   }
-
   await browser.close()
 })()
-
 // dreamgame 시작
 const urlMap4 = new Map([
   ['dream', 'https://www.dreamgame.com/en/games?orderby=30']
@@ -253,10 +252,10 @@ const dream_discount_price = []
           ') > a > div > div.card-body.mh-150 > p.cardprice',
         (x) => x.innerHTML
       )
-      dream_title.push(title)
-      dream_price.push(price)
-      dream_discount_percent.push(discount_percent)
-      dream_discount_price.push(discount_price.substr(0, 7))
+      dream_title.push(title.replace('&n', ''))
+      dream_price.push(price.replace('&n', ''))
+      dream_discount_percent.push(discount_percent.replace('&n', ''))
+      dream_discount_price.push(discount_price.substr(0, 7).replace('&n', ''))
     }
     console.log(v + ' (title)', dream_title)
     console.log(v + ' (price)', dream_price)
@@ -291,7 +290,6 @@ const dream_discount_price = []
   const aa4 = Object.values(a4)
   const a5 = []
   for (let i = 0; i < aa1.length; i++) {
-    a5.push(aa1[i])
     a5.push(aa2[i])
     a5.push(aa3[i])
     a5.push(aa4[i])
@@ -312,7 +310,6 @@ const dream_discount_price = []
   const bb4 = Object.values(b4)
   const b5 = []
   for (let i = 0; i < aa1.length; i++) {
-    b5.push(bb1[i])
     b5.push(bb2[i])
     b5.push(bb3[i])
     b5.push(bb4[i])
@@ -327,7 +324,6 @@ const dream_discount_price = []
   const cc4 = Object.values(c4)
   const c5 = []
   for (let i = 0; i < aa1.length; i++) {
-    c5.push(cc1[i])
     c5.push(cc2[i])
     c5.push(cc3[i])
     c5.push(cc4[i])
@@ -342,7 +338,6 @@ const dream_discount_price = []
   const dd4 = Object.values(d4)
   const d5 = []
   for (let i = 0; i < aa1.length; i++) {
-    d5.push(dd1[i])
     d5.push(dd2[i])
     d5.push(dd3[i])
     d5.push(dd4[i])

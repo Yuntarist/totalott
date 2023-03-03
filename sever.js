@@ -30,13 +30,10 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 app.post('/about4', function (req, res) {
-  // front 서버에서 post 방식으로 전송받음
-  // console.log(req.body.resultgood);
   const A = req.body.userID
   const B = req.body.userPW
   const C = req.body.userPW2
   const D = req.body.userEM
-
   const main = async () => {
     const _data = {
       아이디: A,
@@ -44,7 +41,6 @@ app.post('/about4', function (req, res) {
       비밀번호확인: C,
       이메일: D
     }
-
     const new_photo = new Photo(_data)
     const t = await new_photo.save()
     console.log(t)
@@ -70,21 +66,6 @@ app.use(logger('tiny'))
 //   }
 //   main2()
 // })
-app.get('/steam', (req, res) => {
-  const main3 = async () => {
-    const t = await maincrawling.find(
-      {},
-      {
-        steam_all: 1,
-        _id: 0
-      }
-    )
-    console.log(t)
-    console.log(typeof t)
-    res.send(t)
-  }
-  main3()
-})
 app.get('/steam_title', (req, res) => {
   const main3 = async () => {
     const t = await maincrawling.find(
@@ -94,18 +75,40 @@ app.get('/steam_title', (req, res) => {
         _id: 0
       }
     )
-    // 씨발 왜 배열로 안바뀜?
-    // 내가 뭘 잘못했는데 익 ㅐ새끼야
-    console.log(t)
-    console.log(typeof t + '1')
-    const t1 = Object.entries(t)
-    console.log(t1)
-    console.log(typeof t1 + '2')
-    const t2 = []
-    for (let i = 0; i < t1.length; i++) {
-      t2.push(t1[i])
-    }
-    res.send(t2)
+
+    console.log(t[0].steam_title)
+    console.log(typeof t)
+    res.send(t[0].steam_title)
+  }
+  main3()
+})
+app.get('/steam', (req, res) => {
+  const main3 = async () => {
+    const t = await maincrawling.find(
+      {},
+      {
+        steam_all: 1,
+        _id: 0
+      }
+    )
+    console.log(t[0].steam_all)
+    console.log(typeof t)
+    res.send(t[0].steam_all)
+  }
+  main3()
+})
+app.get('/gamersgate_title', (req, res) => {
+  const main3 = async () => {
+    const t = await maincrawling.find(
+      {},
+      {
+        gamersgate_title: 1,
+        _id: 0
+      }
+    )
+    console.log(t[0].gamersgate_title)
+    console.log(typeof t)
+    res.send(t[0].gamersgate_title)
   }
   main3()
 })
@@ -118,9 +121,24 @@ app.get('/gamersgate', (req, res) => {
         _id: 0
       }
     )
-    console.log(t)
+    console.log(t[0].gamersgate_all)
     console.log(typeof t)
-    res.send(t)
+    res.send(t[0].gamersgate_all)
+  }
+  main3()
+})
+app.get('/greenmangaming_title', (req, res) => {
+  const main3 = async () => {
+    const t = await maincrawling.find(
+      {},
+      {
+        greenmangaming_title: 1,
+        _id: 0
+      }
+    )
+    console.log(t[0].greenmangaming_title)
+    console.log(typeof t)
+    res.send(t[0].greenmangaming_title)
   }
   main3()
 })
@@ -133,9 +151,24 @@ app.get('/greenmangaming', (req, res) => {
         _id: 0
       }
     )
-    console.log(t)
+    console.log(t[0].greenmangaming_all)
     console.log(typeof t)
-    res.send(t)
+    res.send(t[0].greenmangaming_all)
+  }
+  main3()
+})
+app.get('/dream_title', (req, res) => {
+  const main3 = async () => {
+    const t = await maincrawling.find(
+      {},
+      {
+        dream_title: 1,
+        _id: 0
+      }
+    )
+    console.log(t[0].dream_title)
+    console.log(typeof t)
+    res.send(t[0].dream_title)
   }
   main3()
 })
@@ -148,9 +181,9 @@ app.get('/dream', (req, res) => {
         _id: 0
       }
     )
-    console.log(t)
+    console.log(t[0].dream_all)
     console.log(typeof t)
-    res.send(t)
+    res.send(t[0].dream_all)
   }
   main3()
 })
