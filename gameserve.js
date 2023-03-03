@@ -18,6 +18,7 @@ const DB = 'mdb'
 const mongodbURL = `mongodb://${USER}:${PWD}@${HOST}/${DB}`
 const Photo = require('./photo.js')//몽고db Schema 
 const maincrawling = require('./crawlingphoto.js')
+const photo = require('./photo.js')
 mongoose.set('strictQuery', false) // 6.0 이후 권장사항
 mongoose
 .connect(mongodbURL, { useNewUrlParser: true })
@@ -90,6 +91,52 @@ app.get('/about3/:loginid/:loginpwd',(req,res)=>{
   })
 })()
   })
+
+  //아이디 찾기
+  app.post('/about5/:emailfind',(req,res)=>{
+  let 이메일 = req.params.emailfind
+  console.log(이메일)
+  ;(async()=>{
+    const t = await Photo.find({이메일},{})
+    .lean().then((t)=>{
+      console.log(t)
+      if(t[0] === undefined ){
+        res.json({result: 1});
+      }else if(t[0].이메일 === 이메일 ){
+        res.send(t[0].아이디)  
+        }
+  })
+})()
+  })
+
+   //비밀번호 찾기
+app.post('/about5up',(req,res)=>{
+  let 아이디 = req.body.idid
+  let 이메일 = req.body.email2
+  ;(async() => {
+    let t = await Photo.updateOne({
+    },{
+      $set:{
+
+        비밀번호: Math.floor(Math.random() * 10),
+        
+      }
+    },
+    {upsert:true}
+    )
+    let tt = await Photo.find({이메일},{}).then((tt)=>{
+      console.log(tt[0])
+      if(tt[0]===undefined) {
+        res.json({result: 0});
+      }else if(tt[0].아이디 !== 아이디) {
+        res.json({result:2})
+      }else if(tt[0].이메일||이메일 === tt[0].아이디||아이디){
+        res.send(tt[0].비밀번호)
+      } 
+    })
+  })()
+    })
+     
 
 // 몽고디비에서 읽어오는형식
 // 엑시오스를 이용해 받고 보내고를 할 수 있도록 만들기

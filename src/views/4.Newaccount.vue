@@ -95,7 +95,7 @@
 // eslint-disable-next-line
 /* eslint-disable */
 import axios from "axios";
-import sha256 from "crypto-js/sha256";
+// import sha256 from "crypto-js/sha256";
 export default {
   name: "app",
   data() {
