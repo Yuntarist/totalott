@@ -12,13 +12,17 @@
           id="username"
           placeholder="아이디를 입력해주세요."
         />
-        <button @click="idcheck()">아이디중복확인</button>
+        <span v-bind="ididcheck" @click="idcheck()">아이디중복확인</span>
         <div class="failure-message hide msg">
           4자 이상의 영문 혹은 영문과 숫자를 조합
         </div>
         <div class="success-message hide msg success" style="color: #14aaff">
           사용할 수 있는 아이디입니다.
         </div>
+        <div class="false-message hide msg success" style="color: red">
+          사용할 수 없는 아이디입니다.
+        </div>
+        <div id="ex"></div>
       </fieldset>
       <!-- 비밀번호 -->
       <fieldset>
@@ -100,6 +104,7 @@ export default {
   name: "app",
   data() {
     return {
+      ididcheck: false,
       ID: "",
       pwd: "",
       pwd2: "",
@@ -112,7 +117,7 @@ export default {
     const InputUsername = document.querySelector("#username");
     const FailureMessage = document.querySelector(".failure-message");
     const SuccessMessage = document.querySelector(".success-message");
-    const namecheck = document.querySelector("#namecheck");
+    const falsemessage = document.querySelector(".false-message");
 
     // 비밀번호
     const Password = document.querySelector("#password");
@@ -146,11 +151,13 @@ export default {
         isMoreThan4Length(InputUsername.value) &&
         isUserNameChar(InputUsername.value)
       ) {
-        SuccessMessage.classList.remove("hide");
+        SuccessMessage.classList.add("hide");
         FailureMessage.classList.add("hide");
+        falsemessage.classList.add("hide");
       } else {
         FailureMessage.classList.remove("hide");
         SuccessMessage.classList.add("hide");
+        falsemessage.classList.add("hide");
       }
       isSubmitButton();
     }
@@ -260,15 +267,17 @@ export default {
       ) {
         // 아이디
         if (
-          isMoreThan10Length(Password.value) &&
-          isPasswordEng(Password.value) +
-            isPasswordNum(Password.value) +
-            isPasswordSpeci(Password.value) >=
-            2 &&
-          isPasswordChar(Password.value) &&
-          isPasswordBlank(Password.value) &&
-          !isPasswordRepeat(Password.value) &&
-          isPasswordUpper(Password.value)
+          (this.ididcheck =
+            true &&
+            isMoreThan10Length(Password.value) &&
+            isPasswordEng(Password.value) +
+              isPasswordNum(Password.value) +
+              isPasswordSpeci(Password.value) >=
+              2 &&
+            isPasswordChar(Password.value) &&
+            isPasswordBlank(Password.value) &&
+            !isPasswordRepeat(Password.value) &&
+            isPasswordUpper(Password.value))
         ) {
           // 비밀번호
           if (isMatch(Password.value, PasswordRetype.value)) {
@@ -458,11 +467,19 @@ export default {
       axios.post("./about4", userbt);
     },
     idcheck() {
+      const SuccessMessage = document.querySelector(".success-message");
+      const falsemessage = document.querySelector(".false-message");
       axios.get("/about4e1/" + this.ID).then((res) => {
         if (res.data.result === 1) {
-          alert("사용가능한 아이디입니다.");
+          this.ididcheck = true;
+          SuccessMessage.classList.remove("hide");
+          falsemessage.classList.add("hide");
+          console.log(this.ididcheck);
         } else if (res.data.result === 0) {
-          alert("이미 사용중입니다.");
+          this.ididcheck = false;
+          SuccessMessage.classList.add("hide");
+          falsemessage.classList.remove("hide");
+          console.log(this.ididcheck);
           this.ID = "";
         }
       });

@@ -117,9 +117,7 @@ app.post('/about5up',(req,res)=>{
     let t = await Photo.updateOne({
     },{
       $set:{
-
-        비밀번호: Math.floor(Math.random() * 10),
-        
+        비밀번호: Math.floor(Math.random() * 10) 
       }
     },
     {upsert:true}
