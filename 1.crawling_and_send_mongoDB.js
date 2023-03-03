@@ -8,7 +8,7 @@ const urlMap = new Map([
 ]);
 
 // steam 시작
-const steam_titles = [];
+const steam_title = [];
 const steam_price = [];
 const steam_discount_percent = [];
 const steam_discount_price = [];
@@ -47,12 +47,12 @@ const steam_discount_price = [];
           ") div.responsive_search_name_combined div.col.search_price_discount_combined.responsive_secondrow div.col.search_price.discounted.responsive_secondrow",
         (x) => x.innerHTML
       );
-      steam_titles.push(title);
-      steam_price.push(price);
-      steam_discount_percent.push(discount_percent);
-      steam_discount_price.push(discount_price.substr(-28, 9));
+      steam_title.push(title.replace(">", ""));
+      steam_price.push(price.replace(">", ""));
+      steam_discount_percent.push(discount_percent.replace(">", ""));
+      steam_discount_price.push(discount_price.substr(-28, 9).replace(">", ""));
     }
-    console.log(v + " (title)", steam_titles);
+    console.log(v + " (title)", steam_title);
     console.log(v + " (price)", steam_price);
     console.log(v + " (dispercent)", steam_discount_percent);
     console.log(v + " (disprice)", steam_discount_price);
@@ -281,44 +281,95 @@ const dream_discount_price = [];
   const maincrawling = require("./DB/maincrawling.js");
   module.exports = maincrawling;
 
-  const a1 = steam_titles;
+  const a1 = steam_title;
+  const aa1 = Object.values(a1);
   const a2 = steam_price;
+  const aa2 = Object.values(a2);
   const a3 = steam_discount_percent;
+  const aa3 = Object.values(a3);
   const a4 = steam_discount_price;
-
+  const aa4 = Object.values(a4);
+  const a5 = [];
+  for (let i = 0; i < aa1.length; i++) {
+    a5.push(aa1[i]);
+    a5.push(aa2[i]);
+    a5.push(aa3[i]);
+    a5.push(aa4[i]);
+  }
+  // for (let i = 0; i < aa1.length; i++) {
+  //   ;`<div><a href= "#">${a5.push(aa1[i])}</a>
+  //   ${a5.push(aa2[i])}
+  //   ${a5.push(aa3[i])}
+  //   ${a5.push(aa4[i])}</div>`
+  // }
   const b1 = gamersgate_title;
+  const bb1 = Object.values(b1);
   const b2 = gamersgate_price;
+  const bb2 = Object.values(b2);
   const b3 = gamersgate_discount_percent;
+  const bb3 = Object.values(b3);
   const b4 = gamersgate_discount_price;
-
+  const bb4 = Object.values(b4);
+  const b5 = [];
+  for (let i = 0; i < aa1.length; i++) {
+    b5.push(bb1[i]);
+    b5.push(bb2[i]);
+    b5.push(bb3[i]);
+    b5.push(bb4[i]);
+  }
   const c1 = greenmangaming_title;
+  const cc1 = Object.values(c1);
   const c2 = greenmangaming_price;
+  const cc2 = Object.values(c2);
   const c3 = greenmangaming_discount_percent;
+  const cc3 = Object.values(c3);
   const c4 = greenmangaming_discount_price;
-
+  const cc4 = Object.values(c4);
+  const c5 = [];
+  for (let i = 0; i < aa1.length; i++) {
+    c5.push(cc1[i]);
+    c5.push(cc2[i]);
+    c5.push(cc3[i]);
+    c5.push(cc4[i]);
+  }
   const d1 = dream_title;
+  const dd1 = Object.values(d1);
   const d2 = dream_price;
+  const dd2 = Object.values(d2);
   const d3 = dream_discount_percent;
+  const dd3 = Object.values(d3);
   const d4 = dream_discount_price;
+  const dd4 = Object.values(d4);
+  const d5 = [];
+  for (let i = 0; i < aa1.length; i++) {
+    d5.push(dd1[i]);
+    d5.push(dd2[i]);
+    d5.push(dd3[i]);
+    d5.push(dd4[i]);
+  }
 
   const main = async () => {
     const _data = {
-      steam_Title: `${a1}`,
+      steam_title: `${a1}`,
       steam_price: `${a2}`,
       steam_discount_percent: `${a3}`,
       steam_discount_price: `${a4}`,
+      steam_all: `${a5}`,
       gamersgate_title: `${b1}`,
       gamersgate_price: `${b2}`,
       gamersgate_discount_percent: `${b3}`,
       gamersgate_discount_price: `${b4}`,
+      gamersgate_all: `${b5}`,
       greenmangaming_title: `${c1}`,
       greenmangaming_price: `${c2}`,
       greenmangaming_discount_percent: `${c3}`,
       greenmangaming_discount_price: `${c4}`,
+      greenmangaming_all: `${c5}`,
       dream_title: `${d1}`,
       dream_price: `${d2}`,
       dream_discount_percent: `${d3}`,
       dream_discount_price: `${d4}`,
+      dream_all: `${d5}`,
     };
     const new_maincraling = new maincrawling(_data);
     const t = await new_maincraling.save();

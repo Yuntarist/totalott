@@ -1,9 +1,18 @@
 <template>
   <hr />
-  <button @click="move1">로그인</button>
-  <button @click="move2">회원가입</button>
-  <div>이벤트 모달 창 만들고 이름과 전화번호 주소 몽고DB로 저장하기.</div>
-  <div class="dtd">{{ dtd }}</div>
+  <button class="loginbtn" @click="move1">로그인</button>
+  <button class="newaccountbtn" @click="move2">회원가입</button>
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <!-- <div class="all">{{ all }}</div> -->
+  <div class="steam">{{ steam }}</div>
+  <div class="steam_title">{{ steam_title }}</div>
+  <div class="gamersgate">{{ gamersgate }}</div>
+  <div class="greenmangaming">{{ greenmangaming }}</div>
+  <div class="dream">{{ dream }}</div>
 </template>
 
 <script>
@@ -14,12 +23,28 @@ export default {
   name: "app",
   data() {
     return {
-      dtd: "",
+      steam: "",
+      steam_title: "",
+      gamersgate: "",
+      greenmangaming: "",
+      dream: "",
     };
   },
-  // mounted() {
-  //   axios.get("./about2" + this.dtd).then((res) => (this.dtd = res.data));
-  // },
+  mounted() {
+    axios.all([
+      axios.get("steam" + this.steam).then((res) => (this.steam = res.data)),
+    ]),
+      axios
+        .get("steam_title" + this.steam_title)
+        .then((res) => (this.steam_title = res.data)),
+      axios
+        .get("gamersgate" + this.gamersgate)
+        .then((res) => (this.gamersgate = res.data)),
+      axios
+        .get("greenmangaming" + this.greenmangaming)
+        .then((res) => (this.greenmangaming = res.data)),
+      axios.get("dream" + this.dream).then((res) => (this.dream = res.data));
+  },
   methods: {
     move1: function () {
       window.location.href = "./about3";
