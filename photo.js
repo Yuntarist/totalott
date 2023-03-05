@@ -8,4 +8,4 @@ const PhotoSchema = new Schema({
   크롤링: (Number, String)
 })
 
-module.exports = mongoose.model('test', PhotoSchema, 'test')
+module.exports = mongoose.model('membership', PhotoSchema, 'membership')

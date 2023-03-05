@@ -12,13 +12,17 @@
           id="username"
           placeholder="아이디를 입력해주세요."
         />
-
+        <span v-bind="ididcheck" @click="idcheck()">아이디중복확인</span>
         <div class="failure-message hide msg">
           4자 이상의 영문 혹은 영문과 숫자를 조합
         </div>
         <div class="success-message hide msg success" style="color: #14aaff">
           사용할 수 있는 아이디입니다.
         </div>
+        <div class="false-message hide msg success" style="color: red">
+          사용할 수 없는 아이디입니다.
+        </div>
+        <div id="ex"></div>
       </fieldset>
       <!-- 비밀번호 -->
       <fieldset>
@@ -95,11 +99,12 @@
 // eslint-disable-next-line
 /* eslint-disable */
 import axios from "axios";
-import sha256 from "crypto-js/sha256";
+// import sha256 from "crypto-js/sha256";
 export default {
   name: "app",
   data() {
     return {
+      ididcheck: false,
       ID: "",
       pwd: "",
       pwd2: "",
@@ -112,6 +117,7 @@ export default {
     const InputUsername = document.querySelector("#username");
     const FailureMessage = document.querySelector(".failure-message");
     const SuccessMessage = document.querySelector(".success-message");
+    const falsemessage = document.querySelector(".false-message");
 
     // 비밀번호
     const Password = document.querySelector("#password");
@@ -145,11 +151,13 @@ export default {
         isMoreThan4Length(InputUsername.value) &&
         isUserNameChar(InputUsername.value)
       ) {
-        SuccessMessage.classList.remove("hide");
+        SuccessMessage.classList.add("hide");
         FailureMessage.classList.add("hide");
+        falsemessage.classList.add("hide");
       } else {
         FailureMessage.classList.remove("hide");
         SuccessMessage.classList.add("hide");
+        falsemessage.classList.add("hide");
       }
       isSubmitButton();
     }
@@ -259,15 +267,17 @@ export default {
       ) {
         // 아이디
         if (
-          isMoreThan10Length(Password.value) &&
-          isPasswordEng(Password.value) +
-            isPasswordNum(Password.value) +
-            isPasswordSpeci(Password.value) >=
-            2 &&
-          isPasswordChar(Password.value) &&
-          isPasswordBlank(Password.value) &&
-          !isPasswordRepeat(Password.value) &&
-          isPasswordUpper(Password.value)
+          (this.ididcheck =
+            true &&
+            isMoreThan10Length(Password.value) &&
+            isPasswordEng(Password.value) +
+              isPasswordNum(Password.value) +
+              isPasswordSpeci(Password.value) >=
+              2 &&
+            isPasswordChar(Password.value) &&
+            isPasswordBlank(Password.value) &&
+            !isPasswordRepeat(Password.value) &&
+            isPasswordUpper(Password.value))
         ) {
           // 비밀번호
           if (isMatch(Password.value, PasswordRetype.value)) {
@@ -449,12 +459,30 @@ export default {
   methods: {
     submit: function () {
       let userbt = {
-        userID: sha256(this.ID).toString(), // base64 코드로 바꿔줌
-        userPW: sha256(this.pwd).toString(), // base64 코드로 바꿔줌
-        userPW2: sha256(this.pwd2).toString(), // base64 코드로 바꿔줌
-        userEM: sha256(this.email).toString(), // base64 코드로 바꿔줌
+        userID: this.ID,
+        userPW: this.pwd,
+        userPW2: this.pwd2,
+        userEM: this.email,
       };
       axios.post("./about4", userbt);
+    },
+    idcheck() {
+      const SuccessMessage = document.querySelector(".success-message");
+      const falsemessage = document.querySelector(".false-message");
+      axios.get("/about4e1/" + this.ID).then((res) => {
+        if (res.data.result === 1) {
+          this.ididcheck = true;
+          SuccessMessage.classList.remove("hide");
+          falsemessage.classList.add("hide");
+          console.log(this.ididcheck);
+        } else if (res.data.result === 0) {
+          this.ididcheck = false;
+          SuccessMessage.classList.add("hide");
+          falsemessage.classList.remove("hide");
+          console.log(this.ididcheck);
+          this.ID = "";
+        }
+      });
     },
   },
 };
