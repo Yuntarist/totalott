@@ -6,7 +6,7 @@
   <br />
   <br />
   <input class="searchBar" type="text" placeholder="검색" />
-  <div class="item" v-html="number"></div>
+  <div>{{ number }}</div>
 </template>
 
 <script>

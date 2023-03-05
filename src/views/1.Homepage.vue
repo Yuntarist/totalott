@@ -49,15 +49,7 @@ import axios from "axios";
 export default {
   name: "app",
   data() {
-    return {
-      crr: "",
-    };
-  },
-  created() {
-    axios.get("/home").then((res) => {
-      this.crr = res.data;
-      console.log(res);
-    });
+    return {};
   },
   methods: {
     move: function () {

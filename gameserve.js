@@ -12,10 +12,10 @@ const _path = path.join(__dirname, './dist')
 // const crypto = require('crypto')// crypto 암호화 모듈
 
 //몽고db 
-const USER = process.env.mdbbid
-const PWD = process.env.mdbpwd
+const USER = process.env.adminid
+const PWD = process.env.adminpwd
 const HOST = process.env.mdbhost
-const DB = 'mdb'
+const DB = 'admin'
 const mongodbURL = `mongodb://${USER}:${PWD}@${HOST}/${DB}`
 const Photo = require('./photo.js')//몽고db Schema 
 mongoose.set('strictQuery', false) // 6.0 이후 권장사항
@@ -54,7 +54,7 @@ app.post('/about4', function (req, res) {
     console.log(t)
   })()
 })
-
+//로그인창 
 app.get('/about3/:loginid',(req,res)=>{
   // const date = req.param('date')
   let loginid = req.params.loginid
@@ -72,21 +72,7 @@ app.get('/about3/:loginid',(req,res)=>{
   })
   })()
   })
-app.get('/home', (req, res) => {
- let vvv = req.body.number
- ;(async () => {
-  await cw.ax().then((v) => {
-   vvv = v
-  })
-  const dataaa ={
-    아이디 : vvv
-  }
-  const new_photo = new Photo(dataaa)
-  const t = await new_photo.save()
-  console.log(t)
-})()
-  
-})
+
 
 app.listen(port, () => {
   console.log(port + '에서 서버 동작 완료.')
