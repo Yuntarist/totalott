@@ -1,12 +1,24 @@
 <template>
   <div class="find-container">
-    <!-- 전환 기능을 넣은 구문 -->
-    <button class="id-find" @click="select = 'USD'">
-      <h3>아이디 찾기</h3>
-    </button>
-    <button class="pwd-find" @click="select = 'JPY'">
-      <h3>비밀번호 찾기</h3>
-    </button>
+    <input
+      id="find_id"
+      type="radio"
+      name="tabs"
+      @click="select = 'USD'"
+      class="find-input"
+      checked
+    />
+
+    <input
+      id="find_pwd"
+      type="radio"
+      name="tabs"
+      class="find-input"
+      @click="select = 'JPY'"
+    />
+    <label for="find_id" class="find_id_label">아이디 찾기</label>
+    <label for="find_pwd" class="find_pwd_label">비밀번호 찾기</label>
+
     <keep-alive>
       <component :is="select"></component>
     </keep-alive>
@@ -42,27 +54,55 @@ export default {
   box-shadow: 0 0 15px rgb(255, 255, 255);
   border-radius: 25px;
 }
-.id-find {
-  font: bold;
-  padding: 5px 56px 20px 55px;
-  font-size: 20px;
-  background-color: #1b1b1b;
-  color: white;
-  border-bottom: 1px solid #fff;
-  border-right: 1px solid #fff;
-  border-radius: 20px 0px 0px 0px;
+
+.find-input {
+  display: none;
 }
-.pwd-find {
-  padding: 5px 55px 20px 56px;
-  font-size: 20px;
-  background-color: #1b1b1b;
-  color: white;
-  border-bottom: 1px solid #fff;
-  border-left: 1px solid #fff;
-  border-radius: 0px 20px 0px 0px;
+
+label {
+  display: inline-flex;
+  width: 49%;
+  height: 30px;
+  align-items: center;
+  justify-content: center;
+  font-family: "dohyeon";
+  font-weight: 600;
+  text-align: center;
+  color: black;
 }
-h3 {
-  padding: 0;
-  margin: 0;
+
+label:hover {
+  border: 1px solid black;
+  box-shadow: 5px 3px 3px gray;
+  color: #7c7c7c;
+  cursor: pointer;
+}
+
+#find_id:checked ~ .find_pwd_label {
+  border-bottom: 1px solid #000000;
+  box-shadow: 0px 2px 0px rgb(168, 168, 168);
+  color: #7c7c7c;
+  text-shadow: 1px 1px 0.3px #a2a2a2;
+}
+#find_id:checked ~ .find_id_label {
+  font-weight: 100;
+  color: #002376;
+  border-top: 3px solid #002376;
+  border-right: 2px solid #000000;
+  box-shadow: 0px 3px 5px 2px gray;
+}
+
+#find_pwd:checked ~ .find_id_label {
+  border-bottom: 1px solid #000000;
+  box-shadow: 0px 2px 0px rgb(168, 168, 168);
+  color: #7c7c7c;
+  text-shadow: 1px 1px 0.3px #a2a2a2;
+}
+#find_pwd:checked ~ .find_pwd_label {
+  font-weight: 100;
+  color: #002376;
+  border-top: 3px solid #002376;
+  border-left: 2px solid #000000;
+  box-shadow: 5px 2px 3px gray;
 }
 </style>
