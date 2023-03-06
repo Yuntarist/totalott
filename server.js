@@ -99,6 +99,24 @@ app.get("/about5/:email", (req, res) => {
   })();
 });
 
+// 비밀번호 찾기
+app.get("/about5/:fid", (req, res) => {
+  let 아이디 = req.params.fid;
+
+  (async () => {
+    const t = await Photo.find({ 아이디 }, {})
+      .lean()
+      .then((t) => {
+        console.log(t);
+        if (t[0] === undefined) {
+          res.json({ result: 1 });
+        } else if (t[0].아이디 === 아이디) {
+          res.send("인증됨");
+        }
+      });
+  })();
+});
+
 // 몽고디비에서 읽어오는 형식
 // 엑시오스를 이용해 받고 보내고 할수있게 만들기
 
