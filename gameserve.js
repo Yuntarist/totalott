@@ -112,25 +112,21 @@ app.get('/about3/:loginid/:loginpwd',(req,res)=>{
    //비밀번호 찾기
 app.post('/about5up',(req,res)=>{
   let 아이디 = req.body.idid
-  let 이메일 = req.body.email2
+  let 이메일 = req.params.email2
+
   ;(async() => {
     let t = await Photo.updateOne({
+      아이디 : req.body.idid,
+      이메일 : req.body.email2
     },{
       $set:{
         비밀번호: Math.floor(Math.random() * 10) 
       }
     },
     {upsert:true}
-    )
-    let tt = await Photo.find({이메일},{}).then((tt)=>{
-      console.log(tt[0])
-      if(tt[0]===undefined) {
-        res.json({result: 0});
-      }else if(tt[0].아이디 !== 아이디) {
-        res.json({result:2})
-      }else if(tt[0].이메일||이메일 === tt[0].아이디||아이디){
-        res.send(tt[0].비밀번호)
-      } 
+    ).then((t)=>{
+      console.log(t);
+      res.send(t[0])
     })
   })()
     })

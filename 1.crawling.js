@@ -25,7 +25,7 @@ const steam_discount_price = []
     var url = urlMap.get(v)
     await page.goto(url)
     await page.waitForSelector('a:nth-child(1)')
-    for (let i = 1; i < 21; i++) {
+    for (let i = 1; i < 4; i++) {
       const title = await page.$eval(
         'a:nth-child(' + i + ') div.col.search_name.ellipsis span.title',
         (x) => x.innerHTML

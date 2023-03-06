@@ -12,7 +12,9 @@
           id="username"
           placeholder="아이디를 입력해주세요."
         />
-        <span v-bind="ididcheck" @click="idcheck()">아이디중복확인</span>
+        <span class="idspan" v-bind="ididcheck" @click="idcheck()"
+          >아이디중복확인</span
+        >
         <div class="failure-message hide msg">
           4자 이상의 영문 혹은 영문과 숫자를 조합
         </div>
@@ -267,17 +269,15 @@ export default {
       ) {
         // 아이디
         if (
-          (this.ididcheck =
-            true &&
-            isMoreThan10Length(Password.value) &&
-            isPasswordEng(Password.value) +
-              isPasswordNum(Password.value) +
-              isPasswordSpeci(Password.value) >=
-              2 &&
-            isPasswordChar(Password.value) &&
-            isPasswordBlank(Password.value) &&
-            !isPasswordRepeat(Password.value) &&
-            isPasswordUpper(Password.value))
+          isMoreThan10Length(Password.value) &&
+          isPasswordEng(Password.value) +
+            isPasswordNum(Password.value) +
+            isPasswordSpeci(Password.value) >=
+            2 &&
+          isPasswordChar(Password.value) &&
+          isPasswordBlank(Password.value) &&
+          !isPasswordRepeat(Password.value) &&
+          isPasswordUpper(Password.value)
         ) {
           // 비밀번호
           if (isMatch(Password.value, PasswordRetype.value)) {

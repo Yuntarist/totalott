@@ -14,10 +14,20 @@
   }
   
   /* 회원가입 */
+
   #form-container {
-    max-width: 480px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    background: transparent;
+    box-shadow: 0 0 15px rgb(255, 255, 255);
+    border-radius: 25px;
+    max-width: 600px;
     margin: 0 auto;
     padding-bottom: 100px;
+    margin-top: 50px;
   }
   #form-container h2 {
     font-size: 30px;
@@ -26,7 +36,6 @@
     text-align: center;
     padding: 60px 0 30px;
     margin: 0 0 40px 0;
-    border-bottom: 2px solid #333;
   }
   
   #form-container fieldset {

@@ -1,60 +1,68 @@
 <template>
-  <hr />
-  <div>아이디 찾기</div>
-  이메일 : <input type="text" v-model="emailfind" />
-  <button @click="idfind()">아이디찾기!</button>
-  <p>아이디 : {{ emailcome }}</p>
-  <div>비밀번호 찾기</div>
-  아이디 : <input type="text" v-model="ididfind" /><br />
-  이메일 : <input type="text" v-model="emailfind2" />
-  <button @click="pwdfind()">비번찾기!</button>
-  <p>임시비밀번호 :{{ passcome }}</p>
+  <div class="find-container">
+    <!-- 전환 기능을 넣은 구문 -->
+    <button class="id-find" @click="select = 'USD'">
+      <h3>아이디 찾기</h3>
+    </button>
+    <button class="pwd-find" @click="select = 'JPY'">
+      <h3>비밀번호 찾기</h3>
+    </button>
+    <keep-alive>
+      <component :is="select"></component>
+    </keep-alive>
+  </div>
 </template>
 
 <script>
-// eslint-disable-next-line
 /* eslint-disable */
-import axios from "axios";
+import USD from "@/components/idfind.vue";
+import JPY from "@/components/pwfind.vue";
+
 export default {
-  name: "app",
+  name: "HomeView",
   data() {
     return {
-      emailfind: "",
-      emailcome: "",
-      emailfind2: "",
-      ididfind: "",
-      passcome: "",
+      select: "USD",
     };
   },
-  methods: {
-    idfind() {
-      axios.post("/about5/" + this.emailfind).then((res) => {
-        if (res.data.result === 1) {
-          this.emailcome = "존재하지 않는 회원입니다.";
-        } else {
-          this.emailcome = res.data;
-        }
-      });
-    },
-    pwdfind() {
-      axios
-        .post("/about5up", {
-          idid: this.ididfind,
-          email2: this.emailfind2,
-          passcome: this.passcome,
-        })
-        .then((res) => {
-          if (res.data.result === 0) {
-            this.passcome = "존재하지 않는 회원입니다.";
-          } else if (res.data.result === 2) {
-            this.passcome = "아이디 찾기를 해주세요.";
-          } else {
-            this.passcome = res.data;
-          }
-        });
-    },
+  components: {
+    USD,
+    JPY,
   },
 };
 </script>
-
-<style></style>
+<style>
+.find-container {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 500px;
+  margin: 10vh auto;
+  background: transparent;
+  box-shadow: 0 0 15px rgb(255, 255, 255);
+  border-radius: 25px;
+}
+.id-find {
+  font: bold;
+  padding: 5px 56px 20px 55px;
+  font-size: 20px;
+  background-color: #1b1b1b;
+  color: white;
+  border-bottom: 1px solid #fff;
+  border-right: 1px solid #fff;
+  border-radius: 20px 0px 0px 0px;
+}
+.pwd-find {
+  padding: 5px 55px 20px 56px;
+  font-size: 20px;
+  background-color: #1b1b1b;
+  color: white;
+  border-bottom: 1px solid #fff;
+  border-left: 1px solid #fff;
+  border-radius: 0px 20px 0px 0px;
+}
+h3 {
+  padding: 0;
+  margin: 0;
+}
+</style>
