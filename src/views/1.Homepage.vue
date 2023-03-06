@@ -48,9 +48,7 @@
 export default {
   name: "app",
   data() {
-    return {
-      crr: "",
-    };
+    return {};
   },
   methods: {
     move: function () {

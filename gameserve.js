@@ -9,16 +9,14 @@ app.use(history())
 const port = 3000
 const _path = path.join(__dirname, './dist')
 // const crypto = require('crypto')// crypto 암호화 모듈
-
 //몽고db 
-const USER = process.env.mdbid
-const PWD = process.env.mdbpwd
+const USER = process.env.adminid
+const PWD = process.env.adminpwd
 const HOST = process.env.mdbhost
-const DB = 'mdb'
+const DB = 'admin'
 const mongodbURL = `mongodb://${USER}:${PWD}@${HOST}/${DB}`
 const Photo = require('./photo.js')//몽고db Schema 
 const maincrawling = require('./crawlingphoto.js')
-const photo = require('./photo.js')
 mongoose.set('strictQuery', false) // 6.0 이후 권장사항
 mongoose
 .connect(mongodbURL, { useNewUrlParser: true })
@@ -26,13 +24,14 @@ mongoose
 .catch((err) => console.log(err))
 module.exports = Photo
 module.exports = maincrawling
-
+    
 console.log(_path)
 app.use('/', express.static(_path))
 app.use(logger('tiny'))
-
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
+
+
 
 //아이디 중복체크
 app.get('/about4e1/:ID',(req, res) =>{
@@ -50,14 +49,12 @@ app.get('/about4e1/:ID',(req, res) =>{
   })
 })()
 })
-
 //회원가입
 app.post('/about4', function (req, res) {
   const A = req.body.userID
   const B = req.body.userPW
   const C = req.body.userPW2
   const D = req.body.userEM
-
   ;(async () => {
   
     const _data = {
@@ -71,12 +68,11 @@ app.post('/about4', function (req, res) {
     // console.log(t)
   })()
 })
-
 //로그인 
-app.get('/about3/:loginid/:loginpwd',(req,res)=>{
+app.get('/about3',(req,res)=>{
   // const date = req.param('date')
-  let 아이디 = req.params.loginid
-  let 비밀번호 = req.params.loginpwd
+  let 아이디 = req.body.loginid
+  let 비밀번호 = req.body.loginpwd
   ;(async()=>{
     const t = await Photo.find({아이디},{})
     .lean().then((t)=>{
@@ -85,7 +81,8 @@ app.get('/about3/:loginid/:loginpwd',(req,res)=>{
         res.json({result: 0});
       }else if(t[0].비밀번호 !==비밀번호 ){
         res.json({result:2})
-        }else {
+        }
+        else {
           res.json({result:1})
         }
   })
@@ -112,25 +109,31 @@ app.get('/about3/:loginid/:loginpwd',(req,res)=>{
    //비밀번호 찾기
 app.post('/about5up',(req,res)=>{
   let 아이디 = req.body.idid
-  let 이메일 = req.params.email2
-
+    let 이메일 = req.body.email2
   ;(async() => {
     let t = await Photo.updateOne({
       아이디 : req.body.idid,
       이메일 : req.body.email2
     },{
       $set:{
-        비밀번호: Math.floor(Math.random() * 10) 
+        비밀번호: Math.floor(Math.random() * 10),
       }
     },
     {upsert:true}
-    ).then((t)=>{
-      console.log(t);
-      res.send(t[0])
+    )
+    let tt = await Photo.find({이메일,아이디},{}).then((tt)=>{
+      console.log(tt[0])
+      if(tt[0]===undefined) {
+        res.json({result: 0});
+      }else if(tt[0].아이디 !== 아이디) {
+        res.json({result:2})
+      }else if(tt[0].이메일||이메일 === tt[0].아이디||아이디){
+        res.send(tt[0].비밀번호)
+      } 
     })
   })()
     })
-     
+
 
 // 몽고디비에서 읽어오는형식
 // 엑시오스를 이용해 받고 보내고를 할 수 있도록 만들기
@@ -141,7 +144,6 @@ app.get('/about2', (req, res) => {
   }
   main2()
 })
-
 app.listen(port, () => {
   console.log(port + '에서 서버 동작 완료.')
 })

@@ -14,12 +14,11 @@ exports.ax = async () => {
   // puppeteer 실행 (puppeteer-core가 아닌 puppeteer를 설치하면 내장 크로미움으로 실행되므로 executablePath 설정 불필요)
   // puppeteer는 비동기 함수이므로 모든 것에 async await가 들어가야함.
   const browser = await puppeteer.launch({
-    executablePath:
-    'C:/Users/ds/AppData/Local/Google/Chrome/Application/chrome.exe', // 각자의 컴퓨터에 설치 되어있는 크롬의 경로를 적을것. \금지
-    // headless: false
+    executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe',
+// headless: false
   })
   const page = await browser.newPage()
-  // url map에서 Key 값을 가져와서 반복문 실행
+  // url map에서 Key 값을 가져와서 반복문 실행s
 
   //steam url 출력값
   let url =
@@ -28,7 +27,7 @@ exports.ax = async () => {
 
   // 가격 보여지는 DIV가 페이지 나타나면, 가격 값을 가져 옴
   await page.waitForSelector('a:nth-child(1)')
-  for (let i = 1; i < 16; i++) {
+  for (let i = 1; i < 15; i++) {
     const title = await page.$eval(
       'a:nth-child(' + i + ') div.col.search_name.ellipsis span.title',
       (x) => x.innerHTML
