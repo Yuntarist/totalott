@@ -113,12 +113,12 @@ app.get('/about3/:loginid/:loginpwd',(req,res)=>{
     console.log(이메일)
     console.log(아이디)
     ;(async()=>{
-      const t = await Photo.find({이메일,아이디},{id:0,__v:0})
+      let t = await Photo.find({이메일},{id:0,__v:0})
       .lean().then((t)=>{
         console.log(t)
-       if(t[0]===undefined){
+       if(t[0] === undefined){
         res.send('0')
-       }else if(t[0].아이디 === undefined){
+       }else if(t[0].아이디 !== 아이디){
         res.send('2')
        }else if(t[0].이메일||이메일 === t[0].아아디||아이디){
         t = Photo.updateOne({
@@ -126,12 +126,12 @@ app.get('/about3/:loginid/:loginpwd',(req,res)=>{
           아이디 : req.body.ididfind
         },{
           $set:{
-            비밀번호:Math.floor(Math.random()*10)
+            비밀번호:Math.floor(Math.random() * 10)
         }
         },
         {upsert:true}
           )
-          res.send(t[0].비밀번호)
+          res.send(t)
         }
     })
   })()
