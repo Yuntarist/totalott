@@ -464,7 +464,7 @@ export default {
         userPW2: this.pwd2,
         userEM: this.email,
       };
-      axios.post("./about4", userbt);
+      axios.post("/about4", userbt);
     },
     idcheck() {
       const SuccessMessage = document.querySelector(".success-message");

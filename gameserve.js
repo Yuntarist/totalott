@@ -10,10 +10,10 @@ const port = 3000
 const _path = path.join(__dirname, './dist')
 // const crypto = require('crypto')// crypto 암호화 모듈
 //몽고db 
-const USER = process.env.adminid
-const PWD = process.env.adminpwd
+const USER = process.env.mdbid
+const PWD = process.env.mdbpwd
 const HOST = process.env.mdbhost
-const DB = 'admin'
+const DB = 'mdb'
 const mongodbURL = `mongodb://${USER}:${PWD}@${HOST}/${DB}`
 const Photo = require('./photo.js')//몽고db Schema 
 const maincrawling = require('./crawlingphoto.js')
@@ -38,7 +38,7 @@ app.get('/about4e1/:ID',(req, res) =>{
   let 아이디 = req.params.ID
   console.log(아이디)
   ;(async()=>{
-    const t = await Photo.find({아이디},{})
+    const t = await Photo.find({아이디},{id:0,__v:0})
     .lean().then((t)=>{
       console.log(t)
       if(t[0] === undefined ){
@@ -55,6 +55,7 @@ app.post('/about4', function (req, res) {
   const B = req.body.userPW
   const C = req.body.userPW2
   const D = req.body.userEM
+  console.log(A)
   ;(async () => {
   
     const _data = {
@@ -69,12 +70,11 @@ app.post('/about4', function (req, res) {
   })()
 })
 //로그인 
-app.get('/about3',(req,res)=>{
-  // const date = req.param('date')
-  let 아이디 = req.body.loginid
-  let 비밀번호 = req.body.loginpwd
+app.get('/about3/:loginid/:loginpwd',(req,res)=>{
+  let 아이디 = req.params.loginid
+  let 비밀번호 = req.params.loginpwd
   ;(async()=>{
-    const t = await Photo.find({아이디},{})
+    const t = await Photo.find({아이디},{id:0,__v:0})
     .lean().then((t)=>{
       console.log(t)
       if(t[0] === undefined ){
@@ -94,7 +94,7 @@ app.get('/about3',(req,res)=>{
   let 이메일 = req.params.emailfind
   console.log(이메일)
   ;(async()=>{
-    const t = await Photo.find({이메일},{})
+    const t = await Photo.find({이메일},{id:0,__v:0})
     .lean().then((t)=>{
       console.log(t)
       if(t[0] === undefined ){
@@ -107,29 +107,32 @@ app.get('/about3',(req,res)=>{
   })
 
    //비밀번호 찾기
-app.post('/about5up',(req,res)=>{
-  let 아이디 = req.body.idid
-    let 이메일 = req.body.email2
-  ;(async() => {
-    let t = await Photo.updateOne({
-      아이디 : req.body.idid,
-      이메일 : req.body.email2
-    },{
-      $set:{
-        비밀번호: Math.floor(Math.random() * 10),
-      }
-    },
-    {upsert:true}
-    )
-    let tt = await Photo.find({이메일,아이디},{}).then((tt)=>{
-      console.log(tt[0])
-      if(tt[0]===undefined) {
-        res.json({result: 0});
-      }else if(tt[0].아이디 !== 아이디) {
-        res.json({result:2})
-      }else if(tt[0].이메일||이메일 === tt[0].아이디||아이디){
-        res.send(tt[0].비밀번호)
-      } 
+   app.post('/about5up',(req,res)=>{
+    let 이메일 = req.body.emailfind2
+    let 아이디 = req.body.ididfind
+    console.log(이메일)
+    console.log(아이디)
+    ;(async()=>{
+      const t = await Photo.find({이메일,아이디},{id:0,__v:0})
+      .lean().then((t)=>{
+        console.log(t)
+       if(t[0]===undefined){
+        res.send('0')
+       }else if(t[0].아이디 === undefined){
+        res.send('2')
+       }else if(t[0].이메일||이메일 === t[0].아아디||아이디){
+        t = Photo.updateOne({
+          이메일 : req.body.emailfind2,
+          아이디 : req.body.ididfind
+        },{
+          $set:{
+            비밀번호:Math.floor(Math.random()*10)
+        }
+        },
+        {upsert:true}
+          )
+          res.send(t[0].비밀번호)
+        }
     })
   })()
     })

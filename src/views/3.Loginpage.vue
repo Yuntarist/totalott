@@ -54,9 +54,8 @@ export default {
   methods: {
     read: function () {
       this.data3 = "DB 데이터 읽는중...";
-      let login = { loginid: this.loginid, loginpwd: this.loginpwd };
       axios
-        .get("/about3", login)
+        .get("/about3/" + this.loginid + "/" + this.loginpwd)
         .then((res) => {
           if (res.data.result === 1) {
             alert(this.loginid + "님이 로그인하셨습니다.");

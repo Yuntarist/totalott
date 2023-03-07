@@ -79,17 +79,17 @@ label:hover {
 }
 
 #find_id:checked ~ .find_pwd_label {
-  border-bottom: 1px solid #000000;
-  box-shadow: 0px 2px 0px rgb(168, 168, 168);
+  border-left: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  /* box-shadow: 0px 2px 0px rgb(168 168 168); */
   color: #7c7c7c;
-  text-shadow: 1px 1px 0.3px #a2a2a2;
+  border-radius: 0 20px 0 0;
 }
 #find_id:checked ~ .find_id_label {
   font-weight: 100;
-  color: #002376;
-  border-top: 3px solid #002376;
+  color: #fff;
   border-right: 2px solid #000000;
-  box-shadow: 0px 3px 5px 2px gray;
+  border-radius: 20px 0 0 0;
 }
 
 #find_pwd:checked ~ .find_id_label {
@@ -101,8 +101,5 @@ label:hover {
 #find_pwd:checked ~ .find_pwd_label {
   font-weight: 100;
   color: #002376;
-  border-top: 3px solid #002376;
-  border-left: 2px solid #000000;
-  box-shadow: 5px 2px 3px gray;
 }
 </style>
