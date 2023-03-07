@@ -79,7 +79,8 @@ export default {
     axios.all([
       axios
         .get('steam_title' + this.steam_title)
-        .then((res) => (this.steam_title = res.data)),
+        .then((res) => (this.steam_title = res.data.replaceAll(',', ' '))),
+      // 마지막의 res.data에 편집가능
       axios.get('steam' + this.steam).then((res) => (this.steam = res.data)),
       axios
         .get('gamersgate_title' + this.gamersgate_title)
