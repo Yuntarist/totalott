@@ -8,7 +8,7 @@ const urlMap = new Map([
 ])
 
 // steam 시작
-const steam_title = new Object()
+const steam_title = { 이름: '' }
 const steam_price = new Object()
 const steam_discount_percent = new Object()
 const steam_discount_price = new Object()
@@ -52,11 +52,7 @@ const steam_discount_price = new Object()
           '\n',
         (x) => x.innerHTML
       )
-      steam_title.name = title
-      steam_title.name = title
-      steam_title.name = title
-      steam_title.name = title
-      // steam_title.push(title.replace('>', ''))
+      steam_title.이름 = title
       // steam_price.push(price.replace('>', ''))
       // steam_discount_percent.push(discount_percent.replace('>', ''))
       // steam_discount_price.push(discount_price.substr(-28, 9).replace('>', ''))

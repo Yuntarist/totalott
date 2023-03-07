@@ -24,7 +24,7 @@ const steam_discount_price = []
     var url = urlMap.get(v)
     await page.goto(url)
     await page.waitForSelector('a:nth-child(1)')
-    for (let i = 5; i < 21; i++) {
+    for (let i = 10; i < 21; i++) {
       // gta 오류 해결될때 까지 i는 5에서 시작
       const title = await page.$eval(
         'a:nth-child(' + i + ') div.col.search_name.ellipsis span.title' + '\n',
@@ -51,7 +51,7 @@ const steam_discount_price = []
           '\n',
         (x) => x.innerHTML
       )
-      steam_title.push(title.replace('>', ''))
+      steam_title.push(`<a href="#">` + title + `</a>`)
       steam_price.push(price.replace('>', ''))
       steam_discount_percent.push(discount_percent.replace('>', ''))
       steam_discount_price.push(discount_price.substr(-28, 9).replace('>', ''))
@@ -82,7 +82,6 @@ const gamersgate_discount_price = []
     executablePath:
       'C:/Users/ds/AppData/Local/Google/Chrome/Application/chrome.exe'
     // headless: false,
-
     // 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe'
   })
   const page = await browser.newPage()
@@ -121,7 +120,7 @@ const gamersgate_discount_price = []
           ') > div > div.catalog-item--description > div.catalog-item--price > span',
         (x) => x.innerHTML
       )
-      gamersgate_title.push(title)
+      gamersgate_title.push(`<a href="#">` + title + `</a>`)
       gamersgate_price.push(
         price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')
       )
@@ -186,7 +185,7 @@ const greenmangaming_discount_price = []
           ') > div > div > div > div > div > div > div.top-section > div.prices-section > div.prices > span.current-price',
         (x) => x.innerHTML
       )
-      greenmangaming_title.push(title)
+      greenmangaming_title.push(`<a href="#">` + title + `</a>`)
       greenmangaming_price.push(price)
       greenmangaming_discount_percent.push(discount_percent)
       greenmangaming_discount_price.push(discount_price)
@@ -228,7 +227,7 @@ const dream_discount_price = []
     await page.waitForSelector(
       '#TwoColumns > div.row > div.col-lg-9 > div.row.row-cols-2.row-cols-sm-2.row-cols-md-4.row-cols-lg-4.row-cols-xl-4.gx-3 > div:nth-child(14)'
     )
-    for (let i = 1; i < 21; i++) {
+    for (let i = 6; i < 21; i++) {
       let title = await page.$eval(
         'div:nth-child(' +
           i +
@@ -253,7 +252,7 @@ const dream_discount_price = []
           ') > a > div > div.card-body.mh-150 > p.cardprice',
         (x) => x.innerHTML
       )
-      dream_title.push(title.replace('&n', ''))
+      dream_title.push(`<a href="#">` + title.replace('&n', '') + `</a>`)
       dream_price.push(price.replace('&n', ''))
       dream_discount_percent.push(discount_percent.replace('&n', ''))
       dream_discount_price.push(discount_price.substr(0, 7).replace('&n', ''))
