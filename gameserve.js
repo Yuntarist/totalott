@@ -83,6 +83,7 @@ app.get('/about3/:loginid/:loginpwd',(req,res)=>{
         res.json({result:2})
         }
         else {
+          res.cookie('user_id', t[0].아이디);
           res.json({result:1})
         }
   })
