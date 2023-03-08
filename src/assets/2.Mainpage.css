@@ -30,8 +30,10 @@
   background: rgba(228, 225, 225, 0.678);
 }
 /* .steam_title {
+  float: left;
 }
 .steam {
+  float: left;
 } */
 .gamersgate_title {
   margin-left: 100px;

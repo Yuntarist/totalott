@@ -54,10 +54,18 @@ const steam_discount_price = []
       steam_title.push(
         `<div class="steam_title"><a href="#">` + title + `</a></div>`
       )
-      steam_price.push(`<div class="steam>` + price.replace('>', ''))
-      steam_discount_percent.push(discount_percent.replace('>', ''))
+      steam_price.push(
+        `<div class="steam_price">` + price.replace('>', '') + `</div>`
+      )
+      steam_discount_percent.push(
+        `<div class="steam_discount_percent">` +
+          discount_percent.replace('>', '') +
+          `</div>`
+      )
       steam_discount_price.push(
-        discount_price + `</div>`.substr(-28, 9).replace('>', '')
+        `<div class="steam_discount_price">` +
+          discount_price.substr(-28, 9).replace('>', '') +
+          `</div>`
       )
     }
     console.log(v + ' (title)', steam_title + '\n')
@@ -298,12 +306,7 @@ const dream_discount_price = []
     a5.push(aa3[i])
     a5.push(aa4[i])
   }
-  // for (let i = 0; i < aa1.length; i++) {
-  //   ;`<div><a href= "#">${a5.push(aa1[i])}</a>
-  //   ${a5.push(aa2[i])}
-  //   ${a5.push(aa3[i])}
-  //   ${a5.push(aa4[i])}</div>`
-  // }
+
   const b1 = gamersgate_title
   const bb1 = Object.values(b1)
   const b2 = gamersgate_price
