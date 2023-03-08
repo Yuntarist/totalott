@@ -93,13 +93,12 @@ label:hover {
 }
 
 #find_pwd:checked ~ .find_id_label {
-  border-bottom: 1px solid #000000;
-  box-shadow: 0px 2px 0px rgb(168, 168, 168);
+  border-bottom: 1px solid #fff;
+  border-right: 1px solid #fff;
   color: #7c7c7c;
-  text-shadow: 1px 1px 0.3px #a2a2a2;
 }
 #find_pwd:checked ~ .find_pwd_label {
   font-weight: 100;
-  color: #002376;
+  color: #fff;
 }
 </style>

@@ -21,10 +21,10 @@ export default {
         ididfind: this.ididfind,
       };
       axios.post("/about5up", pwdfindd).then((res) => {
-        if (res.data == "0") {
+        if (res.data.result === 0) {
           console.log(res);
           this.passcome = "존재하지 않는 회원입니다.";
-        } else if (res.data == "2") {
+        } else if (res.data.result === 2) {
           this.passcome = "아이디 찾기를 해주세요.";
         } else {
           this.passcome = res.data;
