@@ -29,15 +29,10 @@
 .newaccountbtn:hover {
   background: rgba(228, 225, 225, 0.678);
 }
-.steam_title {
-  margin-left: 100px;
-  margin-right: 100px;
-  text-align: left;
+/* .steam_title {
 }
 .steam {
-  margin-left: 100px;
-  text-align: left;
-}
+} */
 .gamersgate_title {
   margin-left: 100px;
   text-align: left;

@@ -51,10 +51,14 @@ const steam_discount_price = []
           '\n',
         (x) => x.innerHTML
       )
-      steam_title.push(`<a href="#">` + title + `</a>`)
-      steam_price.push(price.replace('>', ''))
+      steam_title.push(
+        `<div class="steam_title"><a href="#">` + title + `</a></div>`
+      )
+      steam_price.push(`<div class="steam>` + price.replace('>', ''))
       steam_discount_percent.push(discount_percent.replace('>', ''))
-      steam_discount_price.push(discount_price.substr(-28, 9).replace('>', ''))
+      steam_discount_price.push(
+        discount_price + `</div>`.substr(-28, 9).replace('>', '')
+      )
     }
     console.log(v + ' (title)', steam_title + '\n')
     console.log(v + ' (price)', steam_price)
@@ -374,3 +378,4 @@ const dream_discount_price = []
 })()
 
 // 백틱을 활용할것 근데 왜 됨?
+// 하나의 큰 div클래스에 타이틀 / 나머지 가격과 할인율 들어갈 수 있도록 하기
