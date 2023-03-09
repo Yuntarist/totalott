@@ -124,6 +124,7 @@ app.get('/about3/:loginid/:loginpwd',(req,res)=>{
         let ranPick3 = Math.floor(Math.random() * ranValue3.length);
         let ranPick4 = Math.floor(Math.random() * ranValue4.length);
         temp_pw = temp_pw + ranValue1[ranPick1] + ranValue2[ranPick2] + ranValue3[ranPick3] + ranValue4[ranPick4];
+        console.log(ranValue1[ranPick1])
       }
 
     console.log(req.body)
@@ -139,7 +140,7 @@ app.get('/about3/:loginid/:loginpwd',(req,res)=>{
         console.log(t)
         t = Photo.find({이메일},{id:0,__v:0})
         .lean().then((t)=>{
-          // console.log(t)
+          console.log(t)
           if(t[0]=== undefined||""){
             res.json({result:0})
           }else if(t[0].아이디 !==아이디){
