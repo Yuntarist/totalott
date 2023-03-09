@@ -111,7 +111,7 @@ app.get("/about5/:fid", (req, res) => {
         if (t[0] === undefined) {
           res.json({ result: 1 });
         } else if (t[0].아이디 === 아이디) {
-          res.send("인증됨");
+          res.send(t[0].아이디);
         }
       });
   })();

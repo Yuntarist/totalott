@@ -6,7 +6,7 @@
   <br />
   <div>
     <input id="find" type="text" v-model="fid" />
-    <button class="psub" @click="submit()">확인</button>
+    <button class="psub" @click="ssubmit()">확인</button>
     <p class="userid imsg">아이디를 입력하세요.</p>
     <p>{{ findpwd }}</p>
   </div>
@@ -47,7 +47,7 @@ export default {
     });
   },
   methods: {
-    submit: function () {
+    ssubmit: function () {
       axios.get("/about5/" + this.fid).then((res) => {
         if (res.data.result === 1) {
           this.findpwd = "존재하지 않는 아이디입니다.";
