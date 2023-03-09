@@ -4,8 +4,10 @@ const express = require('express')
 const path = require('path')
 const logger = require('morgan')
 const history = require('connect-history-api-fallback') //새로고침후 데이터 유지
+let cookieParser = require('cookie-parser')
 const app = express()
 app.use(history())
+app.use(cookieParser())
 const port = 3000
 const _path = path.join(__dirname, './dist')
 // const crypto = require('crypto')// crypto 암호화 모듈
@@ -86,8 +88,10 @@ app.get('/about3/:loginid/:loginpwd',(req,res)=>{
           res.cookie('user_id', t[0].아이디);
           res.json({result:1})
         }
+
   })
 })()
+
   })
 
   //아이디 찾기
@@ -138,6 +142,7 @@ app.get('/about3/:loginid/:loginpwd',(req,res)=>{
       {upsert:true}
         )
         console.log(t)
+        //비밀번호 변경조회
         t = Photo.find({이메일},{id:0,__v:0})
         .lean().then((t)=>{
           console.log(t)
@@ -161,6 +166,16 @@ app.get('/about2', (req, res) => {
     res.send(t2)
   }
   main2()
+})
+//메인페이지 아이디 쿠키전송
+app.get('/main', (req,res)=>{
+  res.send(req.cookies.user_id)
+  console.log(req.cookies)
+})
+//메인페이지 아이디 쿠키 삭제
+app.get('/delete', function(req, res) {
+  res.clearCookie('user_id');
+  res.redirect('/');
 })
 app.listen(port, () => {
   console.log(port + '에서 서버 동작 완료.')
