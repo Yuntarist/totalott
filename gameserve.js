@@ -91,9 +91,8 @@ app.get('/about3/:loginid/:loginpwd',(req,res)=>{
   })
 
   //아이디 찾기
-  app.post('/about5/:emailfind',(req,res)=>{
-  let 이메일 = req.params.emailfind
-  console.log(이메일)
+  app.post('/about5',(req,res)=>{
+  let 이메일 = req.body.email
   ;(async()=>{
     const t = await Photo.find({이메일},{id:0,__v:0})
     .lean().then((t)=>{
@@ -109,23 +108,47 @@ app.get('/about3/:loginid/:loginpwd',(req,res)=>{
 
    //비밀번호 찾기
    app.post('/about5up',(req,res)=>{
-    let 이메일 = req.body.emailfind2
-    let 아이디 = req.body.ididfind
-    console.log(이메일)
-    console.log(아이디)
-    ;(async()=>{
-      let t = await Photo.find({이메일},{})
-      .lean().then((t)=>{
-        console.log(t)
-       if(t[0] === undefined){
-        res.json({result: 0});
-       }else if(t[0].아이디 !== 아이디){
-        res.json({result: 2});
-       }else if(t[0].이메일||이메일 === t[0].아아디||아이디){
-          res.send(t[0].비밀번호)
+    let 이메일 = req.body.email
+    let 아이디 = req.body.id
+  //임시비밀번호 
+      let ranValue1 = ['1','2','3','4','5','6','7','8','9','0'];
+      let ranValue2 = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+      let ranValue3 = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+      let ranValue4 = ['!','@','#','$','%','^','&','*','(',')'];
+      
+      let temp_pw = "";
+      
+      for(i=0 ; i<2; i++) {
+        let ranPick1 = Math.floor(Math.random() * ranValue1.length);
+        let ranPick2 = Math.floor(Math.random() * ranValue2.length);
+        let ranPick3 = Math.floor(Math.random() * ranValue3.length);
+        let ranPick4 = Math.floor(Math.random() * ranValue4.length);
+        temp_pw = temp_pw + ranValue1[ranPick1] + ranValue2[ranPick2] + ranValue3[ranPick3] + ranValue4[ranPick4];
       }
-    })
-  })()
+
+    console.log(req.body)
+    ;(async() => {
+      let t = await Photo.updateOne({
+      },{
+        $set:{
+         비밀번호 : temp_pw
+      }
+      },
+      {upsert:true}
+        )
+        console.log(t)
+        t = Photo.find({이메일},{id:0,__v:0})
+        .lean().then((t)=>{
+          // console.log(t)
+          if(t[0]=== undefined||""){
+            res.json({result:0})
+          }else if(t[0].아이디 !==아이디){
+            res.json({result:2})
+          }else if(t[0].이메일||이메일 ===t[0].아이디||아이디){
+            res.send(t[0].비밀번호)
+          }
+        })
+    })()
     })
 
 

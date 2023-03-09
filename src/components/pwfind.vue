@@ -16,20 +16,22 @@ export default {
   },
   methods: {
     pwdfind() {
-      let pwdfindd = {
-        emailfind2: this.emailfind2,
-        ididfind: this.ididfind,
-      };
-      axios.post("/about5up", pwdfindd).then((res) => {
-        if (res.data.result === 0) {
-          console.log(res);
-          this.passcome = "존재하지 않는 회원입니다.";
-        } else if (res.data.result === 2) {
-          this.passcome = "아이디 찾기를 해주세요.";
-        } else {
-          this.passcome = res.data;
-        }
-      });
+      axios
+        .post("/about5up", {
+          email: this.emailfind2,
+          id: this.ididfind,
+          passcome: this.passcome,
+        })
+        .then((res) => {
+          if (res.data.result === 0) {
+            console.log(res);
+            this.passcome = "존재하지 않는 회원입니다.";
+          } else if (res.data.result === 2) {
+            this.passcome = "아이디 찾기를 해주세요.";
+          } else {
+            this.passcome = res.data;
+          }
+        });
     },
   },
 };

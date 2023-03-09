@@ -16,7 +16,7 @@ export default {
   },
   methods: {
     idfind() {
-      axios.post("/about5/" + this.emailfind).then((res) => {
+      axios.post("/about5", { email: this.emailfind }).then((res) => {
         if (res.data.result === 1) {
           this.emailcome = "존재하지 않는 회원입니다.";
         } else {
