@@ -52,7 +52,9 @@ const steam_discount_price = []
         (x) => x.innerHTML
       )
       steam_title.push(
-        `<div class="steam_title"><a href="#">` + title + `</a></div>`
+        `<div class="steam_title"><a href="https://store.steampowered.com/search/?specials=1&filter=topsellers&supportedlang=english&ndl=1" target="_blank">` +
+          title +
+          `</a></div>`
       )
       steam_price.push(
         `<div class="steam_price">` + price.replace('>', '') + `</div>`
@@ -261,7 +263,7 @@ const dream_discount_price = []
     await page.waitForSelector(
       '#TwoColumns > div.row > div.col-lg-9 > div.row.row-cols-2.row-cols-sm-2.row-cols-md-4.row-cols-lg-4.row-cols-xl-4.gx-3 > div:nth-child(14)'
     )
-    for (let i = 6; i < 15; i++) {
+    for (let i = 6; i < 16; i++) {
       let title = await page.$eval(
         'div:nth-child(' +
           i +
