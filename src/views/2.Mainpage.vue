@@ -1,7 +1,9 @@
 <template>
   <hr />
-  <button class="loginbtn" @click="move1">로그인</button>
-  <button class="newaccountbtn" @click="move2">회원가입</button>
+  <div>
+    <button class="loginbtn" @click="move1">로그인</button>
+    <button class="newaccountbtn" @click="move2">회원가입</button>
+  </div>
   <br />
   <br />
   <br />
@@ -9,22 +11,26 @@
   <br />
   <!-- v-html을 이용할 경우 DB안에 저장된 HTML태그도 적용되는걸 확인할 수 있다
   DB에 들어가는 것들에 전부 a태그를 넣어 모달창을 실행할 수 있도록 해볼것 230307. -->
+  <h4>게임 제목 클릭 시 구매 페이지로 이동합니다</h4>
   <div class="steam">
-    <div>steam</div>
+    <div id="steam">
+      <img class="steam_logo" src="../assets/steam.png" /> <br />
+      Steam
+    </div>
     <div v-html="steam_title"></div>
     <div v-html="steam_price"></div>
     <div v-html="steam_discount_percent"></div>
     <div v-html="steam_discount_price"></div>
   </div>
   <div class="gamersgate">
-    <div>gamersgate</div>
+    <div>Gamersgate</div>
     <div v-html="gamersgate_title"></div>
     <div v-html="gamersgate_price"></div>
     <div v-html="gamersgate_discount_percent"></div>
     <div v-html="gamersgate_discount_price"></div>
   </div>
   <div class="greenmangaming">
-    <div>greenmangaming</div>
+    <div>Greenmangaming</div>
     <div v-html="greenmangaming_title"></div>
     <div v-html="greenmangaming_price"></div>
     <div v-html="greenmangaming_discount_percent"></div>

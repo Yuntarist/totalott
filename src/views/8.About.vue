@@ -3,20 +3,16 @@
 
   <h1>자주하는 질문</h1>
   <div class="qna-body">
-    <div>
+    <div v-for="(item, i) in list" :key="i">
       <details class="alist">
-        <summary>Steam은 어떻게 설치하나요 ?</summary>
-        <a
-          href="https://store.steampowered.com/about/"
-          class="alist"
-          target="_blank"
-        >
-          스팀 설치 사이트</a
-        >
+        <summary>{{ item }}</summary>
+        <div v-for="(item2, a) in answer" :key="a">
+          <a href="#" class="alist"> {{ item2 }}</a>
+        </div>
       </details>
     </div>
 
-    <div>
+    <!-- <div>
       <details class="alist">
         <summary>Gamesgate는 어떻게 설치하나요 ?</summary>
         <a href="#">수정중</a>
@@ -73,7 +69,7 @@
     <div>
       <a href="#" class="alist">게임주문을 환불/취소할 수 있나요 ?</a>
       <p></p>
-    </div>
+    </div> -->
   </div>
   <div class="btn-circle">
     <div class="bt-add">
@@ -87,11 +83,12 @@
           <div class="modal-header">
             <span>무엇을 도와드릴까요?</span>
           </div>
-          <div class="bt-box">
-            <button class="list-bt" @click="ds">도움말</button>
-            <button class="list-bt" @click="da">수정중</button>
-            <button class="list-bt">수정중</button>
-            <button class="list-bt">수정중</button>
+          <div class="qna-box">
+            <div><a href="#">게임문의</a></div>
+            <div><a href="#">결제문의</a></div>
+            <div><a href="#">계정문의</a></div>
+            <div><a href="#">버그문의</a></div>
+            <div><a href="#">할인문의</a></div>
           </div>
           {{ test }}
         </div>
@@ -112,6 +109,13 @@ export default {
   name: 'app',
   data() {
     return {
+      list: [
+        'Steam은 어떻게 설치하나요 ?',
+        'Gamesgate는 어떻게 설치하나요 ?',
+        'Greengaming은 어떻게 설치하나요?',
+        'Dreamgame은 어떻게 설치하나요 ?'
+      ],
+      answer: ['steam 설치 사이트', '수정중', '수정중', '수정중'],
       dada: '',
       date: '',
       test: ''
