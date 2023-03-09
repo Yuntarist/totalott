@@ -82,18 +82,48 @@ app.get('/steam_title', (req, res) => {
   }
   main3()
 })
-app.get('/steam', (req, res) => {
+app.get('/steam_price', (req, res) => {
   const main3 = async () => {
     const t = await maincrawling.find(
       {},
       {
-        steam_all: 1,
+        steam_price: 1,
         _id: 0
       }
     )
-    console.log(t[0].steam_all)
+    console.log(t[0].steam_price)
     console.log(typeof t)
-    res.send(t[0].steam_all)
+    res.send(t[0].steam_price)
+  }
+  main3()
+})
+app.get('/steam_discount_percent', (req, res) => {
+  const main3 = async () => {
+    const t = await maincrawling.find(
+      {},
+      {
+        steam_discount_percent: 1,
+        _id: 0
+      }
+    )
+    console.log(t[0].steam_discount_percent)
+    console.log(typeof t)
+    res.send(t[0].steam_discount_percent)
+  }
+  main3()
+})
+app.get('/steam_discount_price', (req, res) => {
+  const main3 = async () => {
+    const t = await maincrawling.find(
+      {},
+      {
+        steam_discount_price: 1,
+        _id: 0
+      }
+    )
+    console.log(t[0].steam_discount_price)
+    console.log(typeof t)
+    res.send(t[0].steam_discount_price)
   }
   main3()
 })
@@ -106,24 +136,55 @@ app.get('/gamersgate_title', (req, res) => {
         _id: 0
       }
     )
+
     console.log(t[0].gamersgate_title)
     console.log(typeof t)
     res.send(t[0].gamersgate_title)
   }
   main3()
 })
-app.get('/gamersgate', (req, res) => {
+app.get('/gamersgate_price', (req, res) => {
   const main3 = async () => {
     const t = await maincrawling.find(
       {},
       {
-        gamersgate_all: 1,
+        gamersgate_price: 1,
         _id: 0
       }
     )
-    console.log(t[0].gamersgate_all)
+    console.log(t[0].gamersgate_price)
     console.log(typeof t)
-    res.send(t[0].gamersgate_all)
+    res.send(t[0].gamersgate_price)
+  }
+  main3()
+})
+app.get('/gamersgate_discount_percent', (req, res) => {
+  const main3 = async () => {
+    const t = await maincrawling.find(
+      {},
+      {
+        gamersgate_discount_percent: 1,
+        _id: 0
+      }
+    )
+    console.log(t[0].gamersgate_discount_percent)
+    console.log(typeof t)
+    res.send(t[0].gamersgate_discount_percent)
+  }
+  main3()
+})
+app.get('/gamersgate_discount_price', (req, res) => {
+  const main3 = async () => {
+    const t = await maincrawling.find(
+      {},
+      {
+        gamersgate_discount_price: 1,
+        _id: 0
+      }
+    )
+    console.log(t[0].gamersgate_discount_price)
+    console.log(typeof t)
+    res.send(t[0].gamersgate_discount_price)
   }
   main3()
 })
@@ -136,24 +197,55 @@ app.get('/greenmangaming_title', (req, res) => {
         _id: 0
       }
     )
+
     console.log(t[0].greenmangaming_title)
     console.log(typeof t)
     res.send(t[0].greenmangaming_title)
   }
   main3()
 })
-app.get('/greenmangaming', (req, res) => {
+app.get('/greenmangaming_price', (req, res) => {
   const main3 = async () => {
     const t = await maincrawling.find(
       {},
       {
-        greenmangaming_all: 1,
+        greenmangaming_price: 1,
         _id: 0
       }
     )
-    console.log(t[0].greenmangaming_all)
+    console.log(t[0].greenmangaming_price)
     console.log(typeof t)
-    res.send(t[0].greenmangaming_all)
+    res.send(t[0].greenmangaming_price)
+  }
+  main3()
+})
+app.get('/greenmangaming_discount_percent', (req, res) => {
+  const main3 = async () => {
+    const t = await maincrawling.find(
+      {},
+      {
+        greenmangaming_discount_percent: 1,
+        _id: 0
+      }
+    )
+    console.log(t[0].greenmangaming_discount_percent)
+    console.log(typeof t)
+    res.send(t[0].greenmangaming_discount_percent)
+  }
+  main3()
+})
+app.get('/greenmangaming_discount_price', (req, res) => {
+  const main3 = async () => {
+    const t = await maincrawling.find(
+      {},
+      {
+        greenmangaming_discount_price: 1,
+        _id: 0
+      }
+    )
+    console.log(t[0].greenmangaming_discount_price)
+    console.log(typeof t)
+    res.send(t[0].greenmangaming_discount_price)
   }
   main3()
 })
@@ -166,24 +258,55 @@ app.get('/dream_title', (req, res) => {
         _id: 0
       }
     )
+
     console.log(t[0].dream_title)
     console.log(typeof t)
     res.send(t[0].dream_title)
   }
   main3()
 })
-app.get('/dream', (req, res) => {
+app.get('/dream_price', (req, res) => {
   const main3 = async () => {
     const t = await maincrawling.find(
       {},
       {
-        dream_all: 1,
+        dream_price: 1,
         _id: 0
       }
     )
-    console.log(t[0].dream_all)
+    console.log(t[0].dream_price)
     console.log(typeof t)
-    res.send(t[0].dream_all)
+    res.send(t[0].dream_price)
+  }
+  main3()
+})
+app.get('/dream_discount_percent', (req, res) => {
+  const main3 = async () => {
+    const t = await maincrawling.find(
+      {},
+      {
+        dream_discount_percent: 1,
+        _id: 0
+      }
+    )
+    console.log(t[0].dream_discount_percent)
+    console.log(typeof t)
+    res.send(t[0].dream_discount_percent)
+  }
+  main3()
+})
+app.get('/dream_discount_price', (req, res) => {
+  const main3 = async () => {
+    const t = await maincrawling.find(
+      {},
+      {
+        dream_discount_price: 1,
+        _id: 0
+      }
+    )
+    console.log(t[0].dream_discount_price)
+    console.log(typeof t)
+    res.send(t[0].dream_discount_price)
   }
   main3()
 })

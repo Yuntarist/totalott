@@ -29,33 +29,74 @@
 .newaccountbtn:hover {
   background: rgba(228, 225, 225, 0.678);
 }
-/* .steam_title {
-  float: left;
-}
 .steam {
-  float: left;
-} */
-.gamersgate_title {
+  display: flex;
   margin-left: 100px;
+}
+.steam_title {
+  margin-left: 100px;
+  flex-direction: column;
   text-align: left;
+}
+.steam_price {
+  flex-direction: column;
+  margin-left: 50px;
+  text-decoration: line-through;
+}
+.steam_discount_percent {
+  flex-direction: column;
+  margin-left: 10px;
+  color: red;
+}
+.steam_discount_price {
+  flex-direction: column;
+  margin-left: 50px;
 }
 .gamersgate {
-  margin-left: 100px;
+  display: flex;
+}
+.gamersgate_title {
+  flex-direction: column;
   text-align: left;
 }
-.greenmangaming_title {
-  margin-left: 100px;
-  text-align: left;
+.gamersgate_price {
+  flex-direction: column;
+}
+.gamersgate_discount_percent {
+  flex-direction: column;
+}
+.gamersgate_discount_price {
+  flex-direction: column;
 }
 .greenmangaming {
-  margin-left: 100px;
+  display: flex;
+}
+.greenmangaming_title {
+  flex-direction: column;
   text-align: left;
 }
-.dream_title {
-  margin-left: 100px;
-  text-align: left;
+.greenmangaming_price {
+  flex-direction: column;
+}
+.greenmangaming_discount_percent {
+  flex-direction: column;
+}
+.greenmangaming_discount_price {
+  flex-direction: column;
 }
 .dream {
-  margin-left: 100px;
+  display: flex;
+}
+.dream_title {
+  flex-direction: column;
   text-align: left;
+}
+.dream_price {
+  flex-direction: column;
+}
+.dream_discount_percent {
+  flex-direction: column;
+}
+.dream_discount_price {
+  flex-direction: column;
 }
