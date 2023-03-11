@@ -29,10 +29,87 @@
 .newaccountbtn:hover {
   background: rgba(228, 225, 225, 0.678);
 }
-::placeholder {
-  text-align: center;
-  color: rgba(160, 160, 158, 0.72);
-}
 .steam {
+  display: flex;
+  margin-left: 100px;
+}
+/* #steam {
+  font-size: 30px;
+} */
+.steam_title {
+  margin-left: 100px;
+  flex-direction: column;
   text-align: left;
+}
+.steam_price {
+  flex-direction: column;
+  margin-left: 50px;
+  text-decoration: line-through;
+}
+.steam_discount_percent {
+  flex-direction: column;
+  margin-left: 10px;
+  color: red;
+}
+.steam_discount_price {
+  flex-direction: column;
+  margin-left: 50px;
+}
+.steam_logo {
+  width: 200px;
+  height: 200px;
+  font-size: 30px;
+}
+.steam_logo_text {
+  padding-left: 50px;
+  font-size: 30px;
+  font-weight: bold;
+}
+.gamersgate {
+  display: flex;
+}
+.gamersgate_title {
+  flex-direction: column;
+  text-align: left;
+}
+.gamersgate_price {
+  flex-direction: column;
+}
+.gamersgate_discount_percent {
+  flex-direction: column;
+}
+.gamersgate_discount_price {
+  flex-direction: column;
+}
+.greenmangaming {
+  display: flex;
+}
+.greenmangaming_title {
+  flex-direction: column;
+  text-align: left;
+}
+.greenmangaming_price {
+  flex-direction: column;
+}
+.greenmangaming_discount_percent {
+  flex-direction: column;
+}
+.greenmangaming_discount_price {
+  flex-direction: column;
+}
+.dream {
+  display: flex;
+}
+.dream_title {
+  flex-direction: column;
+  text-align: left;
+}
+.dream_price {
+  flex-direction: column;
+}
+.dream_discount_percent {
+  flex-direction: column;
+}
+.dream_discount_price {
+  flex-direction: column;
 }

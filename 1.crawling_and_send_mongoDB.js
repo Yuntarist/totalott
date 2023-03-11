@@ -15,8 +15,10 @@ const steam_discount_price = [];
 (async () => {
   const browser = await puppeteer.launch({
     executablePath:
-      "C:/Users/ds/AppData/Local/Google/Chrome/Application/chrome.exe",
+      "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+    // 'C:/Users/ds/AppData/Local/Google/Chrome/Application/chrome.exe'
     // headless: false,
+    // 노트북으로 할 때 크롬 경로를 다시 지정해 줄것.
   });
   const page = await browser.newPage();
   let urlKeys = urlMap.keys();
@@ -24,35 +26,53 @@ const steam_discount_price = [];
     var url = urlMap.get(v);
     await page.goto(url);
     await page.waitForSelector("a:nth-child(1)");
-    for (let i = 1; i < 21; i++) {
+    for (let i = 11; i < 21; i++) {
+      // gta 오류 해결될때 까지 i는 5에서 시작
       const title = await page.$eval(
-        "a:nth-child(" + i + ") div.col.search_name.ellipsis span.title",
+        "a:nth-child(" + i + ") div.col.search_name.ellipsis span.title" + "\n",
         (x) => x.innerHTML
       );
       const price = await page.$eval(
         "a:nth-child(" +
           i +
-          ") div.responsive_search_name_combined div.col.search_price_discount_combined.responsive_secondrow div.col.search_price.discounted.responsive_secondrow span strike",
+          ") div.responsive_search_name_combined div.col.search_price_discount_combined.responsive_secondrow div.col.search_price.discounted.responsive_secondrow span strike" +
+          "\n",
         (x) => x.innerHTML
       );
       const discount_percent = await page.$eval(
         "a:nth-child(" +
           i +
-          ") div.responsive_search_name_combined div.col.search_price_discount_combined.responsive_secondrow div.col.search_discount.responsive_secondrow span",
+          ") div.responsive_search_name_combined div.col.search_price_discount_combined.responsive_secondrow div.col.search_discount.responsive_secondrow span" +
+          "\n",
         (x) => x.innerHTML
       );
       const discount_price = await page.$eval(
         "a:nth-child(" +
           i +
-          ") div.responsive_search_name_combined div.col.search_price_discount_combined.responsive_secondrow div.col.search_price.discounted.responsive_secondrow",
+          ") div.responsive_search_name_combined div.col.search_price_discount_combined.responsive_secondrow div.col.search_price.discounted.responsive_secondrow" +
+          "\n",
         (x) => x.innerHTML
       );
-      steam_title.push(title.replace(">", ""));
-      steam_price.push(price.replace(">", ""));
-      steam_discount_percent.push(discount_percent.replace(">", ""));
-      steam_discount_price.push(discount_price.substr(-28, 9).replace(">", ""));
+      steam_title.push(
+        `<div class="steam_title"><a href="https://store.steampowered.com/search/?specials=1&filter=topsellers&supportedlang=english&ndl=1" target="_blank">` +
+          title +
+          `</a></div>`
+      );
+      steam_price.push(
+        `<div class="steam_price">` + price.replace(">", "") + `</div>`
+      );
+      steam_discount_percent.push(
+        `<div class="steam_discount_percent">` +
+          discount_percent.replace(">", "") +
+          `</div>`
+      );
+      steam_discount_price.push(
+        `<div class="steam_discount_price">` +
+          discount_price.substr(-28, 9).replace(">", "") +
+          `</div>`
+      );
     }
-    console.log(v + " (title)", steam_title);
+    console.log(v + " (title)", steam_title + "\n");
     console.log(v + " (price)", steam_price);
     console.log(v + " (dispercent)", steam_discount_percent);
     console.log(v + " (disprice)", steam_discount_price);
@@ -73,13 +93,12 @@ const gamersgate_price = [];
 const gamersgate_discount_percent = [];
 const gamersgate_discount_price = [];
 (async () => {
-  // puppeteer 실행 (puppeteer-core가 아닌 puppeteer를 설치하면 내장 크로미움으로 실행되므로 executablePath 설정 불필요)
   const browser = await puppeteer.launch({
     executablePath:
-      "C:/Users/ds/AppData/Local/Google/Chrome/Application/chrome.exe",
+      "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+    // 'C:/Users/ds/AppData/Local/Google/Chrome/Application/chrome.exe'
     // headless: false,
-
-    // 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe'
+    // 노트북으로 할 때 크롬 경로를 다시 지정해 줄것.
   });
   const page = await browser.newPage();
 
@@ -94,7 +113,7 @@ const gamersgate_discount_price = [];
     await page.waitForSelector(
       "body > main > section > div > div > div.column.column-content > div > div.catalog-list-decorator > div > div:nth-child(1)"
     );
-    for (let i = 1; i < 21; i++) {
+    for (let i = 1; i < 11; i++) {
       let title = await page.$eval(
         "div:nth-child(" +
           i +
@@ -117,12 +136,22 @@ const gamersgate_discount_price = [];
           ") > div > div.catalog-item--description > div.catalog-item--price > span",
         (x) => x.innerHTML
       );
-      gamersgate_title.push(title);
-      gamersgate_price.push(
-        price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")
+      gamersgate_title.push(
+        `<div class="gamersgate_title"><a href="#">` + title + `</a></div>`
       );
-      gamersgate_discount_percent.push(discount_percent);
-      gamersgate_discount_price.push(discount_price);
+      gamersgate_price.push(
+        `<div class="gamersgate_price">` +
+          price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",") +
+          `</div>`
+      );
+      gamersgate_discount_percent.push(
+        `<div class="gamersgate_discount_percent">` +
+          discount_percent +
+          `</div>`
+      );
+      gamersgate_discount_price.push(
+        `<div class="gamersgate_discount_price">` + discount_price + `</div>`
+      );
     }
     console.log(v + " (title)", gamersgate_title);
     console.log(v + " (price)", gamersgate_price);
@@ -144,22 +173,23 @@ const greenmangaming_discount_price = [];
 (async () => {
   const browser = await puppeteer.launch({
     executablePath:
-      "C:/Users/ds/AppData/Local/Google/Chrome/Application/chrome.exe",
+      "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+    // 'C:/Users/ds/AppData/Local/Google/Chrome/Application/chrome.exe'
+    // headless: false,
+    // 노트북으로 할 때 크롬 경로를 다시 지정해 줄것.
   });
   const page = await browser.newPage();
-
   // url map에서 Key 값을 가져와서 반복문 실행
   let urlKeys = urlMap3.keys();
   for (var v of urlKeys) {
     // map에 저장된 url 가져와서 순차적으로 방문
     var url = urlMap3.get(v);
     await page.goto(url);
-
     // 가격 보여지는 DIV가 페이지 나타나면, 가격 값을 가져 옴
     await page.waitForSelector(
       "#hits > div:nth-child(2) > div > ol > li:nth-child(1)"
     );
-    for (let i = 1; i < 21; i++) {
+    for (let i = 1; i < 11; i++) {
       let title = await page.$eval(
         "li:nth-child(" +
           i +
@@ -184,20 +214,30 @@ const greenmangaming_discount_price = [];
           ") > div > div > div > div > div > div > div.top-section > div.prices-section > div.prices > span.current-price",
         (x) => x.innerHTML
       );
-      greenmangaming_title.push(title);
-      greenmangaming_price.push(price);
-      greenmangaming_discount_percent.push(discount_percent);
-      greenmangaming_discount_price.push(discount_price);
+      greenmangaming_title.push(
+        `<div class="greenmangaming_title"><a href="#">` + title + `</a></div>`
+      );
+      greenmangaming_price.push(
+        `<div class="greenmangaming_price">` + price + `</div>`
+      );
+      greenmangaming_discount_percent.push(
+        `<div class="greenmangaming_discount_percent">` +
+          discount_percent +
+          `</div>`
+      );
+      greenmangaming_discount_price.push(
+        `<div class="greenmangaming_discount_price">` +
+          discount_price +
+          `</div>`
+      );
     }
     console.log(v + " (title)", greenmangaming_title);
     console.log(v + " (price)", greenmangaming_price);
     console.log(v + " (dispercent)", greenmangaming_discount_percent);
     console.log(v + " (disprice)", greenmangaming_discount_price);
   }
-
   await browser.close();
 })();
-
 // dreamgame 시작
 const urlMap4 = new Map([
   ["dream", "https://www.dreamgame.com/en/games?orderby=30"],
@@ -207,13 +247,12 @@ const dream_price = [];
 const dream_discount_percent = [];
 const dream_discount_price = [];
 (async () => {
-  // puppeteer 실행 (puppeteer-core가 아닌 puppeteer를 설치하면 내장 크로미움으로 실행되므로 executablePath 설정 불필요)
   const browser = await puppeteer.launch({
     executablePath:
-      "C:/Users/ds/AppData/Local/Google/Chrome/Application/chrome.exe",
+      "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+    // 'C:/Users/ds/AppData/Local/Google/Chrome/Application/chrome.exe'
     // headless: false,
-
-    // 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe'
+    // 노트북으로 할 때 크롬 경로를 다시 지정해 줄것.
   });
   const page = await browser.newPage();
 
@@ -228,7 +267,7 @@ const dream_discount_price = [];
     await page.waitForSelector(
       "#TwoColumns > div.row > div.col-lg-9 > div.row.row-cols-2.row-cols-sm-2.row-cols-md-4.row-cols-lg-4.row-cols-xl-4.gx-3 > div:nth-child(14)"
     );
-    for (let i = 1; i < 21; i++) {
+    for (let i = 6; i < 16; i++) {
       let title = await page.$eval(
         "div:nth-child(" +
           i +
@@ -253,10 +292,24 @@ const dream_discount_price = [];
           ") > a > div > div.card-body.mh-150 > p.cardprice",
         (x) => x.innerHTML
       );
-      dream_title.push(title);
-      dream_price.push(price);
-      dream_discount_percent.push(discount_percent);
-      dream_discount_price.push(discount_price.substr(0, 7));
+      dream_title.push(
+        `<div class="dream_title"><a href="#">` +
+          title.replace("&n", "") +
+          `</a></div>`
+      );
+      dream_price.push(
+        `<div class="dream_price">` + price.replace("&n", "") + `</div>`
+      );
+      dream_discount_percent.push(
+        `<div class="dream_discount_percent">` +
+          discount_percent.replace("&n", "") +
+          `</div>`
+      );
+      dream_discount_price.push(
+        `<div class="dream_discount_price">` +
+          discount_price.substr(0, 7).replace("&n", "") +
+          `</div>`
+      );
     }
     console.log(v + " (title)", dream_title);
     console.log(v + " (price)", dream_price);
@@ -291,17 +344,11 @@ const dream_discount_price = [];
   const aa4 = Object.values(a4);
   const a5 = [];
   for (let i = 0; i < aa1.length; i++) {
-    a5.push(aa1[i]);
     a5.push(aa2[i]);
     a5.push(aa3[i]);
     a5.push(aa4[i]);
   }
-  // for (let i = 0; i < aa1.length; i++) {
-  //   ;`<div><a href= "#">${a5.push(aa1[i])}</a>
-  //   ${a5.push(aa2[i])}
-  //   ${a5.push(aa3[i])}
-  //   ${a5.push(aa4[i])}</div>`
-  // }
+
   const b1 = gamersgate_title;
   const bb1 = Object.values(b1);
   const b2 = gamersgate_price;
@@ -312,7 +359,6 @@ const dream_discount_price = [];
   const bb4 = Object.values(b4);
   const b5 = [];
   for (let i = 0; i < aa1.length; i++) {
-    b5.push(bb1[i]);
     b5.push(bb2[i]);
     b5.push(bb3[i]);
     b5.push(bb4[i]);
@@ -327,7 +373,6 @@ const dream_discount_price = [];
   const cc4 = Object.values(c4);
   const c5 = [];
   for (let i = 0; i < aa1.length; i++) {
-    c5.push(cc1[i]);
     c5.push(cc2[i]);
     c5.push(cc3[i]);
     c5.push(cc4[i]);
@@ -342,7 +387,6 @@ const dream_discount_price = [];
   const dd4 = Object.values(d4);
   const d5 = [];
   for (let i = 0; i < aa1.length; i++) {
-    d5.push(dd1[i]);
     d5.push(dd2[i]);
     d5.push(dd3[i]);
     d5.push(dd4[i]);
@@ -379,3 +423,4 @@ const dream_discount_price = [];
 })();
 
 // 백틱을 활용할것 근데 왜 됨?
+// 하나의 큰 div클래스에 타이틀 / 나머지 가격과 할인율 들어갈 수 있도록 하기

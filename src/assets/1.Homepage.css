@@ -1,87 +1,89 @@
 #triflogo {
-    width: 150px;
-    height: 150px;
-  }
-  #homepageTitle {
-    font-size: 50px;
-    color: white;
-    text-shadow: -1px 0 #1b1b1b, 0 1px #1b1b1b, 1px 0 #1b1b1b, 0 -1px #1b1b1b;
-  }
-  body {
-    background-color: #1b1b1b;
-    background-size: cover;
-  }
-  .background {
-    background-image: url('C:/Users/ds/Desktop/totalott/src/assets/홈페이지백그라운드화면.png');
-    background-size: cover;
-    width: auto;
-    height: 800px;
-  }
-  
-  #btn {
-    width: 600px;
-    height: 80px;
-    background-color: skyblue;
-    border-radius: 10px;
-    font-size: 30px;
-    font-weight: bold;
-    color: white;
-  }
-  #btn:hover {
-    background-color: rgb(112, 158, 175);
-  }
-  #txt1 {
-    font-size: 45px;
-    color: #1b1b1b;
-    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
-  }
-  #txt2 {
-    color: white;
-  }
-  #spanstyle {
-    color: skyblue;
-    text-shadow: -1px 0 #1b1b1b, 0 1px #1b1b1b, 1px 0 #1b1b1b, 0 -1px #1b1b1b;
-  }
-  #steam {
-    width: 100px;
-    height: 100px;
-    margin-left: 10px;
-  }
-  #epic {
-    width: 100px;
-    height: 100px;
-    margin-left: 10px;
-  }
-  #xbox {
-    width: 250px;
-    height: 70px;
-    margin-left: 10px;
-    margin-bottom: 20px;
-  }
-  #gamersgate {
-    width: 100px;
-    height: 100px;
-    margin-left: 10px;
-  }
-  #greenmangaming {
-    width: 100px;
-    height: 100px;
-    margin-left: 10px;
-  }
-  #dreamgame {
-    width: 100px;
-    height: 100px;
-    margin-left: 10px;
-  }
-  #title1 {
-    color: blue;
-  }
-  #title2 {
-    color: red;
-  }
-  #title3 {
-    color: yellow;
-  }
-  #title4 {
-    color: white;
-  }
+  width: 150px;
+  height: 150px;
+}
+#homepageTitle {
+  font-size: 50px;
+  color: white;
+  text-shadow: -1px 0 #1b1b1b, 0 1px #1b1b1b, 1px 0 #1b1b1b, 0 -1px #1b1b1b;
+}
+body {
+  background-color: #1b1b1b;
+  background-size: cover;
+}
+.background {
+  /* background-image: url("D:/yhs/PROJECT_FIN/totalott/src/assets/홈페이지백그라운드화면.jpg"); */
+  /* 경로조정할것 */
+  background-image: url("/Users/jumin/Desktop/project/totalott/src/assets/홈페이지백그라운드화면.png");
+  background-size: cover;
+  width: auto;
+  height: 800px;
+}
+
+#btn {
+  width: 600px;
+  height: 80px;
+  background-color: skyblue;
+  border-radius: 10px;
+  font-size: 30px;
+  font-weight: bold;
+  color: white;
+}
+#btn:hover {
+  background-color: rgb(112, 158, 175);
+}
+#txt1 {
+  font-size: 45px;
+  color: #1b1b1b;
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
+#txt2 {
+  color: white;
+}
+#spanstyle {
+  color: skyblue;
+  text-shadow: -1px 0 #1b1b1b, 0 1px #1b1b1b, 1px 0 #1b1b1b, 0 -1px #1b1b1b;
+}
+#steam {
+  width: 100px;
+  height: 100px;
+  margin-left: 10px;
+}
+#epic {
+  width: 100px;
+  height: 100px;
+  margin-left: 10px;
+}
+#xbox {
+  width: 250px;
+  height: 70px;
+  margin-left: 10px;
+  margin-bottom: 20px;
+}
+#gamersgate {
+  width: 100px;
+  height: 100px;
+  margin-left: 10px;
+}
+#greenmangaming {
+  width: 100px;
+  height: 100px;
+  margin-left: 10px;
+}
+#dreamgame {
+  width: 100px;
+  height: 100px;
+  margin-left: 10px;
+}
+#title1 {
+  color: blue;
+}
+#title2 {
+  color: red;
+}
+#title3 {
+  color: yellow;
+}
+#title4 {
+  color: white;
+}
