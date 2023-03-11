@@ -11,65 +11,6 @@
         </div>
       </details>
     </div>
-
-    <!-- <div>
-      <details class="alist">
-        <summary>Gamesgate는 어떻게 설치하나요 ?</summary>
-        <a href="#">수정중</a>
-      </details>
-    </div>
-
-    <div>
-      <details class="alist">
-        <summary>Greengaming은 어떻게 설치하나요 ?</summary>
-        <a href="#">수정중</a>
-      </details>
-    </div>
-
-    <div>
-      <details class="alist">
-        <summary>Dreamgame은 어떻게 설치하나요 ?</summary>
-        <a href="#">수정중</a>
-      </details>
-    </div>
-    <div>
-      <a href="#" class="alist"
-        >활성화 키를 받으려면 계정을 만들어야 하나요 ?</a
-      >
-      <p></p>
-    </div>
-    <div>
-      <a href="#" class="alist">확인 메일을 받지 못했습니다.</a>
-      <p></p>
-    </div>
-    <div>
-      <a href="#" class="alist">비밀번호는 어떻게 변경하나요 ?</a>
-      <p></p>
-    </div>
-    <div>
-      <a href="#" class="alist">이메일은 어떻게 변경하나요 ?</a>
-      <p></p>
-    </div>
-    <div>
-      <a href="#" class="alist">내 계정 삭제하는 방법</a>
-      <p></p>
-    </div>
-    <div>
-      <a href="#" class="alist">게임이 작동하지 않습니다.</a>
-      <p></p>
-    </div>
-    <div>
-      <a href="#" class="alist">게임키란 ?</a>
-      <p></p>
-    </div>
-    <div>
-      <a href="#" class="alist">지불 방법</a>
-      <p></p>
-    </div>
-    <div>
-      <a href="#" class="alist">게임주문을 환불/취소할 수 있나요 ?</a>
-      <p></p>
-    </div> -->
   </div>
   <div class="btn-circle">
     <div class="bt-add">
