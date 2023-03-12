@@ -1,5 +1,5 @@
-const mongoose = require('mongoose')
-const Schema = mongoose.Schema
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 const PhotoSchema1 = new Schema(
   {
     steam_title: String,
@@ -21,9 +21,13 @@ const PhotoSchema1 = new Schema(
     dream_price: String,
     dream_discount_percent: String,
     dream_discount_price: String,
-    dream_all: String
+    dream_all: String,
+    steam_aTag: String,
+    gamersgate_aTag: String,
+    greenmangaming_aTag: String,
+    dream_aTag: String,
   },
   { versionKey: false }
-)
+);
 
-module.exports = mongoose.model('trif', PhotoSchema1, 'trif')
+module.exports = mongoose.model("trif", PhotoSchema1, "trif");

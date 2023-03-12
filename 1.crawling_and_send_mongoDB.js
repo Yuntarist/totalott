@@ -12,6 +12,7 @@ const steam_title = [];
 const steam_price = [];
 const steam_discount_percent = [];
 const steam_discount_price = [];
+const steam_aTag = [];
 (async () => {
   const browser = await puppeteer.launch({
     executablePath: "C:/Program Files/Google/Chrome/Application/chrome.exe",
@@ -52,6 +53,10 @@ const steam_discount_price = [];
           "\n",
         (x) => x.innerHTML
       );
+      const aTag = await page.$eval(
+        "#search_resultsRows a:nth-child(1)",
+        (x) => x.innerHTML
+      );
       steam_title.push(
         `<div class="steam_title"><a href="https://store.steampowered.com/search/?specials=1&filter=topsellers&supportedlang=english&ndl=1" target="_blank">` +
           title +
@@ -70,11 +75,13 @@ const steam_discount_price = [];
           discount_price.substr(-28, 9).replace(">", "") +
           `</div>`
       );
+      steam_aTag.push(aTag);
     }
     console.log(v + " (title)", steam_title + "\n");
     console.log(v + " (price)", steam_price);
     console.log(v + " (dispercent)", steam_discount_percent);
     console.log(v + " (disprice)", steam_discount_price);
+    console.log(v + " (aTag)", steam_aTag);
     // 스팀 끝
   }
   await browser.close();
