@@ -36,7 +36,7 @@
 /* #steam {
   font-size: 30px;
 } */
-.steam_title {
+.steam_new_title {
   margin-left: 100px;
   flex-direction: column;
   text-align: left;
@@ -68,7 +68,7 @@
 .gamersgate {
   display: flex;
 }
-.gamersgate_title {
+.gamersgate_new_title {
   flex-direction: column;
   text-align: left;
 }
@@ -84,7 +84,7 @@
 .greenmangaming {
   display: flex;
 }
-.greenmangaming_title {
+.greenmangaming_new_title {
   flex-direction: column;
   text-align: left;
 }
@@ -100,7 +100,7 @@
 .dream {
   display: flex;
 }
-.dream_title {
+.dream_new_title {
   flex-direction: column;
   text-align: left;
 }

@@ -71,9 +71,9 @@
       <p></p>
     </div> -->
   </div>
-  <div class="btn-circle">
+  <div class="btn-circle" @click="modalA()">
     <div class="bt-add">
-      <button class="circle" @click="dd"></button>
+      <button class="circle" @click="today"></button>
     </div>
     <div class="modal-background hide">
       <div class="modal-box">
@@ -81,16 +81,18 @@
           {{ date }}
           <br />
           <div class="modal-header">
-            <span>무엇을 도와드릴까요?</span>
+            <span class="sptime">무엇을 도와드릴까요?</span>
           </div>
-          <div class="qna-box">
-            <div><a href="#">게임문의</a></div>
-            <div><a href="#">결제문의</a></div>
-            <div><a href="#">계정문의</a></div>
-            <div><a href="#">버그문의</a></div>
-            <div><a href="#">할인문의</a></div>
+          <div class="qna-text">
+            <div class="qna-box" @click="qna1()"><a href="#">게임문의</a></div>
+            <div class="qna-box" @click="qna2()"><a href="#">결제문의</a></div>
+            <div class="qna-box" @click="qna3()"><a href="#">계정문의</a></div>
+            <div class="qna-box" @click="qna4()"><a href="#">버그문의</a></div>
+            <div class="qna-box" @click="qna5()"><a href="#">할인문의</a></div>
           </div>
-          {{ test }}
+          <div class="answer" style="display: none">
+            {{ test }}
+          </div>
         </div>
         <div class="xmodal">
           <span class="x" @click="xx">X</span>
@@ -106,52 +108,72 @@
 // eslint-disable-next-line
 /* eslint-disable */
 export default {
-  name: 'app',
+  name: "app",
   data() {
     return {
       list: [
-        'Steam은 어떻게 설치하나요 ?',
-        'Gamesgate는 어떻게 설치하나요 ?',
-        'Greengaming은 어떻게 설치하나요?',
-        'Dreamgame은 어떻게 설치하나요 ?'
+        "Steam은 어떻게 설치하나요 ?",
+        "Gamesgate는 어떻게 설치하나요 ?",
+        "Greengaming은 어떻게 설치하나요?",
+        "Dreamgame은 어떻게 설치하나요 ?",
       ],
-      answer: ['steam 설치 사이트', '수정중', '수정중', '수정중'],
-      dada: '',
-      date: '',
-      test: ''
-    }
-  },
-  mounted: function () {
-    const button = document.querySelector('.circle')
-    const modal = document.querySelector('.modal-background')
-    const x = document.querySelector('.x')
-    button.addEventListener('click', () => {
-      modal.style.display = 'block'
-    })
-    x.addEventListener('click', () => {
-      modal.style.display = 'none'
-    })
+      answer: ["steam 설치 사이트", "수정중", "수정중", "수정중"],
+      dada: "",
+      date: "",
+      test: "",
+    };
   },
   methods: {
-    dd: function () {
-      let today = new Date()
-      var year = today.getFullYear()
-      var month = ('0' + (today.getMonth() + 1)).slice(-2)
-      var day = ('0' + today.getDate()).slice(-2)
-      var dateString = year + '년' + month + '월' + day + '일'
-      this.date = dateString
+    modalA: function () {
+      const button = document.querySelector(".circle");
+      const modal = document.querySelector(".modal-background");
+      const answer = document.querySelector(".answer");
+      const x = document.querySelector(".x");
+
+      button.addEventListener("click", () => {
+        modal.style.display = "block";
+      });
+      x.addEventListener("click", () => {
+        modal.style.display = "none";
+        answer.style.display = "none";
+      });
     },
-    ds: function () {
-      this.test = '수정중'
+
+    today: function () {
+      let today = new Date();
+      var year = today.getFullYear();
+      var month = ("0" + (today.getMonth() + 1)).slice(-2);
+      var day = ("0" + today.getDate()).slice(-2);
+      var dateString = year + "년" + month + "월" + day + "일";
+      this.date = dateString;
     },
-    da: function () {
-      this.test = '수정중'
+    qna1: function () {
+      const answer = document.querySelector(".answer");
+      answer.style.display = "block";
+      this.test = "게임문의";
     },
-    xx: function () {
-      this.test = ''
-    }
-  }
-}
+    qna2: function () {
+      const answer = document.querySelector(".answer");
+      answer.style.display = "block";
+      this.test = "결제문의";
+    },
+    qna3: function () {
+      const answer = document.querySelector(".answer");
+      answer.style.display = "block";
+      this.test = "계정문의";
+    },
+    qna4: function () {
+      const answer = document.querySelector(".answer");
+      answer.style.display = "block";
+      this.test = "버그문의";
+    },
+    qna5: function () {
+      const answer = document.querySelector(".answer");
+      answer.style.display = "block";
+      this.test = "할인문의";
+    },
+  },
+};
 </script>
 
 <style src="../assets/8.css"></style>

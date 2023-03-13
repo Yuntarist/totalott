@@ -66,19 +66,19 @@ app.use(logger('tiny'))
 //   }
 //   main2()
 // })
-app.get('/steam_title', (req, res) => {
+app.get('/steam_new_title', (req, res) => {
   const main3 = async () => {
     const t = await maincrawling.find(
       {},
       {
-        steam_title: 1,
+        steam_new_title: 1,
         _id: 0
       }
     )
 
-    console.log(t[0].steam_title)
+    console.log(t[0].steam_new_title)
     console.log(typeof t)
-    res.send(t[0].steam_title)
+    res.send(t[0].steam_new_title)
   }
   main3()
 })
@@ -127,19 +127,18 @@ app.get('/steam_discount_price', (req, res) => {
   }
   main3()
 })
-app.get('/gamersgate_title', (req, res) => {
+app.get('/gamersgate_new_title', (req, res) => {
   const main3 = async () => {
     const t = await maincrawling.find(
       {},
       {
-        gamersgate_title: 1,
+        gamersgate_new_title: 1,
         _id: 0
       }
     )
-
-    console.log(t[0].gamersgate_title)
+    console.log(t[0].gamersgate_new_title)
     console.log(typeof t)
-    res.send(t[0].gamersgate_title)
+    res.send(t[0].gamersgate_new_title)
   }
   main3()
 })
@@ -188,19 +187,19 @@ app.get('/gamersgate_discount_price', (req, res) => {
   }
   main3()
 })
-app.get('/greenmangaming_title', (req, res) => {
+app.get('/greenmangaming_new_title', (req, res) => {
   const main3 = async () => {
     const t = await maincrawling.find(
       {},
       {
-        greenmangaming_title: 1,
+        greenmangaming_new_title: 1,
         _id: 0
       }
     )
 
-    console.log(t[0].greenmangaming_title)
+    console.log(t[0].greenmangaming_new_title)
     console.log(typeof t)
-    res.send(t[0].greenmangaming_title)
+    res.send(t[0].greenmangaming_new_title)
   }
   main3()
 })
@@ -249,19 +248,19 @@ app.get('/greenmangaming_discount_price', (req, res) => {
   }
   main3()
 })
-app.get('/dream_title', (req, res) => {
+app.get('/dream_new_title', (req, res) => {
   const main3 = async () => {
     const t = await maincrawling.find(
       {},
       {
-        dream_title: 1,
+        dream_new_title: 1,
         _id: 0
       }
     )
 
-    console.log(t[0].dream_title)
+    console.log(t[0].dream_new_title)
     console.log(typeof t)
-    res.send(t[0].dream_title)
+    res.send(t[0].dream_new_title)
   }
   main3()
 })

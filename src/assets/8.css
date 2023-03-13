@@ -1,3 +1,11 @@
+* {
+    padding: 0;
+    margin: 0;
+    outline: 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
 details summary::marker {
     font-size: 0;
   }
@@ -20,7 +28,7 @@ details summary::marker {
   }
   .qna-body {
     /* border: 1px solid #fff; */
-    font-size: 30px;
+    font-size: 26px;
   }
   .hide {
     display: none;
@@ -29,7 +37,7 @@ details summary::marker {
     position: absolute;
     top: 280px;
     left: calc(50vw - 200px);
-    background-color: #fff;
+    background-color: #cde4fb;
     display: flex;
     border-radius: 10px;
     width: 390px;
@@ -55,16 +63,31 @@ details summary::marker {
     text-decoration: none;
   }
   .alist a{
-    color: #a7d6f4;
+    color: #dbedf8;
     text-decoration: none;
   }
   .alist:hover {
     color: #d4d4d4;
   }
-  .bt-box {
-    background-color: red;
-    margin-left: -10px;
+  .qna-text a{
+    text-decoration: none;
+    color: #3955e4;
+    margin-left: 10px;
+  }
+  .qna-box:hover{
+    background-color: #6f89f2;
+  }
+  .qna-box {
+    width: 200px;
+    margin-left: 10px;
+    border: 1px solid #3955e4;
+    text-align:left;
+    border-radius: 8px;
+    cursor: pointer;
     margin-top: 20px;
+    margin-left: 10px;
+    padding: 15px 13px;
+    
   }
   .modal-header {
     width: 380px;
@@ -73,4 +96,19 @@ details summary::marker {
   }
   .list-bt{
     margin-left: 10px;
+  }
+  .answer{
+    width: 150px;
+    border: 1px solid #3955e4;
+    margin-top: 20px;
+    margin-left: 230px;
+    padding: 10px 13px;
+    text-align: center;
+    background-color: #3955e4;
+    display: flex;
+    justify-content: right;
+    align-items: right; 
+    color: #fff;
+    white-space: pre-wrap;
+    border-radius: 8px;
   }

@@ -1,5 +1,5 @@
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
+const mongoose = require('mongoose')
+const Schema = mongoose.Schema
 const PhotoSchema1 = new Schema(
   {
     steam_title: String,
@@ -7,6 +7,10 @@ const PhotoSchema1 = new Schema(
     steam_discount_percent: String,
     steam_discount_price: String,
     steam_all: String,
+    steam_new_title: String,
+    gamersgate_new_title: String,
+    greenmangaming_new_title: String,
+    dream_new_title: String,
     gamersgate_title: String,
     gamersgate_price: String,
     gamersgate_discount_percent: String,
@@ -25,9 +29,9 @@ const PhotoSchema1 = new Schema(
     steam_aTag: String,
     gamersgate_aTag: String,
     greenmangaming_aTag: String,
-    dream_aTag: String,
+    dream_aTag: String
   },
   { versionKey: false }
-);
+)
 
-module.exports = mongoose.model("trif", PhotoSchema1, "trif");
+module.exports = mongoose.model('trif', PhotoSchema1, 'trif')
