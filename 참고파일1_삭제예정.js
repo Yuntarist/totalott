@@ -1,71 +1,71 @@
-const puppeteer = require('puppeteer-core')
+const puppeteer = require("puppeteer-core");
 
 const urlMap = new Map([
   [
-    'steam',
-    'https://store.steampowered.com/search/?specials=1&filter=topsellers&supportedlang=english&ndl=1'
-  ]
-])
+    "steam",
+    "https://store.steampowered.com/search/?specials=1&filter=topsellers&supportedlang=english&ndl=1",
+  ],
+]);
 
 // steam 시작
-const steam_title = { 이름: '' }
-const steam_price = new Object()
-const steam_discount_percent = new Object()
-const steam_discount_price = new Object()
-;(async () => {
+const steam_title = { 이름: "" };
+const steam_price = new Object();
+const steam_discount_percent = new Object();
+const steam_discount_price = new Object();
+(async () => {
   const browser = await puppeteer.launch({
     executablePath:
-      'C:/Users/ds/AppData/Local/Google/Chrome/Application/chrome.exe'
+      "C:/Users/ds/AppData/Local/Google/Chrome/Application/chrome.exe",
     // headless: false,
-  })
-  const page = await browser.newPage()
-  let urlKeys = urlMap.keys()
+  });
+  const page = await browser.newPage();
+  let urlKeys = urlMap.keys();
   for (var v of urlKeys) {
-    var url = urlMap.get(v)
-    await page.goto(url)
-    await page.waitForSelector('a:nth-child(1)')
+    var url = urlMap.get(v);
+    await page.goto(url);
+    await page.waitForSelector("a:nth-child(1)");
     for (let i = 5; i < 21; i++) {
       // gta 오류 해결될때 까지 i는 5에서 시작 230307
       const title = await page.$eval(
-        'a:nth-child(' + i + ') div.col.search_name.ellipsis span.title' + '\n',
+        "a:nth-child(" + i + ") div.col.search_name.ellipsis span.title" + "\n",
         (x) => x.innerHTML
-      )
-      console.log(title)
+      );
+      console.log(title);
       const price = await page.$eval(
-        'a:nth-child(' +
+        "a:nth-child(" +
           i +
-          ') div.responsive_search_name_combined div.col.search_price_discount_combined.responsive_secondrow div.col.search_price.discounted.responsive_secondrow span strike' +
-          '\n',
+          ") div.responsive_search_name_combined div.col.search_price_discount_combined.responsive_secondrow div.col.search_price.discounted.responsive_secondrow span strike" +
+          "\n",
         (x) => x.innerHTML
-      )
+      );
       const discount_percent = await page.$eval(
-        'a:nth-child(' +
+        "a:nth-child(" +
           i +
-          ') div.responsive_search_name_combined div.col.search_price_discount_combined.responsive_secondrow div.col.search_discount.responsive_secondrow span' +
-          '\n',
+          ") div.responsive_search_name_combined div.col.search_price_discount_combined.responsive_secondrow div.col.search_discount.responsive_secondrow span" +
+          "\n",
         (x) => x.innerHTML
-      )
+      );
       const discount_price = await page.$eval(
-        'a:nth-child(' +
+        "a:nth-child(" +
           i +
-          ') div.responsive_search_name_combined div.col.search_price_discount_combined.responsive_secondrow div.col.search_price.discounted.responsive_secondrow' +
-          '\n',
+          ") div.responsive_search_name_combined div.col.search_price_discount_combined.responsive_secondrow div.col.search_price.discounted.responsive_secondrow" +
+          "\n",
         (x) => x.innerHTML
-      )
-      steam_title.이름 = title
+      );
+      steam_title.이름 = title;
       // steam_price.push(price.replace('>', ''))
       // steam_discount_percent.push(discount_percent.replace('>', ''))
       // steam_discount_price.push(discount_price.substr(-28, 9).replace('>', ''))
     }
-    console.log(steam_title)
+    console.log(steam_title);
     // console.log(v + ' (title)', steam_title + '\n')
     // console.log(v + ' (price)', steam_price)
     // console.log(v + ' (dispercent)', steam_discount_percent)
     // console.log(v + ' (disprice)', steam_discount_price)
     // 스팀 끝
   }
-  await browser.close()
-})()
+  await browser.close();
+})();
 
 // // gamesgate 시작
 // const urlMap2 = new Map([

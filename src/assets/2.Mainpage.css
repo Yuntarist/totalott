@@ -29,6 +29,7 @@
 .newaccountbtn:hover {
   background: rgba(228, 225, 225, 0.678);
 }
+/* steam */
 .steam {
   display: flex;
   margin-left: 100px;
@@ -62,6 +63,7 @@
   font-size: 30px;
   font-weight: bold;
 }
+/* gamersgate */
 .gamersgate {
   display: flex;
   margin-left: 100px;
@@ -95,6 +97,7 @@
   font-size: 30px;
   font-weight: bold;
 }
+/* greenmangaming */
 .greenmangaming {
   display: flex;
   margin-left: 100px;
@@ -128,6 +131,7 @@
   font-size: 30px;
   font-weight: bold;
 }
+/* dream */
 .dream {
   display: flex;
   margin-left: 100px;

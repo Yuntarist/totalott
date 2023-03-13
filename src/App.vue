@@ -20,16 +20,13 @@
   text-align: center;
   color: white;
 }
-
 nav {
   padding: 30px;
 }
-
 nav a {
   font-weight: bold;
   color: white;
 }
-
 nav a.router-link-exact-active {
   color: grey;
 }
