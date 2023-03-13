@@ -397,6 +397,7 @@ const dream_aTag = [];
       greenmangaming_discount_percent: `${c3}`,
       greenmangaming_discount_price: `${c4}`,
       greenmangaming_new_title: `${c6}`,
+      dream_title: `${d1}`,
       dream_new_title: `${d6}`,
       dream_price: `${d2}`,
       dream_discount_percent: `${d3}`,
