@@ -22,6 +22,7 @@
     <div v-html="steam_discount_percent"></div>
     <div v-html="steam_discount_price"></div>
   </div>
+  <hr />
   <div class="gamersgate">
     <div id="gamersgate">
       <img class="gamersgate_logo" src="../assets/gamersgate.png" /> <br />
@@ -32,6 +33,7 @@
     <div v-html="gamersgate_discount_percent"></div>
     <div v-html="gamersgate_discount_price"></div>
   </div>
+  <hr />
   <div class="greenmangaming">
     <div id="greenmangaming">
       <img class="greenmangaming_logo" src="../assets/greenmangaming.png" />
@@ -43,9 +45,11 @@
     <div v-html="greenmangaming_discount_percent"></div>
     <div v-html="greenmangaming_discount_price"></div>
   </div>
+  <hr />
   <div class="dream">
     <div id="dream">
-      <img class="dream_logo" src="../assets/dreamgame.png" /> <br />
+      <img class="dream_logo" src="../assets/dreamgame.png" />
+      <br />
       <p class="dream_logo_text">Dream</p>
     </div>
     <div v-html="dream_new_title"></div>

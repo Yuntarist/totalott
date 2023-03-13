@@ -45,6 +45,7 @@ details summary::marker {
     margin-left: 620px;
     color: black;
     position: fixed;
+    overflow: auto;
   }
   .x {
     font-size: 30px;
@@ -92,7 +93,6 @@ details summary::marker {
   .modal-header {
     width: 380px;
     font-size: 20px;
-    background-color: yellow;
   }
   .list-bt{
     margin-left: 10px;
@@ -101,7 +101,7 @@ details summary::marker {
     width: 150px;
     border: 1px solid #3955e4;
     margin-top: 20px;
-    margin-left: 230px;
+    margin-left: 220px;
     padding: 10px 13px;
     text-align: center;
     background-color: #3955e4;
@@ -111,4 +111,24 @@ details summary::marker {
     color: #fff;
     white-space: pre-wrap;
     border-radius: 8px;
+  }
+  .qna-result {
+    width: 150px;
+    border: 1px solid #3955e4;
+    color: #3955e4;
+    margin-top: 20px;
+    margin-left: 10px;
+    padding: 10px 13px;
+    text-align: center;
+    display: flex;
+    justify-content: right;
+    align-items: right; 
+    white-space: pre-wrap;
+    border-radius: 8px;
+  }
+  .sptime{
+    margin-top: 10px;
+    padding-left: 40px;
+    font: bold;
+    color: #3955e4;
   }

@@ -6,70 +6,9 @@
     <div v-for="(item, i) in list" :key="i">
       <details class="alist">
         <summary>{{ item }}</summary>
-        <div v-for="(item2, a) in answer" :key="a">
-          <a href="#" class="alist"> {{ item2 }}</a>
-        </div>
+        <div>{{ answer[i] }}</div>
       </details>
     </div>
-
-    <!-- <div>
-      <details class="alist">
-        <summary>Gamesgate는 어떻게 설치하나요 ?</summary>
-        <a href="#">수정중</a>
-      </details>
-    </div>
-
-    <div>
-      <details class="alist">
-        <summary>Greengaming은 어떻게 설치하나요 ?</summary>
-        <a href="#">수정중</a>
-      </details>
-    </div>
-
-    <div>
-      <details class="alist">
-        <summary>Dreamgame은 어떻게 설치하나요 ?</summary>
-        <a href="#">수정중</a>
-      </details>
-    </div>
-    <div>
-      <a href="#" class="alist"
-        >활성화 키를 받으려면 계정을 만들어야 하나요 ?</a
-      >
-      <p></p>
-    </div>
-    <div>
-      <a href="#" class="alist">확인 메일을 받지 못했습니다.</a>
-      <p></p>
-    </div>
-    <div>
-      <a href="#" class="alist">비밀번호는 어떻게 변경하나요 ?</a>
-      <p></p>
-    </div>
-    <div>
-      <a href="#" class="alist">이메일은 어떻게 변경하나요 ?</a>
-      <p></p>
-    </div>
-    <div>
-      <a href="#" class="alist">내 계정 삭제하는 방법</a>
-      <p></p>
-    </div>
-    <div>
-      <a href="#" class="alist">게임이 작동하지 않습니다.</a>
-      <p></p>
-    </div>
-    <div>
-      <a href="#" class="alist">게임키란 ?</a>
-      <p></p>
-    </div>
-    <div>
-      <a href="#" class="alist">지불 방법</a>
-      <p></p>
-    </div>
-    <div>
-      <a href="#" class="alist">게임주문을 환불/취소할 수 있나요 ?</a>
-      <p></p>
-    </div> -->
   </div>
   <div class="btn-circle" @click="modalA()">
     <div class="bt-add">
@@ -81,9 +20,11 @@
           {{ date }}
           <br />
           <div class="modal-header">
-            <span class="sptime">무엇을 도와드릴까요?</span>
+            <span class="sptime" style="display: none">
+              안녕하세요. 무엇을 도와드릴까요?</span
+            >
           </div>
-          <div class="qna-text">
+          <div class="qna-text" style="display: none">
             <div class="qna-box" @click="qna1()"><a href="#">게임문의</a></div>
             <div class="qna-box" @click="qna2()"><a href="#">결제문의</a></div>
             <div class="qna-box" @click="qna3()"><a href="#">계정문의</a></div>
@@ -92,6 +33,9 @@
           </div>
           <div class="answer" style="display: none">
             {{ test }}
+          </div>
+          <div class="qna-result" style="display: none">
+            {{ qna }}
           </div>
         </div>
         <div class="xmodal">
@@ -117,10 +61,11 @@ export default {
         "Greengaming은 어떻게 설치하나요?",
         "Dreamgame은 어떻게 설치하나요 ?",
       ],
-      answer: ["steam 설치 사이트", "수정중", "수정중", "수정중"],
+      answer: ["steam 설치 사이트", "수정중1", "수정중2", "수정중3"],
       dada: "",
       date: "",
       test: "",
+      qna: "",
     };
   },
   methods: {
@@ -128,10 +73,18 @@ export default {
       const button = document.querySelector(".circle");
       const modal = document.querySelector(".modal-background");
       const answer = document.querySelector(".answer");
+      const sptime = document.querySelector(".sptime");
+      const qnaText = document.querySelector(".qna-text");
       const x = document.querySelector(".x");
 
       button.addEventListener("click", () => {
         modal.style.display = "block";
+        setTimeout(() => {
+          sptime.style.display = "block";
+        }, 1000);
+        setTimeout(() => {
+          qnaText.style.display = "block";
+        }, 2000);
       });
       x.addEventListener("click", () => {
         modal.style.display = "none";
@@ -149,8 +102,13 @@ export default {
     },
     qna1: function () {
       const answer = document.querySelector(".answer");
+      const qnaResult = document.querySelector(".qna-result");
       answer.style.display = "block";
       this.test = "게임문의";
+      setTimeout(() => {
+        qnaResult.style.display = "block";
+        this.qna = "수정중";
+      }, 2000);
     },
     qna2: function () {
       const answer = document.querySelector(".answer");

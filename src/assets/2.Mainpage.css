@@ -33,9 +33,6 @@
   display: flex;
   margin-left: 100px;
 }
-/* #steam {
-  font-size: 30px;
-} */
 .steam_new_title {
   margin-left: 100px;
   flex-direction: column;
@@ -65,36 +62,6 @@
   font-size: 30px;
   font-weight: bold;
 }
-.gamersgate_logo {
-  width: 200px;
-  height: 200px;
-  font-size: 30px;
-}
-.gamersgate_logo_text {
-  padding-left: 55px;
-  font-size: 30px;
-  font-weight: bold;
-}
-.greenmangaming_logo {
-  width: 200px;
-  height: 200px;
-  font-size: 30px;
-}
-.greenmangamin_logo_text {
-  padding-left: 55px;
-  font-size: 30px;
-  font-weight: bold;
-}
-.dream_logo {
-  width: 200px;
-  height: 200px;
-  font-size: 30px;
-}
-.dream_logo_text {
-  padding-left: 55px;
-  font-size: 30px;
-  font-weight: bold;
-}
 .gamersgate {
   display: flex;
   margin-left: 100px;
@@ -117,6 +84,16 @@
 .gamersgate_discount_price {
   flex-direction: column;
   margin-left: 50px;
+}
+.gamersgate_logo {
+  width: 200px;
+  height: 200px;
+  font-size: 30px;
+}
+.gamersgate_logo_text {
+  padding-left: 55px;
+  font-size: 30px;
+  font-weight: bold;
 }
 .greenmangaming {
   display: flex;
@@ -141,6 +118,16 @@
   flex-direction: column;
   margin-left: 50px;
 }
+.greenmangaming_logo {
+  width: 200px;
+  height: 200px;
+  font-size: 30px;
+}
+.greenmangaming_logo_text {
+  padding-left: 55px;
+  font-size: 30px;
+  font-weight: bold;
+}
 .dream {
   display: flex;
   margin-left: 100px;
@@ -163,4 +150,14 @@
 .dream_discount_price {
   flex-direction: column;
   margin-left: 50px;
+}
+.dream_logo {
+  width: 200px;
+  height: 200px;
+  font-size: 30px;
+}
+.dream_logo_text {
+  padding-left: 55px;
+  font-size: 30px;
+  font-weight: bold;
 }
