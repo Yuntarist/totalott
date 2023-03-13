@@ -65,51 +65,102 @@
   font-size: 30px;
   font-weight: bold;
 }
+.gamersgate_logo {
+  width: 200px;
+  height: 200px;
+  font-size: 30px;
+}
+.gamersgate_logo_text {
+  padding-left: 55px;
+  font-size: 30px;
+  font-weight: bold;
+}
+.greenmangaming_logo {
+  width: 200px;
+  height: 200px;
+  font-size: 30px;
+}
+.greenmangamin_logo_text {
+  padding-left: 55px;
+  font-size: 30px;
+  font-weight: bold;
+}
+.dream_logo {
+  width: 200px;
+  height: 200px;
+  font-size: 30px;
+}
+.dream_logo_text {
+  padding-left: 55px;
+  font-size: 30px;
+  font-weight: bold;
+}
 .gamersgate {
   display: flex;
+  margin-left: 100px;
 }
 .gamersgate_new_title {
+  margin-left: 100px;
   flex-direction: column;
   text-align: left;
 }
 .gamersgate_price {
   flex-direction: column;
+  margin-left: 50px;
+  text-decoration: line-through;
 }
 .gamersgate_discount_percent {
   flex-direction: column;
+  margin-left: 10px;
+  color: red;
 }
 .gamersgate_discount_price {
   flex-direction: column;
+  margin-left: 50px;
 }
 .greenmangaming {
   display: flex;
+  margin-left: 100px;
 }
 .greenmangaming_new_title {
+  margin-left: 100px;
   flex-direction: column;
   text-align: left;
 }
 .greenmangaming_price {
   flex-direction: column;
+  margin-left: 50px;
+  text-decoration: line-through;
 }
 .greenmangaming_discount_percent {
   flex-direction: column;
+  margin-left: 10px;
+  color: red;
 }
 .greenmangaming_discount_price {
   flex-direction: column;
+  margin-left: 50px;
 }
 .dream {
   display: flex;
+  margin-left: 100px;
 }
 .dream_new_title {
+  margin-left: 100px;
   flex-direction: column;
   text-align: left;
 }
 .dream_price {
   flex-direction: column;
+  margin-left: 50px;
+  text-decoration: line-through;
 }
 .dream_discount_percent {
   flex-direction: column;
+  margin-left: 10px;
+  color: red;
 }
 .dream_discount_price {
   flex-direction: column;
+  margin-left: 50px;
 }

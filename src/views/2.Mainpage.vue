@@ -23,21 +23,31 @@
     <div v-html="steam_discount_price"></div>
   </div>
   <div class="gamersgate">
-    <div>Gamersgate</div>
+    <div id="gamersgate">
+      <img class="gamersgate_logo" src="../assets/gamersgate.png" /> <br />
+      <p class="gamersgate_logo_text">Gamersgate</p>
+    </div>
     <div v-html="gamersgate_new_title"></div>
     <div v-html="gamersgate_price"></div>
     <div v-html="gamersgate_discount_percent"></div>
     <div v-html="gamersgate_discount_price"></div>
   </div>
   <div class="greenmangaming">
-    <div>Greenmangaming</div>
+    <div id="greenmangaming">
+      <img class="greenmangaming_logo" src="../assets/greenmangaming.png" />
+      <br />
+      <p class="greenmangaming_logo_text">Greenmangaming</p>
+    </div>
     <div v-html="greenmangaming_new_title"></div>
     <div v-html="greenmangaming_price"></div>
     <div v-html="greenmangaming_discount_percent"></div>
     <div v-html="greenmangaming_discount_price"></div>
   </div>
   <div class="dream">
-    <div>Dream</div>
+    <div id="dream">
+      <img class="dream_logo" src="../assets/dreamgame.png" /> <br />
+      <p class="dream_logo_text">Dream</p>
+    </div>
     <div v-html="dream_new_title"></div>
     <div v-html="dream_price"></div>
     <div v-html="dream_discount_percent"></div>
