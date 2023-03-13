@@ -52,6 +52,19 @@
   .totalDreamgameName {
     color: white;
   }
+  .cookies_delete{
+    width: 100px;
+    height: 35px;
+    font-size: 15px;
+    padding: 8px;
+    background: rgba(160, 160, 158, 0.72);
+    border: none;
+    color: white;
+    margin-left: 10px;
+    border-radius: 5px;
+    float: right;
+    margin-right: 5px;
+  }
   
   /* allgame에서 지정한 클래스로도 css적용되는거 확인함
   이제 좀 이쁘게 꾸며보기 */

@@ -1,8 +1,8 @@
 <template>
   <div class="idf-doc">회원정보에 등록된 정보로 찾을 수 있습니다.</div>
-  <span class="idf-span">이메일 :</span
+  <span class="idf-span">이메일</span
   ><input class="idf-input" type="text" v-model="emailfind" />
-  <button @click="idfind()">확인</button>
+  <button @click="idfind()" class="idf-btn">확인</button>
   <p class="idf-p">아이디 : {{ emailcome }}</p>
 </template>
 
@@ -30,11 +30,10 @@ export default {
 
 <style>
 .idf-doc {
-  padding: 10px;
+  padding: 20px;
 }
 .idf-input {
   padding: 10px 15px;
-  margin-bottom: 15px;
   border: 1px solid #eee;
   border-radius: 2.5px;
 }
@@ -42,6 +41,16 @@ export default {
   padding: 10px;
 }
 .idf-span {
-  font-size: 20px;
+  margin: 5px;
+  padding: 5px;
+}
+.idf-btn {
+  margin-left: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  color: #888;
+  border: 2px solid #888;
+  background: #ddd;
+  padding: 8px 5px;
 }
 </style>

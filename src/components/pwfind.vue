@@ -1,9 +1,15 @@
 <template>
-  <div>회원정보에 등록된 정보로 찾을 수 있습니다.</div>
-  아이디 : <input type="text" v-model="ididfind" /><br />
-  이메일 : <input type="text" v-model="emailfind2" />
-  <button @click="pwdfind()">비번찾기!</button>
-  <p>임시비밀번호 :{{ passcome }}</p>
+  <div class="pwf-head">회원정보에 등록된 정보로 찾을 수 있습니다.</div>
+  <div class="pwf-box1">
+    <span class="pwf-span">아이디 </span>
+    <input type="text" v-model="ididfind" class="pwf-input1" />
+  </div>
+  <div class="pwf-box2">
+    <span class="pwf-span">이메일 </span>
+    <input type="text" v-model="emailfind2" class="pwf-input2" />
+    <button @click="pwdfind()" class="pwf-btn">확인</button>
+  </div>
+  <p class="pwf-p">임시비밀번호 :{{ passcome }}</p>
 </template>
 
 <script>
@@ -37,4 +43,41 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+/* .pwf-span {
+  position: absolute;
+} */
+.pwf-head {
+  padding: 20px;
+}
+.pwf-input1 {
+  padding: 10px 15px;
+  border: 1px solid #eee;
+  border-radius: 2.5px;
+  margin-bottom: 20px;
+}
+.pwf-input2 {
+  padding: 10px 15px;
+  border: 1px solid #eee;
+  border-radius: 2.5px;
+  margin-bottom: 20px;
+}
+.pwf-p {
+  padding-bottom: 20px;
+}
+.pwf-btn {
+  margin-left: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  color: #888;
+  border: 2px solid #888;
+  background: #ddd;
+  padding: 8px 5px;
+}
+.pwf-box1 {
+  margin-right: 60px;
+}
+.pwf-box2 {
+  margin-right: 10px;
+}
+</style>

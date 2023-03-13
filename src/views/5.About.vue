@@ -61,7 +61,7 @@ export default {
 
 label {
   display: inline-flex;
-  width: 49%;
+  width: 49.5%;
   height: 30px;
   align-items: center;
   justify-content: center;

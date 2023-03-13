@@ -1,12 +1,20 @@
 <template>
   <hr />
-  <button class="loginbtn" @click="move1">로그인</button>
-  <button class="newaccountbtn" @click="move2">회원가입</button>
-  <button class="cookies_delete" @click="del()">로그아웃</button>
+  <button class="loginbtn" @click="move1" v-if="screen_true">로그인</button>
+  <button class="newaccountbtn" @click="move2" v-if="screen_true">
+    회원가입
+  </button>
+  <div class="login-user" v-if="screen_false">{{ user }}님</div>
+  <button class="cookies_delete" @click="mypage" v-if="screen_false">
+    마이페이지
+  </button>
+  <button class="cookies_delete" @click="del()" v-if="screen_false">
+    로그아웃
+  </button>
   <br />
   <br />
   <br />
-  <div class="login-user">{{ user }}님 환영합니다.</div>
+
   <input class="searchBar" type="text" placeholder="검색" />
   <div class="dtd">{{ dtd }}</div>
 </template>
@@ -20,31 +28,17 @@ export default {
     return {
       dtd: "",
       user: "",
+      screen_true: true,
+      screen_false: false,
     };
   },
   mounted() {
     axios.get("/main", this.user).then((res) => {
       this.user = res.data;
-      if (this.user === res.data) {
+      if (res.data.length >= 1) {
         console.log(this.user);
-        // let loginbtn = document.querySelector(".loginbtn");
-        // let newaccountbtn = document.querySelector(".newaccountbtn");
-        // loginbtn.style.display = "none";
-        // newaccountbtn.style.display = "none";
-        let loginuser = document.querySelector(".login-user");
-        let del = document.querySelector(".cookies_delete");
-        loginuser.style.display = "block";
-        del.style.display = "block";
-      } else {
-        console.log(this.user);
-        let loginbtn = document.querySelector(".loginbtn");
-        let newaccountbtn = document.querySelector(".newaccountbtn");
-        loginbtn.style.display = "block";
-        newaccountbtn.style.display = "block";
-        let loginuser = document.querySelector(".login-user");
-        let del = document.querySelector(".cookies_delete");
-        loginuser.style.display = "none";
-        del.style.display = "none";
+        this.screen_true = false;
+        this.screen_false = true;
       }
     });
     axios.get("/about2" + this.dtd).then((res) => (this.dtd = res.data));
@@ -58,16 +52,12 @@ export default {
     },
     del: function () {
       axios.get("/delete", this.user).then((res) => {
-        this.user = res.data;
+        this.screen_true = true;
+        this.screen_false = false;
       });
-      let loginbtn = document.querySelector(".loginbtn");
-      let newaccountbtn = document.querySelector(".newaccountbtn");
-      loginbtn.style.display = "none";
-      newaccountbtn.style.display = "none";
-      let loginuser = document.querySelector(".login-user");
-      let del = document.querySelector(".cookies_delete");
-      loginuser.style.display = "none";
-      del.style.display = "none";
+    },
+    mypage: function () {
+      window.location.href = "/about6";
     },
   },
 };

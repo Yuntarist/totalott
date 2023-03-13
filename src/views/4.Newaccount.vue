@@ -9,12 +9,13 @@
         <input
           v-model="ID"
           type="text"
+          class="lable-input"
           id="username"
           placeholder="아이디를 입력해주세요."
         />
-        <span class="idspan" v-bind="ididcheck" @click="idcheck()"
-          >아이디중복확인</span
-        >
+        <button class="idspan" v-bind="ididcheck" @click="idcheck()">
+          중복확인
+        </button>
         <div class="failure-message hide msg">
           4자 이상의 영문 혹은 영문과 숫자를 조합
         </div>
@@ -31,6 +32,7 @@
         <label>비밀번호<span>*</span></label>
         <input
           v-model="pwd"
+          class="lable-input"
           id="password"
           placeholder="비밀번호를 입력해주세요."
         />
@@ -58,6 +60,7 @@
         <input
           v-model="pwd2"
           type="text"
+          class="lable-input"
           id="password-retype"
           placeholder="비밀번호를 한번 더 입력해주세요."
         />
@@ -73,6 +76,7 @@
         <label>이메일 주소<span>*</span></label>
         <input
           v-model="email"
+          class="lable-input"
           id="emailAddress"
           placeholder="이메일 주소를 입력해주세요."
         />

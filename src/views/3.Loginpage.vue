@@ -57,9 +57,10 @@ export default {
       axios
         .get("/about3/" + this.loginid + "/" + this.loginpwd)
         .then((res) => {
+          this.$cookeok = res.data.result;
           if (res.data.result === 1) {
-            alert(this.loginid + "님이 로그인하셨습니다.");
             window.location.href = "/about2";
+            alert(this.loginid + "님이 로그인하셨습니다.");
           } else if (res.data.result === 0) {
             window.location.href = "/about3";
             alert("아이디가 존재하지 않습니다.");
