@@ -18,7 +18,9 @@
   </div>
   <div class="btn-circle" @click="modalA()">
     <div class="bt-add">
-      <button class="circle" @click="today"></button>
+      <button class="circle" @click="today">
+        <img src="../assets/qna.png" alt="" style="width: 50px" />
+      </button>
     </div>
     <div class="modal-background hide">
       <div class="modal-box">

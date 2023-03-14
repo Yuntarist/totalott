@@ -19,11 +19,13 @@ details summary::marker {
     width: 70px;
     height: 70px;
     border-radius: 50%;
+    background-image: url("../assets/qna.png");
   }
   .qna-body {
     border: 1px solid #fff;
     font-size: 26px;  
     justify-content: center;
+    margin-top: 80px;
   }
   .hide {
     display: none;
