@@ -12,23 +12,18 @@ details summary::marker {
   .btn-circle {
     bottom: 0;
     position: fixed;
-    left: 750px;
-    width: 100%;
+    left: 700px;
+    width: 1600px;
   }
-  
   .btn-circle .circle {
     width: 70px;
     height: 70px;
     border-radius: 50%;
   }
-  .btn-circle .circle2 {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-  }
   .qna-body {
-    /* border: 1px solid #fff; */
-    font-size: 26px;
+    border: 1px solid #fff;
+    font-size: 26px;  
+    justify-content: center;
   }
   .hide {
     display: none;
@@ -97,7 +92,7 @@ details summary::marker {
   .list-bt{
     margin-left: 10px;
   }
-  .answer{
+  .answer, .answer2,.answer3,.answer4,.answer5 {
     width: 150px;
     border: 1px solid #3955e4;
     margin-top: 20px;
@@ -112,7 +107,7 @@ details summary::marker {
     white-space: pre-wrap;
     border-radius: 8px;
   }
-  .qna-result {
+  .qna-result,.qna-result2,.qna-result3,.qna-result4,.qna-result5 {
     width: 150px;
     border: 1px solid #3955e4;
     color: #3955e4;
@@ -152,4 +147,7 @@ details summary::marker {
   background-color: #67ace9;
   border-radius: 8px;
   margin-left: 20px;
+ }
+ .text-size{
+    border: 1px solid rgb(239, 246, 141);
  }
