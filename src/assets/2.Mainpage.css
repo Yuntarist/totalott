@@ -36,6 +36,9 @@ body {
 .newaccountbtn:hover {
   background: rgba(228, 225, 225, 0.678);
 }
+.atag {
+  text-decoration: none;
+}
 /* steam */
 .steam {
   display: flex;
@@ -172,4 +175,17 @@ body {
   padding-left: 55px;
   font-size: 30px;
   font-weight: bold;
+}
+.cookies_delete {
+  width: 100px;
+  height: 35px;
+  font-size: 15px;
+  padding: 8px;
+  background: rgba(160, 160, 158, 0.72);
+  border: none;
+  color: white;
+  margin-left: 10px;
+  border-radius: 5px;
+  float: right;
+  margin-right: 5px;
 }

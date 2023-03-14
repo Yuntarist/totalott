@@ -12,6 +12,7 @@ const PWD = 123123
 const HOST = '127.0.0.1:27017'
 const DB = 'trif'
 const mongodbURL = `mongodb://${USER}:${PWD}@${HOST}/${DB}`
+let cookieParser = require('cookie-parser')
 mongoose.set('strictQuery', false)
 mongoose
   .connect(mongodbURL, { useNewUrlParser: true })
@@ -21,8 +22,12 @@ const Photo = require('./DB/photo.js')
 const maincrawling = require('./DB/maincrawling.js')
 module.exports = Photo
 module.exports = maincrawling
+app.use(cookieParser())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
+app.use(history())
+app.use('/', express.static(_path))
+app.use(logger('tiny'))
 //아이디 중복체크
 app.get('/about4e1/:ID', (req, res) => {
   let 아이디 = req.params.ID
@@ -215,9 +220,6 @@ app.get('/delete', function (req, res) {
   res.redirect('/')
 })
 // DB에 저장된 데이터를 vue로 전송
-app.use(history())
-app.use('/', express.static(_path))
-app.use(logger('tiny'))
 app.get('/steam_new_title', (req, res) => {
   const main3 = async () => {
     const t = await maincrawling.find(

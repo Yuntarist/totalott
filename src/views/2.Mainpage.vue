@@ -104,6 +104,15 @@ export default {
   mounted() {
     /* 멀티 리퀘스트 */
     axios.all([
+      // 쿠키관련
+      axios.get('/main', this.user).then((res) => {
+        this.user = res.data
+        if (res.data.length >= 1) {
+          console.log(this.user)
+          this.screen_true = false
+          this.screen_false = true
+        }
+      }),
       /* steam */
       axios
         .get('steam_new_title' + this.steam_new_title)
@@ -193,16 +202,7 @@ export default {
         .get('dream_discount_price' + this.dream_discount_price)
         .then(
           (res) => (this.dream_discount_price = res.data.replaceAll(',', ''))
-        ),
-      // 쿠키관련
-      axios.get('/main', this.user).then((res) => {
-        this.user = res.data
-        if (res.data.length >= 1) {
-          console.log(this.user)
-          this.screen_true = false
-          this.screen_false = true
-        }
-      })
+        )
     ])
   },
   methods: {

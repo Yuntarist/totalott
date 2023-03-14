@@ -71,7 +71,7 @@ const steam_new_title = []
     }
     for (let j = 0; j < steam_aTag.length; j++) {
       steam_new_title.push(
-        `<div class="steam_new_title"><a href="https://store.steampowered.com/app/${steam_aTag[j]}" target="_blank">` +
+        `<div class="steam_new_title"><a href="https://store.steampowered.com/app/${steam_aTag[j]}" target="_blank" class="atag">` +
           steam_title[j] +
           `</a></div>`
       )
@@ -161,7 +161,7 @@ const gamersgate_new_title = []
     }
     for (let j = 0; j < gamersgate_aTag.length; j++) {
       gamersgate_new_title.push(
-        `<div class="gamersgate_new_title"><a href="https://www.gamersgate.com/product/${gamersgate_aTag[j]}" target="_blank">` +
+        `<div class="gamersgate_new_title"><a href="https://www.gamersgate.com/product/${gamersgate_aTag[j]}" target="_blank" class="atag">` +
           gamersgate_title[j] +
           `</a></div>`
       )
@@ -248,7 +248,7 @@ const greenmangaming_aTag = []
     }
     for (let j = 0; j < greenmangaming_aTag.length; j++) {
       greenmangaming_new_title.push(
-        `<div class="greenmangaming_new_title"><a href="https://www.greenmangaming.com/ko/games/${greenmangaming_aTag[j]}-pc" target="_blank">` +
+        `<div class="greenmangaming_new_title"><a href="https://www.greenmangaming.com/ko/games/${greenmangaming_aTag[j]}-pc" target="_blank" class="atag">` +
           greenmangaming_title[j] +
           `</a></div>`
       )
@@ -338,7 +338,7 @@ const dream_aTag = []
     }
     for (let j = 0; j < dream_aTag.length; j++) {
       dream_new_title.push(
-        `<div class="dream_new_title"><a href="https://www.dreamgame.com/en/${dream_aTag[j]}" target="_blank">` +
+        `<div class="dream_new_title"><a href="https://www.dreamgame.com/en/${dream_aTag[j]}" target="_blank" class="atag">` +
           dream_title[j] +
           `</a></div>`
       )
