@@ -55,14 +55,18 @@ export default {
     read: function () {
       this.data3 = 'DB 데이터 읽는중...'
       axios
-        .get('/about3/' + this.loginid)
+        .get('/about3/' + this.loginid + '/' + this.loginpwd)
         .then((res) => {
+          this.$cookeok = res.data.result
           if (res.data.result === 1) {
-            alert('로그인성공')
             window.location.href = '/about2'
+            alert(this.loginid + '님이 로그인하셨습니다.')
           } else if (res.data.result === 0) {
             window.location.href = '/about3'
-            alert('존재하지 않습니다.')
+            alert('아이디가 존재하지 않습니다.')
+          } else if (res.data.result === 2) {
+            window.location.href = '/about3'
+            alert('비밀번호가 틀렸습니다.')
           }
         })
         .catch((err) => {

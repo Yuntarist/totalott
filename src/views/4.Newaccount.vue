@@ -9,23 +9,30 @@
         <input
           v-model="ID"
           type="text"
+          class="lable-input"
           id="username"
           placeholder="아이디를 입력해주세요."
         />
+        <button class="idspan" v-bind="ididcheck" @click="idcheck()">
+          중복확인
+        </button>
         <div class="failure-message hide msg">
           4자 이상의 영문 혹은 영문과 숫자를 조합
         </div>
         <div class="success-message hide msg success" style="color: #14aaff">
           사용할 수 있는 아이디입니다.
         </div>
+        <div class="false-message hide msg success" style="color: red">
+          사용할 수 없는 아이디입니다.
+        </div>
+        <div id="ex"></div>
       </fieldset>
-      <a href="" target=""></a>
       <!-- 비밀번호 -->
       <fieldset>
         <label>비밀번호<span>*</span></label>
         <input
-          type="password"
           v-model="pwd"
+          class="lable-input"
           id="password"
           placeholder="비밀번호를 입력해주세요."
         />
@@ -52,7 +59,8 @@
         <label>비밀번호 확인<span>*</span></label>
         <input
           v-model="pwd2"
-          type="password"
+          type="text"
+          class="lable-input"
           id="password-retype"
           placeholder="비밀번호를 한번 더 입력해주세요."
         />
@@ -68,6 +76,7 @@
         <label>이메일 주소<span>*</span></label>
         <input
           v-model="email"
+          class="lable-input"
           id="emailAddress"
           placeholder="이메일 주소를 입력해주세요."
         />
@@ -84,7 +93,7 @@
       </fieldset>
       <br />
       <div class="login-checkbox">
-        <input type="checkbox" class="login-user-information" />
+        <input type="checkbox" class="login-user-information" required />
         [필수] 개인정보 수집 및 이용동의
       </div>
       <button id="subit-button" @click="submit">회원가입</button>
@@ -94,13 +103,14 @@
 
 <script>
 // eslint-disable-next-line
-import axios from 'axios'
-import sha256 from 'crypto-js/sha256'
 /* eslint-disable */
+import axios from 'axios'
+// import sha256 from "crypto-js/sha256";
 export default {
   name: 'app',
   data() {
     return {
+      ididcheck: false,
       ID: '',
       pwd: '',
       pwd2: '',
@@ -113,6 +123,7 @@ export default {
     const InputUsername = document.querySelector('#username')
     const FailureMessage = document.querySelector('.failure-message')
     const SuccessMessage = document.querySelector('.success-message')
+    const falsemessage = document.querySelector('.false-message')
 
     // 비밀번호
     const Password = document.querySelector('#password')
@@ -144,11 +155,13 @@ export default {
         isMoreThan4Length(InputUsername.value) &&
         isUserNameChar(InputUsername.value)
       ) {
-        SuccessMessage.classList.remove('hide')
+        SuccessMessage.classList.add('hide')
         FailureMessage.classList.add('hide')
+        falsemessage.classList.add('hide')
       } else {
         FailureMessage.classList.remove('hide')
         SuccessMessage.classList.add('hide')
+        falsemessage.classList.add('hide')
       }
       isSubmitButton()
     }
@@ -448,15 +461,30 @@ export default {
   methods: {
     submit: function () {
       let userbt = {
-        userID: sha256(this.ID).toString(), // base64 코드로 바꿔줌
-        userPW: sha256(this.pwd).toString(), // base64 코드로 바꿔줌
-        userPW2: sha256(this.pwd2).toString(), // base64 코드로 바꿔줌
-        userEM: sha256(this.email).toString() // base64 코드로 바꿔줌
+        userID: this.ID,
+        userPW: this.pwd,
+        userPW2: this.pwd2,
+        userEM: this.email
       }
-      axios.post('./about4', userbt)
+      axios.post('/about4', userbt)
     },
-    Duplicate: function () {
-      alert('dd')
+    idcheck() {
+      const SuccessMessage = document.querySelector('.success-message')
+      const falsemessage = document.querySelector('.false-message')
+      axios.get('/about4e1/' + this.ID).then((res) => {
+        if (res.data.result === 1) {
+          this.ididcheck = true
+          SuccessMessage.classList.remove('hide')
+          falsemessage.classList.add('hide')
+          console.log(this.ididcheck)
+        } else if (res.data.result === 0) {
+          this.ididcheck = false
+          SuccessMessage.classList.add('hide')
+          falsemessage.classList.remove('hide')
+          console.log(this.ididcheck)
+          this.ID = ''
+        }
+      })
     }
   }
 }
