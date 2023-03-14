@@ -1,3 +1,10 @@
+body {
+  margin-left: 200px;
+  margin-right: 200px;
+}
+.game_title_txt {
+  font-weight: bold;
+}
 .loginbtn {
   width: 100px;
   height: 35px;
@@ -35,7 +42,7 @@
   margin-left: 100px;
 }
 .steam_new_title {
-  margin-left: 100px;
+  margin-left: 200px;
   flex-direction: column;
   text-align: left;
 }
@@ -69,7 +76,7 @@
   margin-left: 100px;
 }
 .gamersgate_new_title {
-  margin-left: 100px;
+  margin-left: 200px;
   flex-direction: column;
   text-align: left;
 }
@@ -93,7 +100,7 @@
   font-size: 30px;
 }
 .gamersgate_logo_text {
-  padding-left: 55px;
+  padding-left: 10px;
   font-size: 30px;
   font-weight: bold;
 }
@@ -103,7 +110,7 @@
   margin-left: 100px;
 }
 .greenmangaming_new_title {
-  margin-left: 100px;
+  margin-left: 200px;
   flex-direction: column;
   text-align: left;
 }
@@ -127,7 +134,8 @@
   font-size: 30px;
 }
 .greenmangaming_logo_text {
-  padding-left: 55px;
+  margin-right: 250px;
+  padding-right: 250px;
   font-size: 30px;
   font-weight: bold;
 }
@@ -137,7 +145,7 @@
   margin-left: 100px;
 }
 .dream_new_title {
-  margin-left: 100px;
+  margin-left: 110px;
   flex-direction: column;
   text-align: left;
 }
