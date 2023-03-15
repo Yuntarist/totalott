@@ -52,10 +52,6 @@
               <div class="qna-box" @click="qna4()">
                 <a href="#">버그문의</a>
               </div>
-              <div class="qna-box" @click="qna5()">
-                <a href="#">할인문의</a>
-              </div>
-              <p style="color: blue">1개를 선택 해주세요</p>
               <br />
             </div>
           </div>
@@ -63,31 +59,45 @@
             {{ test }}
           </div>
           <div class="qna-result" style="display: none">
-            {{ modalqna }}
+            <a
+              style="text-decoration: none"
+              href="https://www.gamersgate.com/support/game-related/how-to-install-games/"
+              target="_blank"
+              >{{ modalqna }}</a
+            >
           </div>
           <div class="answer2" style="display: none">
             {{ test2 }}
           </div>
           <div class="qna-result2" style="display: none">
-            {{ modalqna2 }}
+            <a
+              style="text-decoration: none"
+              href="https://www.dreamgame.com/en/payment-methods"
+              target="_blank"
+              >{{ modalqna2 }}</a
+            >
           </div>
           <div class="answer3" style="display: none">
             {{ test3 }}
           </div>
           <div class="qna-result3" style="display: none">
-            {{ modalqna3 }}
+            <a
+              style="text-decoration: none"
+              href="https://wingamestore.zendesk.com/hc/en-us/articles/360033289272-2-Step-Authentication"
+              target="_blank"
+              >{{ modalqna3 }}</a
+            >
           </div>
           <div class="answer4" style="display: none">
             {{ test4 }}
           </div>
           <div class="qna-result4" style="display: none">
-            {{ modalqna4 }}
-          </div>
-          <div class="answer5" style="display: none">
-            {{ test5 }}
-          </div>
-          <div class="qna-result5" style="display: none">
-            {{ modalqna5 }}
+            <a
+              style="text-decoration: none"
+              href="https://www.gamersgate.com/support/game-related/black-or-flickering-screen/"
+              target="_blank"
+              >{{ modalqna4 }}</a
+            >
           </div>
         </div>
         <div class="xmodal">
@@ -149,12 +159,10 @@ export default {
       test2: "",
       test3: "",
       test4: "",
-      test5: "",
       modalqna: "",
       modalqna2: "",
       modalqna3: "",
       modalqna4: "",
-      modalqna5: "",
     };
   },
   methods: {
@@ -165,14 +173,12 @@ export default {
       const answer2 = document.querySelector(".answer2");
       const answer3 = document.querySelector(".answer3");
       const answer4 = document.querySelector(".answer4");
-      const answer5 = document.querySelector(".answer5");
       const sptime = document.querySelector(".sptime");
       const qnaText = document.querySelector(".qna-text");
       const qnaResult = document.querySelector(".qna-result");
       const qnaResult2 = document.querySelector(".qna-result2");
       const qnaResult3 = document.querySelector(".qna-result3");
       const qnaResult4 = document.querySelector(".qna-result4");
-      const qnaResult5 = document.querySelector(".qna-result5");
       const qnaAll = document.querySelector(".qna-all");
       const x = document.querySelector(".x");
       button.addEventListener("click", () => {
@@ -191,12 +197,10 @@ export default {
         answer2.style.display = "none";
         answer3.style.display = "none";
         answer4.style.display = "none";
-        answer5.style.display = "none";
         qnaResult.style.display = "none";
         qnaResult2.style.display = "none";
         qnaResult3.style.display = "none";
         qnaResult4.style.display = "none";
-        qnaResult5.style.display = "none";
         qnaAll.style.display = "none";
       });
     },
@@ -215,7 +219,7 @@ export default {
       this.test = "게임문의";
       setTimeout(() => {
         qnaResult.style.display = "block";
-        this.modalqna = "수정중";
+        this.modalqna = "게임은 어떻게 설치하나요 ?";
       }, 2000);
     },
     qna2: function () {
@@ -225,7 +229,7 @@ export default {
       this.test2 = "결제문의";
       setTimeout(() => {
         qnaResult2.style.display = "block";
-        this.modalqna2 = "수정중2";
+        this.modalqna2 = "지불방법";
       }, 2000);
     },
     qna3: function () {
@@ -235,7 +239,7 @@ export default {
       this.test3 = "계정문의";
       setTimeout(() => {
         qnaResult3.style.display = "block";
-        this.modalqna3 = "수정중3";
+        this.modalqna3 = "2단계인증";
       }, 2000);
     },
     qna4: function () {
@@ -245,17 +249,7 @@ export default {
       this.test4 = "버그문의";
       setTimeout(() => {
         qnaResult4.style.display = "block";
-        this.modalqna4 = "수정중4";
-      }, 2000);
-    },
-    qna5: function () {
-      const answer5 = document.querySelector(".answer5");
-      const qnaResult5 = document.querySelector(".qna-result5");
-      answer5.style.display = "block";
-      this.test5 = "할인문의";
-      setTimeout(() => {
-        qnaResult5.style.display = "block";
-        this.modalqna5 = "수정중5";
+        this.modalqna4 = "게임 실행 시 검은색/깜빡이는 화면";
       }, 2000);
     },
   },
