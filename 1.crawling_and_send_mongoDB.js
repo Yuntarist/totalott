@@ -26,7 +26,7 @@ const steam_new_title = []
     var url = urlMap.get(v)
     await page.goto(url)
     await page.waitForSelector('a:nth-child(1)')
-    for (let i = 11; i < 21; i++) {
+    for (let i = 1; i < 11; i++) {
       const title = await page.$eval(
         'a:nth-child(' + i + ') div.col.search_name.ellipsis span.title',
         (x) => x.innerHTML
@@ -66,7 +66,7 @@ const steam_new_title = []
           discount_price.substr(-28, 9).replace('>', '') +
           `</div>`
       )
-      steam_aTag.push(aTag.substr(60, 7).replace('/', ''))
+      steam_aTag.push(aTag.substr(56, 7).replace('/', ''))
       steam_title.push(title)
     }
     for (let j = 0; j < steam_aTag.length; j++) {
@@ -139,7 +139,8 @@ const gamersgate_new_title = []
           .replace('é', 'e')
           .replace('(', '')
           .replace(')', '')
-          .replace('™-', '')
+          .replace('™-', '-')
+          .replace("'", '')
           .toLowerCase()
       )
       gamersgate_title.push(title)
@@ -242,7 +243,8 @@ const greenmangaming_aTag = []
           .replace('é', 'e')
           .replace('(', '')
           .replace(')', '')
-          .replace('™-', '')
+          .replace('™-', '-')
+          .replace("'", '')
           .toLowerCase()
       )
     }

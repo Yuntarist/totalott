@@ -84,7 +84,6 @@ app.get('/about3/:loginid/:loginpwd', (req, res) => {
       })
   })()
 })
-
 //아이디 찾기
 app.post('/about5', (req, res) => {
   let 이메일 = req.body.email
@@ -101,7 +100,6 @@ app.post('/about5', (req, res) => {
       })
   })()
 })
-
 //비밀번호 찾기
 app.post('/about5up', (req, res) => {
   let 이메일 = req.body.email

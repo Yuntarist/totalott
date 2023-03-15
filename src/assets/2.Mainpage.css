@@ -1,6 +1,7 @@
-body {
-  margin-left: 200px;
-  margin-right: 200px;
+.mainpage {
+  margin-left: 250px;
+  margin-right: 350px;
+  min-width: 1000px;
 }
 .game_title_txt {
   font-weight: bold;
@@ -15,7 +16,6 @@ body {
   color: white;
   border-radius: 5px;
   float: left;
-  margin-left: 100px;
 }
 .loginbtn:hover {
   background: rgba(228, 225, 225, 0.678);
@@ -28,10 +28,8 @@ body {
   background: rgba(160, 160, 158, 0.72);
   border: none;
   color: white;
-  margin-left: 10px;
   border-radius: 5px;
   float: left;
-  margin-right: 5px;
 }
 .newaccountbtn:hover {
   background: rgba(228, 225, 225, 0.678);
@@ -42,26 +40,22 @@ body {
 /* steam */
 .steam {
   display: flex;
-  margin-left: 100px;
 }
 .steam_new_title {
-  margin-left: 200px;
-  flex-direction: column;
   text-align: left;
+  margin-left: 200px;
 }
 .steam_price {
+  margin-left: 10px;
   flex-direction: column;
-  margin-left: 50px;
   text-decoration: line-through;
 }
 .steam_discount_percent {
-  flex-direction: column;
-  margin-left: 10px;
   color: red;
+  margin-left: 10px;
 }
 .steam_discount_price {
-  flex-direction: column;
-  margin-left: 50px;
+  margin-left: 10px;
 }
 .steam_logo {
   width: 200px;
@@ -76,26 +70,25 @@ body {
 /* gamersgate */
 .gamersgate {
   display: flex;
-  margin-left: 100px;
 }
 .gamersgate_new_title {
-  margin-left: 200px;
   flex-direction: column;
   text-align: left;
+  margin-left: 200px;
 }
 .gamersgate_price {
   flex-direction: column;
-  margin-left: 50px;
   text-decoration: line-through;
+  margin-left: 10px;
 }
 .gamersgate_discount_percent {
   flex-direction: column;
-  margin-left: 10px;
   color: red;
+  margin-left: 10px;
 }
 .gamersgate_discount_price {
   flex-direction: column;
-  margin-left: 50px;
+  margin-left: 10px;
 }
 .gamersgate_logo {
   width: 200px;
@@ -110,26 +103,25 @@ body {
 /* greenmangaming */
 .greenmangaming {
   display: flex;
-  margin-left: 100px;
 }
 .greenmangaming_new_title {
-  margin-left: 200px;
   flex-direction: column;
   text-align: left;
+  margin-left: 200px;
 }
 .greenmangaming_price {
   flex-direction: column;
-  margin-left: 50px;
   text-decoration: line-through;
+  margin-left: 10px;
 }
 .greenmangaming_discount_percent {
   flex-direction: column;
-  margin-left: 10px;
   color: red;
+  margin-left: 10px;
 }
 .greenmangaming_discount_price {
   flex-direction: column;
-  margin-left: 50px;
+  margin-left: 10px;
 }
 .greenmangaming_logo {
   width: 200px;
@@ -137,7 +129,6 @@ body {
   font-size: 30px;
 }
 .greenmangaming_logo_text {
-  margin-right: 250px;
   padding-right: 250px;
   font-size: 30px;
   font-weight: bold;
@@ -145,26 +136,25 @@ body {
 /* dream */
 .dream {
   display: flex;
-  margin-left: 100px;
 }
 .dream_new_title {
-  margin-left: 110px;
   flex-direction: column;
   text-align: left;
+  margin-left: 110px;
 }
 .dream_price {
   flex-direction: column;
-  margin-left: 50px;
   text-decoration: line-through;
+  margin-left: 10px;
 }
 .dream_discount_percent {
   flex-direction: column;
-  margin-left: 10px;
   color: red;
+  margin-left: 10px;
 }
 .dream_discount_price {
   flex-direction: column;
-  margin-left: 50px;
+  margin-left: 10px;
 }
 .dream_logo {
   width: 200px;
@@ -172,10 +162,11 @@ body {
   font-size: 30px;
 }
 .dream_logo_text {
-  padding-left: 55px;
+  /* padding-left: 55px; */
   font-size: 30px;
   font-weight: bold;
 }
+/* 쿠키 */
 .cookies_delete {
   width: 100px;
   height: 35px;
@@ -184,8 +175,6 @@ body {
   background: rgba(160, 160, 158, 0.72);
   border: none;
   color: white;
-  margin-left: 10px;
   border-radius: 5px;
   float: right;
-  margin-right: 5px;
 }

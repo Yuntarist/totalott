@@ -1,6 +1,6 @@
 <template>
   <hr />
-  <div>
+  <div class="mainpage">
     <button class="loginbtn" @click="move1" v-if="screen_true">로그인</button>
     <button class="newaccountbtn" @click="move2" v-if="screen_true">
       회원가입
@@ -13,57 +13,58 @@
       로그아웃
     </button>
     <input class="searchBar" type="text" placeholder="검색" />
-  </div>
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <h4 class="game_title_txt">게임 제목 클릭 시 구매 페이지로 이동합니다</h4>
-  <div class="steam">
-    <div id="steam">
-      <img class="steam_logo" src="../assets/steam.png" /> <br />
-      <p class="steam_logo_text">Steam</p>
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <h4 class="game_title_txt">게임 제목 클릭 시 구매 페이지로 이동합니다</h4>
+    <div class="steam">
+      <div id="steam">
+        <img class="steam_logo" src="../assets/steam.png" /> <br />
+        <p class="steam_logo_text">Steam</p>
+      </div>
+      <div v-html="steam_new_title"></div>
+      <div v-html="steam_price"></div>
+      <div v-html="steam_discount_percent"></div>
+      <div v-html="steam_discount_price"></div>
     </div>
-    <div v-html="steam_new_title"></div>
-    <div v-html="steam_price"></div>
-    <div v-html="steam_discount_percent"></div>
-    <div v-html="steam_discount_price"></div>
-  </div>
-  <hr />
-  <div class="gamersgate">
-    <div id="gamersgate">
-      <img class="gamersgate_logo" src="../assets/gamersgate.png" /> <br />
-      <p class="gamersgate_logo_text">Gamersgate</p>
+    <hr />
+    <div class="gamersgate">
+      <div id="gamersgate">
+        <img class="gamersgate_logo" src="../assets/gamersgate.png" /> <br />
+        <p class="gamersgate_logo_text">Gamersgate</p>
+      </div>
+      <div v-html="gamersgate_new_title"></div>
+      <div v-html="gamersgate_price"></div>
+      <div v-html="gamersgate_discount_percent"></div>
+      <div v-html="gamersgate_discount_price"></div>
     </div>
-    <div v-html="gamersgate_new_title"></div>
-    <div v-html="gamersgate_price"></div>
-    <div v-html="gamersgate_discount_percent"></div>
-    <div v-html="gamersgate_discount_price"></div>
-  </div>
-  <hr />
-  <div class="greenmangaming">
-    <div id="greenmangaming">
-      <img class="greenmangaming_logo" src="../assets/greenmangaming.png" />
-      <br />
-      <p class="greenmangaming_logo_text">Greenmangaming</p>
+    <hr />
+    <div class="greenmangaming">
+      <div id="greenmangaming">
+        <img class="greenmangaming_logo" src="../assets/greenmangaming.png" />
+        <br />
+        <p class="greenmangaming_logo_text">Greenmangaming</p>
+      </div>
+      <div v-html="greenmangaming_new_title"></div>
+      <div v-html="greenmangaming_price"></div>
+      <div v-html="greenmangaming_discount_percent"></div>
+      <div v-html="greenmangaming_discount_price"></div>
     </div>
-    <div v-html="greenmangaming_new_title"></div>
-    <div v-html="greenmangaming_price"></div>
-    <div v-html="greenmangaming_discount_percent"></div>
-    <div v-html="greenmangaming_discount_price"></div>
-  </div>
-  <hr />
-  <div class="dream">
-    <div id="dream">
-      <img class="dream_logo" src="../assets/dreamgame.png" />
-      <br />
-      <p class="dream_logo_text">Dream</p>
+    <hr />
+    <div class="dream">
+      <div id="dream">
+        <img class="dream_logo" src="../assets/dreamgame.png" />
+        <br />
+        <p class="dream_logo_text">Dream</p>
+      </div>
+      <div v-html="dream_new_title"></div>
+      <div v-html="dream_price"></div>
+      <div v-html="dream_discount_percent"></div>
+      <div v-html="dream_discount_price"></div>
     </div>
-    <div v-html="dream_new_title"></div>
-    <div v-html="dream_price"></div>
-    <div v-html="dream_discount_percent"></div>
-    <div v-html="dream_discount_price"></div>
   </div>
 </template>
 
@@ -224,4 +225,5 @@ export default {
   }
 }
 </script>
+
 <style src="../assets/2.Mainpage.css"></style>
