@@ -255,5 +255,6 @@ export default {
   },
 };
 </script>
+<!-- 수정하기 -->
 
 <style src="../assets/8.css"></style>
