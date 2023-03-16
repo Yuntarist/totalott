@@ -1,0 +1,11 @@
+.mainpage {
+  margin-left: 250px;
+  margin-right: 350px;
+  min-width: 1000px;
+}
+.reddeadredemtion_img {
+  vertical-align: bottom;
+}
+.result1 {
+  display: flex;
+}
