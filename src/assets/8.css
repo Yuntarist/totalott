@@ -14,11 +14,15 @@ details summary::marker {
   background-image: url("../assets/qna.png");
 }
 .qna-body {
-  /* border: 1px solid #fff; */
+  border: 1px solid #fff;
   font-size: 26px;
   justify-content: center;
-  margin-top: 80px;
+  margin-top: 50px;
   position: relative;
+  width: 900px;
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
 }
 .hide {
   display: none;
@@ -150,9 +154,4 @@ details summary::marker {
   background-color: #67ace9;
   border-radius: 8px;
   margin-left: 20px;
-}
-.text-size {
-  margin-left: 520px;
-  margin-top: 10px;
-  width: 620px;
 }
