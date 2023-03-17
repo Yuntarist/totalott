@@ -13,6 +13,11 @@ details summary::marker {
   border-radius: 50%;
   background-image: url("../assets/qna.png");
 }
+.bot-end {
+  color: #3955e4;
+  border: 1px solid #d1d1d1;
+  margin-top: 10px;
+}
 .qna-body {
   font-size: 24px;
   margin-top: 40px;
@@ -125,12 +130,16 @@ details summary::marker {
   white-space: pre-wrap;
   border-radius: 8px;
 }
-.qna-result5 {
+#qnaContent {
   width: 280px;
   margin-top: 20px;
   padding: 10px 13px;
 }
-
+.qbt {
+  width: 280px;
+  margin-top: 20px;
+  padding: 10px 13px;
+}
 .sptime {
   margin-top: 10px;
   padding-left: 20px;

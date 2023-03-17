@@ -32,7 +32,7 @@
               <div class="bot-all">
                 <img class="bot-img" src="../assets/qna.png" alt="TRIF" />
                 <span class="bot-text">고객센터</span><br />
-                <span style="color: black"
+                <span class="bot-say" style="color: black"
                   >안녕하세요. 무엇을 도와드릴까요?</span
                 >
               </div>
@@ -105,17 +105,28 @@
           <div class="answer5" style="display: none">
             {{ test5 }}
           </div>
-          <div class="qna-result5" style="display: none">
-            <textarea
-              v-model="qna"
-              placeholder="문의내용을 자세하게 적어주세요."
-              name=""
-              id="qnaContent"
-              cols="30"
-              rows="10"
-              >{{ modalqna5 }}</textarea
-            ><button @click="qsubmit()">제출</button>
-            <div>{{ Qtext }}</div>
+          <textarea
+            style="display: none"
+            v-model="qna"
+            placeholder="문의내용을 자세하게 적어주세요."
+            name=""
+            id="qnaContent"
+            cols="30"
+            rows="10"
+          ></textarea
+          ><button style="display: none" class="qbt" @click="qsubmit()">
+            제출
+          </button>
+          <div>
+            <span class="sptime2" style="display: none">
+              <div class="bot-all">
+                <img class="bot-img" src="../assets/qna.png" alt="TRIF" />
+                <span class="bot-text">고객센터</span><br />
+                <span style="color: black"
+                  ><div class="bot-end">소중한 의견 감사합니다 !</div>
+                </span>
+              </div>
+            </span>
           </div>
         </div>
         <div class="xmodal">
@@ -182,7 +193,6 @@ export default {
       modalqna2: "",
       modalqna3: "",
       modalqna4: "",
-      modalqna5: "",
       qna: "",
       data: "",
     };
@@ -196,6 +206,7 @@ export default {
       const answer3 = document.querySelector(".answer3");
       const answer4 = document.querySelector(".answer4");
       const sptime = document.querySelector(".sptime");
+      const sptime2 = document.querySelector(".sptime2");
       const qnaText = document.querySelector(".qna-text");
       const qnaResult = document.querySelector(".qna-result");
       const qnaResult2 = document.querySelector(".qna-result2");
@@ -203,6 +214,7 @@ export default {
       const qnaResult4 = document.querySelector(".qna-result4");
       const qnaAll = document.querySelector(".qna-all");
       const x = document.querySelector(".x");
+      const qbt = document.querySelector(".qbt");
       button.addEventListener("click", () => {
         modal.style.display = "block";
         setTimeout(() => {
@@ -224,6 +236,9 @@ export default {
         qnaResult3.style.display = "none";
         qnaResult4.style.display = "none";
         qnaAll.style.display = "none";
+      });
+      qbt.addEventListener("click", () => {
+        sptime2.style.display = "block";
       });
     },
     today: function () {
@@ -276,20 +291,26 @@ export default {
     },
     qna5: function () {
       const answer5 = document.querySelector(".answer5");
-      const qnaResult5 = document.querySelector(".qna-result5");
+      const qnaContent = document.querySelector("#qnaContent");
+      const qbt = document.querySelector(".qbt");
       answer5.style.display = "block";
       this.test5 = "1대1 문의";
       setTimeout(() => {
-        qnaResult5.style.display = "block";
+        qnaContent.style.display = "block";
+        qbt.style.display = "block";
       }, 2000);
     },
     qsubmit: function () {
       this.Qtext = "DB에 저장중";
+      const qnaContent = document.querySelector("#qnaContent");
+      const qbt = document.querySelector(".qbt");
       axios
         .post("./about8", {
           qna: this.qna,
         })
         .then((res) => (this.Qtext = res.data));
+      qnaContent.style.display = "none";
+      qbt.style.display = "none";
     },
   },
 };
