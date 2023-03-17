@@ -4,6 +4,7 @@
   ><input class="idf-input" type="text" v-model="emailfind" />
   <button @click="idfind()" class="idf-btn">확인</button>
   <p class="idf-p">아이디 : {{ emailcome }}</p>
+  <button class="cookies_delete" @click="mypage">메인페이지</button>
 </template>
 
 <script>
@@ -23,6 +24,9 @@ export default {
           this.emailcome = res.data
         }
       })
+    },
+    mypage: function () {
+      window.location.href = '/about2'
     }
   }
 }

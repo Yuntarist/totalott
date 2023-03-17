@@ -13,6 +13,7 @@
           id="username"
           placeholder="아이디를 입력해주세요."
         />
+
         <button class="idspan" v-bind="ididcheck" @click="idcheck()">
           중복확인
         </button>
@@ -97,6 +98,8 @@
         [필수] 개인정보 수집 및 이용동의
       </div>
       <button id="subit-button" @click="submit">회원가입</button>
+      <br />
+      <button id="subit-button" @click="login()">비회원으로 이용하기</button>
     </form>
   </div>
 </template>
@@ -459,6 +462,9 @@ export default {
     }
   },
   methods: {
+    login: function () {
+      window.location.href = '/about2'
+    },
     submit: function () {
       let userbt = {
         userID: this.ID,

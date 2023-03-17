@@ -10,6 +10,7 @@
     <button @click="pwdfind()" class="pwf-btn">확인</button>
   </div>
   <p class="pwf-p">임시비밀번호 :{{ passcome }}</p>
+  <button class="cookies_delete" @click="mypage">메인페이지</button>
 </template>
 
 <script>
@@ -38,6 +39,9 @@ export default {
             this.passcome = res.data
           }
         })
+    },
+    mypage: function () {
+      window.location.href = '/about2'
     }
   }
 }

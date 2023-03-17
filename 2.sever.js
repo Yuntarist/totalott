@@ -7,10 +7,10 @@ const history = require('connect-history-api-fallback')
 const app = express()
 const port = 3000
 const _path = path.join(__dirname, './dist')
-const USER = 'MEVN'
-const PWD = 5959
+const USER = 'dtd'
+const PWD = 123123
 const HOST = '127.0.0.1:27017'
-const DB = 'mdb'
+const DB = 'trif'
 const mongodbURL = `mongodb://${USER}:${PWD}@${HOST}/${DB}`
 let cookieParser = require('cookie-parser')
 app.use(cookieParser())

@@ -1,6 +1,7 @@
 <template>
   <hr />
   <h1>자주하는 질문</h1>
+  <button @click="main()">메인 페이지</button>
   <div class="qna-body">
     <div v-for="(item, i) in list" :key="i">
       <details class="alist">
@@ -156,6 +157,9 @@ export default {
     }
   },
   methods: {
+    main: function () {
+      window.location.href = './about2'
+    },
     modalA: function () {
       const button = document.querySelector('.circle')
       const modal = document.querySelector('.modal-background')
