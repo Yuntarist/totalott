@@ -485,6 +485,11 @@ export default {
           falsemessage.classList.remove("hide");
           console.log(this.ididcheck);
           this.ID = "";
+        } else if (res.data.result === 2) {
+          this.ididcheck = false;
+          SuccessMessage.classList.add("hide");
+          falsemessage.classList.remove("hide");
+          console.log(this.ididcheck);
         }
       });
     },

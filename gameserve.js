@@ -37,17 +37,21 @@ app.use(express.urlencoded({ extended: true }))
 
 //아이디 중복체크
 app.get('/about4e1/:ID',(req, res) =>{
+  let letters = /[a-zA-Z0-9]/g
   let 아이디 = req.params.ID
   console.log(아이디)
   ;(async()=>{
     const t = await Photo.find({아이디},{id:0,__v:0})
     .lean().then((t)=>{
       console.log(t)
-      if(t[0] === undefined ){
-        res.json({result: 1});
-      }else if(t[0].아이디 === 아이디 ){
-        res.json({result:0})
+      if( 아이디.match(letters) ){
+        res.json({result: 2});
+      }else if(t[0] === undefined ||""){
+        res.json({result:1})
+        }else if( t[0].아이디 === 아이디){
+          res.json({result:0})
         }
+       
   })
 })()
 })
@@ -88,7 +92,6 @@ app.get('/about3/:loginid/:loginpwd',(req,res)=>{
           res.cookie('user_id', t[0].아이디);
           res.json({result:1})
         }
-
   })
 })()
 
