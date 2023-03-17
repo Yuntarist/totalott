@@ -16,13 +16,11 @@ details summary::marker {
 .qna-body {
   border: 1px solid #fff;
   font-size: 26px;
-  justify-content: center;
+  /* justify-content: center; */
   margin-top: 50px;
   position: relative;
   width: 900px;
   display: inline-block;
-  justify-content: center;
-  align-items: center;
 }
 .hide {
   display: none;
