@@ -7,12 +7,13 @@ const history = require('connect-history-api-fallback')
 const app = express()
 const port = 3000
 const _path = path.join(__dirname, './dist')
-const USER = 'dtd'
-const PWD = 123123
+const USER = 'MEVN'
+const PWD = 5959
 const HOST = '127.0.0.1:27017'
-const DB = 'trif'
+const DB = 'mdb'
 const mongodbURL = `mongodb://${USER}:${PWD}@${HOST}/${DB}`
 let cookieParser = require('cookie-parser')
+app.use(cookieParser())
 mongoose.set('strictQuery', false)
 mongoose
   .connect(mongodbURL, { useNewUrlParser: true })
@@ -22,7 +23,6 @@ const Photo = require('./DB/photo.js')
 const maincrawling = require('./DB/maincrawling.js')
 module.exports = Photo
 module.exports = maincrawling
-app.use(cookieParser())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(history())
@@ -65,9 +65,11 @@ app.post('/about4', function (req, res) {
   })()
 })
 //로그인
-app.get('/about3/:loginid/:loginpwd', (req, res) => {
-  let 아이디 = req.params.loginid
-  let 비밀번호 = req.params.loginpwd
+app.post('/about3', (req, res) => {
+  let 아이디 = req.body.logininid
+  let 비밀번호 = req.body.logininpwd
+  console.log(아이디)
+  console.log(비밀번호)
   ;(async () => {
     const t = await Photo.find({ 아이디 }, { id: 0, __v: 0 })
       .lean()

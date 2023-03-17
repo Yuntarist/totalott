@@ -71,159 +71,160 @@
 <script>
 // eslint-disable-next-line
 /* eslint-disable */
-import axios from 'axios'
+import axios from "axios";
 export default {
-  name: 'app',
+  name: "app",
   data() {
     return {
       // login관련
-      user: '',
+      user: "",
       screen_true: true,
       screen_false: false,
       // steam
-      steam_new_title: '',
-      steam_price: '',
-      steam_discount_percent: '',
-      steam_discount_price: '',
+      steam_new_title: "",
+      steam_price: "",
+      steam_discount_percent: "",
+      steam_discount_price: "",
       // gamersgate
-      gamersgate_new_title: '',
-      gamersgate_price: '',
-      gamersgate_discount_percent: '',
-      gamersgate_discount_price: '',
+      gamersgate_new_title: "",
+      gamersgate_price: "",
+      gamersgate_discount_percent: "",
+      gamersgate_discount_price: "",
       // greenmangaming
-      greenmangaming_new_title: '',
-      greenmangaming_price: '',
-      greenmangaming_discount_percent: '',
-      greenmangaming_discount_price: '',
+      greenmangaming_new_title: "",
+      greenmangaming_price: "",
+      greenmangaming_discount_percent: "",
+      greenmangaming_discount_price: "",
       // dream
-      dream_new_title: '',
-      dream_price: '',
-      dream_discount_percent: '',
-      dream_discount_price: ''
-    }
+      dream_new_title: "",
+      dream_price: "",
+      dream_discount_percent: "",
+      dream_discount_price: "",
+    };
   },
   mounted() {
     /* 멀티 리퀘스트 */
     axios.all([
       // 쿠키관련
-      axios.get('/main', this.user).then((res) => {
-        this.user = res.data
+      axios.get("/main", this.user).then((res) => {
+        this.user = res.data;
         if (res.data.length >= 1) {
-          console.log(this.user)
-          this.screen_true = false
-          this.screen_false = true
+          console.log(this.user);
+          this.screen_true = false;
+          this.screen_false = true;
         }
       }),
       /* steam */
       axios
-        .get('steam_new_title' + this.steam_new_title)
-        .then((res) => (this.steam_new_title = res.data.replaceAll(',', ''))),
+        .get("steam_new_title" + this.steam_new_title)
+        .then((res) => (this.steam_new_title = res.data.replaceAll(",", ""))),
       // 마지막의 res.data에 편집가능
       axios
-        .get('steam_price' + this.steam_price)
-        .then((res) => (this.steam_price = res.data.replaceAll(',', ''))),
+        .get("steam_price" + this.steam_price)
+        .then((res) => (this.steam_price = res.data.replaceAll(",", ""))),
       axios
-        .get('steam_discount_percent' + this.steam_discount_percent)
+        .get("steam_discount_percent" + this.steam_discount_percent)
         .then(
-          (res) => (this.steam_discount_percent = res.data.replaceAll(',', ''))
+          (res) => (this.steam_discount_percent = res.data.replaceAll(",", ""))
         ),
       axios
-        .get('steam_discount_price' + this.steam_discount_price)
+        .get("steam_discount_price" + this.steam_discount_price)
         .then(
-          (res) => (this.steam_discount_price = res.data.replaceAll(',', ''))
+          (res) => (this.steam_discount_price = res.data.replaceAll(",", ""))
         ),
       /* gamersgate */
       axios
-        .get('gamersgate_new_title' + this.gamersgate_new_title)
+        .get("gamersgate_new_title" + this.gamersgate_new_title)
         .then(
-          (res) => (this.gamersgate_new_title = res.data.replaceAll(',', ''))
+          (res) => (this.gamersgate_new_title = res.data.replaceAll(",", ""))
         ),
       axios
-        .get('gamersgate_price' + this.gamersgate_price)
-        .then((res) => (this.gamersgate_price = res.data.replaceAll(',', ''))),
+        .get("gamersgate_price" + this.gamersgate_price)
+        .then((res) => (this.gamersgate_price = res.data.replaceAll(",", ""))),
       axios
-        .get('gamersgate_discount_percent' + this.gamersgate_discount_percent)
+        .get("gamersgate_discount_percent" + this.gamersgate_discount_percent)
         .then(
           (res) =>
-            (this.gamersgate_discount_percent = res.data.replaceAll(',', ''))
+            (this.gamersgate_discount_percent = res.data.replaceAll(",", ""))
         ),
       axios
-        .get('gamersgate_discount_price' + this.gamersgate_discount_price)
+        .get("gamersgate_discount_price" + this.gamersgate_discount_price)
         .then(
           (res) =>
             (this.gamersgate_discount_price = res.data
-              .replaceAll('.', '')
-              .replaceAll(',', ''))
+              .replaceAll(".", "")
+              .replaceAll(",", ""))
         ),
       /* greenmangaming */
       axios
-        .get('greenmangaming_new_title' + this.greenmangaming_new_title)
+        .get("greenmangaming_new_title" + this.greenmangaming_new_title)
         .then(
           (res) =>
-            (this.greenmangaming_new_title = res.data.replaceAll(',', ''))
+            (this.greenmangaming_new_title = res.data.replaceAll(",", ""))
         ),
       axios
-        .get('greenmangaming_price' + this.greenmangaming_price)
+        .get("greenmangaming_price" + this.greenmangaming_price)
         .then(
-          (res) => (this.greenmangaming_price = res.data.replaceAll(',', ''))
+          (res) => (this.greenmangaming_price = res.data.replaceAll(",", ""))
         ),
       axios
         .get(
-          'greenmangaming_discount_percent' +
+          "greenmangaming_discount_percent" +
             this.greenmangaming_discount_percent
         )
         .then(
           (res) =>
             (this.greenmangaming_discount_percent = res.data.replaceAll(
-              ',',
-              ''
+              ",",
+              ""
             ))
         ),
       axios
         .get(
-          'greenmangaming_discount_price' + this.greenmangaming_discount_price
+          "greenmangaming_discount_price" + this.greenmangaming_discount_price
         )
         .then(
           (res) =>
-            (this.greenmangaming_discount_price = res.data.replaceAll(',', ''))
+            (this.greenmangaming_discount_price = res.data.replaceAll(",", ""))
         ),
       /* dream */
       axios
-        .get('dream_new_title' + this.dream_new_title)
-        .then((res) => (this.dream_new_title = res.data.replaceAll(',', ''))),
+        .get("dream_new_title" + this.dream_new_title)
+        .then((res) => (this.dream_new_title = res.data.replaceAll(",", ""))),
       axios
-        .get('dream_price' + this.dream_price)
-        .then((res) => (this.dream_price = res.data.replaceAll(',', ''))),
+        .get("dream_price" + this.dream_price)
+        .then((res) => (this.dream_price = res.data.replaceAll(",", ""))),
       axios
-        .get('dream_discount_percent' + this.dream_discount_percent)
+        .get("dream_discount_percent" + this.dream_discount_percent)
         .then(
-          (res) => (this.dream_discount_percent = res.data.replaceAll(',', ''))
+          (res) => (this.dream_discount_percent = res.data.replaceAll(",", ""))
         ),
       axios
-        .get('dream_discount_price' + this.dream_discount_price)
+        .get("dream_discount_price" + this.dream_discount_price)
         .then(
-          (res) => (this.dream_discount_price = res.data.replaceAll(',', ''))
-        )
-    ])
+          (res) => (this.dream_discount_price = res.data.replaceAll(",", ""))
+        ),
+    ]);
   },
   methods: {
     move1: function () {
-      window.location.href = './about3'
+      window.location.href = "./about3";
     },
     move2: function () {
-      window.location.href = './about4'
+      window.location.href = "./about4";
     },
     del: function () {
-      axios.get('/delete', this.user).then((res) => {
-        this.screen_true = true
-        this.screen_false = false
-      })
+      axios.get("/delete", this.user).then((res) => {
+        this.screen_true = true;
+        this.screen_false = false;
+        alert(this.user + "님이 로그아웃하셨습니다.");
+      });
     },
     mypage: function () {
-      window.location.href = '/about6'
-    }
-  }
-}
+      window.location.href = "/about7";
+    },
+  },
+};
 </script>
 
 <style src="../assets/2.Mainpage.css"></style>
