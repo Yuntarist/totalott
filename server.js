@@ -26,8 +26,10 @@ mongoose
 
 const Photo = require("./DB/photo.js");
 const maincrawling = require("./DB/maincrawling.js");
+const QnA = require("./DB/qna.js");
 module.exports = Photo;
 module.exports = maincrawling;
+module.exports = QnA;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true })); // url 인코딩 함
@@ -114,6 +116,19 @@ app.get("/about5/:fid", (req, res) => {
           res.send(t[0].아이디);
         }
       });
+  })();
+});
+
+// 1대1 문의
+app.post("/about8", (req, res) => {
+  const qna = req.body.qna;
+
+  (async () => {
+    const _data = { 문의: qna };
+    const vs = new QnA(_data);
+    const t = await vs.save();
+    console.log(t); // 확인용.
+    res.send("제출 완료 !");
   })();
 });
 

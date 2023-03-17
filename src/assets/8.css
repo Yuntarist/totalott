@@ -111,8 +111,7 @@ details summary::marker {
 .qna-result,
 .qna-result2,
 .qna-result3,
-.qna-result4,
-.qna-result5 {
+.qna-result4 {
   width: 280px;
   border: 1px solid #3955e4;
   color: #3955e4;
@@ -126,6 +125,12 @@ details summary::marker {
   white-space: pre-wrap;
   border-radius: 8px;
 }
+.qna-result5 {
+  width: 280px;
+  margin-top: 20px;
+  padding: 10px 13px;
+}
+
 .sptime {
   margin-top: 10px;
   padding-left: 20px;
@@ -148,7 +153,7 @@ details summary::marker {
   padding-top: 1px;
   padding-left: 9px;
   width: 240px;
-  height: 340px;
+  height: 400px;
   background-color: #67ace9;
   border-radius: 8px;
   margin-left: 20px;

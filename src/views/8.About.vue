@@ -52,6 +52,9 @@
               <div class="qna-box" @click="qna4()">
                 <a href="#">버그문의</a>
               </div>
+              <div class="qna-box" @click="qna5()">
+                <a href="#">1대1 문의</a>
+              </div>
               <br />
             </div>
           </div>
@@ -99,6 +102,21 @@
               >{{ modalqna4 }}</a
             >
           </div>
+          <div class="answer5" style="display: none">
+            {{ test5 }}
+          </div>
+          <div class="qna-result5" style="display: none">
+            <textarea
+              v-model="qna"
+              placeholder="문의내용을 자세하게 적어주세요."
+              name=""
+              id="qnaContent"
+              cols="30"
+              rows="10"
+              >{{ modalqna5 }}</textarea
+            ><button @click="qsubmit()">제출</button>
+            <div>{{ Qtext }}</div>
+          </div>
         </div>
         <div class="xmodal">
           <span class="x" @click="xx">X</span>
@@ -112,6 +130,7 @@
 <script>
 // eslint-disable-next-line
 /* eslint-disable */
+import axios from "axios";
 export default {
   name: "app",
   data() {
@@ -158,10 +177,14 @@ export default {
       test2: "",
       test3: "",
       test4: "",
+      test5: "",
       modalqna: "",
       modalqna2: "",
       modalqna3: "",
       modalqna4: "",
+      modalqna5: "",
+      qna: "",
+      data: "",
     };
   },
   methods: {
@@ -251,9 +274,25 @@ export default {
         this.modalqna4 = "게임 실행 시 검은색/깜빡이는 화면";
       }, 2000);
     },
+    qna5: function () {
+      const answer5 = document.querySelector(".answer5");
+      const qnaResult5 = document.querySelector(".qna-result5");
+      answer5.style.display = "block";
+      this.test5 = "1대1 문의";
+      setTimeout(() => {
+        qnaResult5.style.display = "block";
+      }, 2000);
+    },
+    qsubmit: function () {
+      this.Qtext = "DB에 저장중";
+      axios
+        .post("./about8", {
+          qna: this.qna,
+        })
+        .then((res) => (this.Qtext = res.data));
+    },
   },
 };
 </script>
-<!-- 수정하기 -->
 
 <style src="../assets/8.css"></style>
