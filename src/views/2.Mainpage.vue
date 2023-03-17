@@ -5,67 +5,131 @@
     <button class="newaccountbtn" @click="move2" v-if="screen_true">
       회원가입
     </button>
-    <div class="login-user" v-if="screen_false">{{ user }}님</div>
     <button class="cookies_delete" @click="mypage" v-if="screen_false">
       마이페이지
     </button>
     <button class="cookies_delete" @click="del()" v-if="screen_false">
       로그아웃
     </button>
-    <button class="Q&A" @click="qa()">고객센터</button>
-    <input class="searchBar" type="text" placeholder="검색" />
-
-    <br />
-    <br />
-    <br />
+    <button class="QA" @click="qa()">고객센터</button>
+    <h1 class="login-user" v-if="screen_false">{{ user }}님 환영합니다!</h1>
     <br />
     <br />
     <h4 class="game_title_txt">게임 제목 클릭 시 구매 페이지로 이동합니다</h4>
-    <div class="steam">
-      <div id="steam">
-        <img class="steam_logo" src="../assets/steam.png" /> <br />
-        <p class="steam_logo_text">Steam</p>
+    <br />
+    <br />
+    <div class="maincontent">
+      <div class="steam">
+        <div id="steam">
+          <img class="steam_logo" src="../assets/steam.png" /> <br />
+          <p class="steam_logo_text">Steam</p>
+        </div>
+        <table>
+          <thead>
+            <th><div v-html="steam_new_title"></div></th>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div v-html="steam_price"></div></td>
+            </tr>
+            <tr>
+              <td>
+                <div v-html="steam_discount_percent"></div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div v-html="steam_discount_price"></div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-      <div v-html="steam_new_title"></div>
-      <div v-html="steam_price"></div>
-      <div v-html="steam_discount_percent"></div>
-      <div v-html="steam_discount_price"></div>
-    </div>
-    <hr />
-    <div class="gamersgate">
-      <div id="gamersgate">
-        <img class="gamersgate_logo" src="../assets/gamersgate.png" /> <br />
-        <p class="gamersgate_logo_text">Gamersgate</p>
+      <hr />
+      <div class="gamersgate">
+        <div id="gamersgate">
+          <img class="gamersgate_logo" src="../assets/gamersgate.png" /> <br />
+          <p class="gamersgate_logo_text">Gamersgate</p>
+        </div>
+        <table>
+          <thead>
+            <th><div v-html="gamersgate_new_title"></div></th>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div v-html="gamersgate_price"></div></td>
+            </tr>
+            <tr>
+              <td>
+                <div v-html="gamersgate_discount_percent"></div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div v-html="gamersgate_discount_price"></div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-      <div v-html="gamersgate_new_title"></div>
-      <div v-html="gamersgate_price"></div>
-      <div v-html="gamersgate_discount_percent"></div>
-      <div v-html="gamersgate_discount_price"></div>
-    </div>
-    <hr />
-    <div class="greenmangaming">
-      <div id="greenmangaming">
-        <img class="greenmangaming_logo" src="../assets/greenmangaming.png" />
-        <br />
-        <p class="greenmangaming_logo_text">Greenmangaming</p>
+      <hr />
+      <div class="greenmangaming">
+        <div id="greenmangaming">
+          <img class="greenmangaming_logo" src="../assets/greenmangaming.png" />
+          <br />
+          <p class="greenmangaming_logo_text">Greenmangaming</p>
+        </div>
+        <table>
+          <thead>
+            <th><div v-html="greenmangaming_new_title"></div></th>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div v-html="greenmangaming_price"></div></td>
+            </tr>
+            <tr>
+              <td>
+                <div v-html="greenmangaming_discount_percent"></div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div v-html="greenmangaming_discount_price"></div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-      <div v-html="greenmangaming_new_title"></div>
-      <div v-html="greenmangaming_price"></div>
-      <div v-html="greenmangaming_discount_percent"></div>
-      <div v-html="greenmangaming_discount_price"></div>
-    </div>
-    <hr />
-    <div class="dream">
-      <div id="dream">
-        <img class="dream_logo" src="../assets/dreamgame.png" />
-        <br />
-        <p class="dream_logo_text">Dream</p>
+      <hr />
+      <div class="dream">
+        <div id="dream">
+          <img class="dream_logo" src="../assets/dreamgame.png" /> <br />
+          <p class="dream_logo_text">Dream</p>
+        </div>
+        <table>
+          <thead>
+            <th><div v-html="dream_new_title"></div></th>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div v-html="dream_price"></div></td>
+            </tr>
+            <tr>
+              <td>
+                <div v-html="dream_discount_percent"></div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div v-html="dream_discount_price"></div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-      <div v-html="dream_new_title"></div>
-      <div v-html="dream_price"></div>
-      <div v-html="dream_discount_percent"></div>
-      <div v-html="dream_discount_price"></div>
     </div>
+    <br />
+    <img src="../assets/TRIFlogo.png" id="triflogo" />
   </div>
 </template>
 
