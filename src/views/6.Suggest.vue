@@ -2,17 +2,19 @@
   <br />
   <div class="login-user">{{ user }}님의 페이지</div>
   <button class="cookies_delete" @click="mypage">메인페이지</button>
-  <div>할인 추천 목록</div>
+  <div>스테디 셀러 게임들의 다음 할인 값 예측하기</div>
   <div class="mainpage">
-    <img
-      src="../assets/red_dead_redemtion_2_img.jpg"
-      class="red_dead_redemtion_2_img"
-      style="width: 250px; height: 250px"
-    />
-    <span> 이 게임의 다음 예상 할인 값:</span>
-    <button @click="tensor1">분석시작</button>
-    <br />
-    <span id="result1"></span>
+    <div class="reddead">
+      <img
+        src="../assets/red_dead_redemtion_2_img.jpg"
+        class="red_dead_redemtion_2_img"
+        style="width: 250px; height: 250px"
+      />
+      <span class="reddeadtxt"> 이 게임의 다음 예상 할인 값:</span>
+      <button class="reddeadbtn" @click="tensor1">분석시작</button>
+      <br />
+      <span id="result1"></span>
+    </div>
     <br />
     <img
       src="../assets/PUBG.png"

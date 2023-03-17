@@ -13,6 +13,11 @@ details summary::marker {
   border-radius: 50%;
   background-image: url('../assets/qna.png');
 }
+.bot-end {
+  color: #3955e4;
+  border: 1px solid #d1d1d1;
+  margin-top: 10px;
+}
 .qna-body {
   font-size: 24px;
   margin-top: 40px;
@@ -111,8 +116,7 @@ details summary::marker {
 .qna-result,
 .qna-result2,
 .qna-result3,
-.qna-result4,
-.qna-result5 {
+.qna-result4 {
   width: 280px;
   border: 1px solid #3955e4;
   color: #3955e4;
@@ -125,6 +129,16 @@ details summary::marker {
   align-items: right;
   white-space: pre-wrap;
   border-radius: 8px;
+}
+#qnaContent {
+  width: 280px;
+  margin-top: 20px;
+  padding: 10px 13px;
+}
+.qbt {
+  width: 280px;
+  margin-top: 20px;
+  padding: 10px 13px;
 }
 .sptime {
   margin-top: 10px;
@@ -148,7 +162,7 @@ details summary::marker {
   padding-top: 1px;
   padding-left: 9px;
   width: 240px;
-  height: 340px;
+  height: 400px;
   background-color: #67ace9;
   border-radius: 8px;
   margin-left: 20px;
