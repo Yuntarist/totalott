@@ -3,72 +3,77 @@ const mongoose = require("mongoose");
 const express = require("express");
 const path = require("path");
 const logger = require("morgan");
-const cw = require("./public/allgame"); //크롤링 js데이터 가져오기
-const history = require("connect-history-api-fallback"); //새로고침후 데이터 유지
+const history = require("connect-history-api-fallback");
 const app = express();
 const port = 3000;
 const _path = path.join(__dirname, "./dist");
-
-// crypto 암호화 모듈
-// const crypto = require("crypto");
-
 const USER = process.env.dbid;
 const PWD = process.env.dbpwd;
 const HOST = process.env.dbhost;
 const DB = "trif";
 const mongodbURL = `mongodb://${USER}:${PWD}@${HOST}/${DB}`;
-
-mongoose.set("strictQuery", false); // 6.0 이후 권장사항
+let cookieParser = require("cookie-parser");
+app.use(cookieParser());
+mongoose.set("strictQuery", false);
 mongoose
   .connect(mongodbURL, { useNewUrlParser: true })
   .then(() => console.log("connection successful"))
   .catch((err) => console.log(err));
-
 const Photo = require("./DB/photo.js");
 const maincrawling = require("./DB/maincrawling.js");
 const QnA = require("./DB/qna.js");
 module.exports = Photo;
 module.exports = maincrawling;
 module.exports = QnA;
-
 app.use(express.json());
-app.use(express.urlencoded({ extended: true })); // url 인코딩 함
-
-console.log(_path);
+app.use(express.urlencoded({ extended: true }));
 app.use(history());
 app.use("/", express.static(_path));
 app.use(logger("tiny"));
-
-// 회원가입
+//아이디 중복체크
+app.get("/about4e1/:ID", (req, res) => {
+  let 아이디 = req.params.ID;
+  console.log(아이디);
+  (async () => {
+    const t = await Photo.find({ 아이디 }, { id: 0, __v: 0 })
+      .lean()
+      .then((t) => {
+        console.log(t);
+        if (t[0] === undefined) {
+          res.json({ result: 1 });
+        } else if (t[0].아이디 === 아이디) {
+          res.json({ result: 0 });
+        }
+      });
+  })();
+});
+//회원가입
 app.post("/about4", function (req, res) {
-  // front 서버에서 post 방식으로 전송받음
-  // console.log(req.body.resultgood);
   const A = req.body.userID;
   const B = req.body.userPW;
   const C = req.body.userPW2;
   const D = req.body.userEM;
-
-  const main = async () => {
+  console.log(A);
+  (async () => {
     const _data = {
       아이디: A,
       비밀번호: B,
       비밀번호확인: C,
       이메일: D,
     };
-
     const new_photo = new Photo(_data);
     const t = await new_photo.save();
-    console.log(t);
-  };
-  main();
+    // console.log(t)
+  })();
 });
-
-// 로그인
-app.get("/about3/:loginid/:loginpwd", (req, res) => {
-  let 아이디 = req.params.loginid;
-  let 비밀번호 = req.params.loginpwd;
+//로그인
+app.post("/about3", (req, res) => {
+  let 아이디 = req.body.logininid;
+  let 비밀번호 = req.body.logininpwd;
+  console.log(아이디);
+  console.log(비밀번호);
   (async () => {
-    const t = await Photo.find({ 아이디 }, {})
+    const t = await Photo.find({ 아이디 }, { id: 0, __v: 0 })
       .lean()
       .then((t) => {
         console.log(t);
@@ -77,18 +82,17 @@ app.get("/about3/:loginid/:loginpwd", (req, res) => {
         } else if (t[0].비밀번호 !== 비밀번호) {
           res.json({ result: 2 });
         } else {
+          res.cookie("user_id", t[0].아이디);
           res.json({ result: 1 });
         }
       });
   })();
 });
-
-// 아이디 찾기
-app.get("/about5/:email", (req, res) => {
-  let 이메일 = req.params.email;
-
+//아이디 찾기
+app.post("/about5", (req, res) => {
+  let 이메일 = req.body.email;
   (async () => {
-    const t = await Photo.find({ 이메일 }, {})
+    const t = await Photo.find({ 이메일 }, { id: 0, __v: 0 })
       .lean()
       .then((t) => {
         console.log(t);
@@ -100,29 +104,116 @@ app.get("/about5/:email", (req, res) => {
       });
   })();
 });
+//비밀번호 찾기
+app.post("/about5up", (req, res) => {
+  let 이메일 = req.body.email;
+  let 아이디 = req.body.id;
+  //임시비밀번호
+  let ranValue1 = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
+  let ranValue2 = [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "M",
+    "N",
+    "O",
+    "P",
+    "Q",
+    "R",
+    "S",
+    "T",
+    "U",
+    "V",
+    "W",
+    "X",
+    "Y",
+    "Z",
+  ];
+  let ranValue3 = [
+    "a",
+    "b",
+    "c",
+    "d",
+    "e",
+    "f",
+    "g",
+    "h",
+    "i",
+    "j",
+    "k",
+    "l",
+    "m",
+    "n",
+    "o",
+    "p",
+    "q",
+    "r",
+    "s",
+    "t",
+    "u",
+    "v",
+    "w",
+    "x",
+    "y",
+    "z",
+  ];
+  let ranValue4 = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")"];
 
-// 비밀번호 찾기
-app.get("/about5/:fid", (req, res) => {
-  let 아이디 = req.params.fid;
+  let temp_pw = "";
 
+  for (i = 0; i < 2; i++) {
+    let ranPick1 = Math.floor(Math.random() * ranValue1.length);
+    let ranPick2 = Math.floor(Math.random() * ranValue2.length);
+    let ranPick3 = Math.floor(Math.random() * ranValue3.length);
+    let ranPick4 = Math.floor(Math.random() * ranValue4.length);
+    temp_pw =
+      temp_pw +
+      ranValue1[ranPick1] +
+      ranValue2[ranPick2] +
+      ranValue3[ranPick3] +
+      ranValue4[ranPick4];
+    console.log(ranValue1[ranPick1]);
+  }
+
+  console.log(req.body);
   (async () => {
-    const t = await Photo.find({ 아이디 }, {})
+    let t = await Photo.updateOne(
+      {},
+      {
+        $set: {
+          비밀번호: temp_pw,
+        },
+      },
+      { upsert: true }
+    );
+    console.log(t);
+    //비밀번호 변경조회
+    t = Photo.find({ 이메일 }, { id: 0, __v: 0 })
       .lean()
       .then((t) => {
         console.log(t);
-        if (t[0] === undefined) {
-          res.json({ result: 1 });
-        } else if (t[0].아이디 === 아이디) {
-          res.send(t[0].아이디);
+        if (t[0] === undefined || "") {
+          res.json({ result: 0 });
+        } else if (t[0].아이디 !== 아이디) {
+          res.json({ result: 2 });
+        } else if (t[0].이메일 || 이메일 === t[0].아이디 || 아이디) {
+          res.send(t[0].비밀번호);
         }
       });
   })();
 });
-
 // 1대1 문의
 app.post("/about8", (req, res) => {
   const qna = req.body.qna;
-
   (async () => {
     const _data = { 문의: qna };
     const vs = new QnA(_data);
@@ -131,112 +222,258 @@ app.post("/about8", (req, res) => {
     res.send("제출 완료 !");
   })();
 });
-
-// 몽고디비에서 읽어오는 형식
-// 엑시오스를 이용해 받고 보내고 할수있게 만들기
-
-// 전체 데이터 보내기
-// app.get("/all", (req, res) => {
-//   const main2 = async () => {
-//     const t = await maincrawling.find();
-//     console.log(t);
-//     console.log(typeof t);
-//     res.send(t);
-//   };
-//   main2();
-// });
-app.get("/steam", (req, res) => {
+//메인페이지 아이디 쿠키전송
+app.get("/main", (req, res) => {
+  res.send(req.cookies.user_id);
+  console.log(req.cookies);
+});
+//메인페이지 아이디 쿠키 삭제
+app.get("/delete", function (req, res) {
+  res.clearCookie("user_id");
+  res.redirect("/");
+});
+// DB에 저장된 데이터를 vue로 전송
+app.get("/steam_new_title", (req, res) => {
   const main3 = async () => {
     const t = await maincrawling.find(
       {},
       {
-        steam_all: 1,
+        steam_new_title: 1,
         _id: 0,
       }
     );
-    console.log(t);
+    console.log(t[0].steam_new_title);
     console.log(typeof t);
-    res.send(t);
+    res.send(t[0].steam_new_title);
   };
   main3();
 });
-
-app.get("/steam_title", (req, res) => {
+app.get("/steam_price", (req, res) => {
   const main3 = async () => {
     const t = await maincrawling.find(
       {},
       {
-        steam_title: 1,
+        steam_price: 1,
         _id: 0,
       }
     );
-
-    console.log(t);
-    console.log(typeof t + "1");
-    const t1 = Object.entries(t);
-    console.log(t1);
-    console.log(typeof t1 + "2");
-    const t2 = [];
-    for (let i = 0; i < t1.length; i++) {
-      t2.push(t1[i]);
-    }
-    res.send(t2);
-  };
-  main3();
-});
-app.get("/gamersgate", (req, res) => {
-  const main3 = async () => {
-    const t = await maincrawling.find(
-      {},
-      {
-        gamersgate_all: 1,
-        _id: 0,
-      }
-    );
-    console.log(t);
+    console.log(t[0].steam_price);
     console.log(typeof t);
-    res.send(t);
+    res.send(t[0].steam_price);
   };
   main3();
 });
-app.get("/greenmangaming", (req, res) => {
+app.get("/steam_discount_percent", (req, res) => {
   const main3 = async () => {
     const t = await maincrawling.find(
       {},
       {
-        greenmangaming_all: 1,
+        steam_discount_percent: 1,
         _id: 0,
       }
     );
-    console.log(t);
+    console.log(t[0].steam_discount_percent);
     console.log(typeof t);
-    res.send(t);
+    res.send(t[0].steam_discount_percent);
   };
   main3();
 });
-app.get("/dream", (req, res) => {
+app.get("/steam_discount_price", (req, res) => {
   const main3 = async () => {
     const t = await maincrawling.find(
       {},
       {
-        dream_all: 1,
+        steam_discount_price: 1,
         _id: 0,
       }
     );
-    console.log(t);
+    console.log(t[0].steam_discount_price);
     console.log(typeof t);
-    res.send(t);
+    res.send(t[0].steam_discount_price);
   };
   main3();
 });
-
-// app.get("/about1", (req, res) => {
-//   console.log("준비");
-//   cw.ax().then((v) => {
-//     res.send(v);
-//   });
-// });
-
+app.get("/gamersgate_new_title", (req, res) => {
+  const main3 = async () => {
+    const t = await maincrawling.find(
+      {},
+      {
+        gamersgate_new_title: 1,
+        _id: 0,
+      }
+    );
+    console.log(t[0].gamersgate_new_title);
+    console.log(typeof t);
+    res.send(t[0].gamersgate_new_title);
+  };
+  main3();
+});
+app.get("/gamersgate_price", (req, res) => {
+  const main3 = async () => {
+    const t = await maincrawling.find(
+      {},
+      {
+        gamersgate_price: 1,
+        _id: 0,
+      }
+    );
+    console.log(t[0].gamersgate_price);
+    console.log(typeof t);
+    res.send(t[0].gamersgate_price);
+  };
+  main3();
+});
+app.get("/gamersgate_discount_percent", (req, res) => {
+  const main3 = async () => {
+    const t = await maincrawling.find(
+      {},
+      {
+        gamersgate_discount_percent: 1,
+        _id: 0,
+      }
+    );
+    console.log(t[0].gamersgate_discount_percent);
+    console.log(typeof t);
+    res.send(t[0].gamersgate_discount_percent);
+  };
+  main3();
+});
+app.get("/gamersgate_discount_price", (req, res) => {
+  const main3 = async () => {
+    const t = await maincrawling.find(
+      {},
+      {
+        gamersgate_discount_price: 1,
+        _id: 0,
+      }
+    );
+    console.log(t[0].gamersgate_discount_price);
+    console.log(typeof t);
+    res.send(t[0].gamersgate_discount_price);
+  };
+  main3();
+});
+app.get("/greenmangaming_new_title", (req, res) => {
+  const main3 = async () => {
+    const t = await maincrawling.find(
+      {},
+      {
+        greenmangaming_new_title: 1,
+        _id: 0,
+      }
+    );
+    console.log(t[0].greenmangaming_new_title);
+    console.log(typeof t);
+    res.send(t[0].greenmangaming_new_title);
+  };
+  main3();
+});
+app.get("/greenmangaming_price", (req, res) => {
+  const main3 = async () => {
+    const t = await maincrawling.find(
+      {},
+      {
+        greenmangaming_price: 1,
+        _id: 0,
+      }
+    );
+    console.log(t[0].greenmangaming_price);
+    console.log(typeof t);
+    res.send(t[0].greenmangaming_price);
+  };
+  main3();
+});
+app.get("/greenmangaming_discount_percent", (req, res) => {
+  const main3 = async () => {
+    const t = await maincrawling.find(
+      {},
+      {
+        greenmangaming_discount_percent: 1,
+        _id: 0,
+      }
+    );
+    console.log(t[0].greenmangaming_discount_percent);
+    console.log(typeof t);
+    res.send(t[0].greenmangaming_discount_percent);
+  };
+  main3();
+});
+app.get("/greenmangaming_discount_price", (req, res) => {
+  const main3 = async () => {
+    const t = await maincrawling.find(
+      {},
+      {
+        greenmangaming_discount_price: 1,
+        _id: 0,
+      }
+    );
+    console.log(t[0].greenmangaming_discount_price);
+    console.log(typeof t);
+    res.send(t[0].greenmangaming_discount_price);
+  };
+  main3();
+});
+app.get("/dream_new_title", (req, res) => {
+  const main3 = async () => {
+    const t = await maincrawling.find(
+      {},
+      {
+        dream_new_title: 1,
+        _id: 0,
+      }
+    );
+    console.log(t[0].dream_new_title);
+    console.log(typeof t);
+    res.send(t[0].dream_new_title);
+  };
+  main3();
+});
+app.get("/dream_price", (req, res) => {
+  const main3 = async () => {
+    const t = await maincrawling.find(
+      {},
+      {
+        dream_price: 1,
+        _id: 0,
+      }
+    );
+    console.log(t[0].dream_price);
+    console.log(typeof t);
+    res.send(t[0].dream_price);
+  };
+  main3();
+});
+app.get("/dream_discount_percent", (req, res) => {
+  const main3 = async () => {
+    const t = await maincrawling.find(
+      {},
+      {
+        dream_discount_percent: 1,
+        _id: 0,
+      }
+    );
+    console.log(t[0].dream_discount_percent);
+    console.log(typeof t);
+    res.send(t[0].dream_discount_percent);
+  };
+  main3();
+});
+app.get("/dream_discount_price", (req, res) => {
+  const main3 = async () => {
+    const t = await maincrawling.find(
+      {},
+      {
+        dream_discount_price: 1,
+        _id: 0,
+      }
+    );
+    console.log(t[0].dream_discount_price);
+    console.log(typeof t);
+    res.send(t[0].dream_discount_price);
+  };
+  main3();
+});
+// 시간이 넘처난다면 반복문을 이용하여 보낼 수 있도록 해보기
 app.listen(port, () => {
   console.log(port + "에서 서버 동작 완료.");
 });

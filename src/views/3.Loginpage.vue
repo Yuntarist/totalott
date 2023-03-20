@@ -55,11 +55,14 @@ export default {
     read: function () {
       this.data3 = "DB 데이터 읽는중...";
       axios
-        .get("/about3/" + this.loginid + "/" + this.loginpwd)
+        .post("/about3", {
+          logininid: this.loginid,
+          logininpwd: this.loginpwd,
+        })
         .then((res) => {
           if (res.data.result === 1) {
-            alert(this.loginid + "님이 로그인하셨습니다.");
             window.location.href = "/about2";
+            alert(this.loginid + "님이 로그인하셨습니다.");
           } else if (res.data.result === 0) {
             window.location.href = "/about3";
             alert("아이디가 존재하지 않습니다.");
@@ -67,9 +70,6 @@ export default {
             window.location.href = "/about3";
             alert("비밀번호가 틀렸습니다.");
           }
-        })
-        .catch((err) => {
-          alert("Error: " + err.message);
         });
     },
   },

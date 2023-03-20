@@ -1,0 +1,30 @@
+.mainpage {
+  margin-left: 250px;
+  margin-right: 350px;
+  min-width: 1000px;
+}
+.reddeadredemtion_img {
+  vertical-align: bottom;
+}
+.result1 {
+  display: flex;
+}
+/* RedDeadRedemtion 2 */
+.reddead {
+  display: flex;
+}
+.reddeadbtn {
+  width: 100px;
+  height: 35px;
+  font-size: 15px;
+  padding: 8px;
+  background: rgba(160, 160, 158, 0.72);
+  border: none;
+  color: white;
+  border-radius: 5px;
+  float: right;
+  margin-left: 10px;
+}
+.reddeadbtn:hover {
+  background: rgba(228, 225, 225, 0.678);
+}

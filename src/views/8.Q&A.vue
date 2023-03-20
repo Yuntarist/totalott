@@ -316,4 +316,4 @@ export default {
 };
 </script>
 
-<style src="../assets/8.css"></style>
+<style src="../assets/8.Q&A.css"></style>

@@ -1,14 +1,10 @@
 <template>
-  <div>
-    <h2>아이디 찾기</h2>
-  </div>
-  <div>이메일</div>
-  <div>
-    <input type="text" v-model="email" id="useremail" />
-    <button class="esub" @click="submit()">확인</button>
-    <p class="emailAddress Emsg">이메일 주소를 입력하세요</p>
-    <p>{{ findid }}</p>
-  </div>
+  <div class="idf-doc">회원정보에 등록된 정보로 찾을 수 있습니다.</div>
+  <span class="idf-span">이메일</span
+  ><input class="idf-input" type="text" v-model="emailfind" />
+  <button @click="idfind()" class="idf-btn">확인</button>
+  <p class="idf-p">아이디 : {{ emailcome }}</p>
+  <button class="cookies_delete" @click="mypage">메인페이지</button>
 </template>
 
 <script>
@@ -17,51 +13,48 @@ import axios from "axios";
 export default {
   name: "app",
   data() {
-    return {
-      email: "",
-      findid: "",
-    };
-  },
-  mounted: function () {
-    const email = document.querySelector("#useremail");
-    const msg = document.querySelector(".Emsg");
-    const esub = document.querySelector(".esub");
-
-    function emailuser() {
-      if (email.value == "") {
-        msg.style.display = "block";
-      } else {
-        msg.style.display = "none";
-      }
-    }
-    email.addEventListener("click", emailuser);
-    email.addEventListener("keyup", emailuser);
-
-    esub.addEventListener("click", () => {
-      if (email.value == "") {
-        msg.style.display = "none";
-      } else {
-        msg.style.display = "none";
-      }
-    });
+    return { emailcome: "", emailfind: "" };
   },
   methods: {
-    submit: function () {
-      axios.get("/about5/" + this.email).then((res) => {
+    idfind() {
+      axios.post("/about5", { email: this.emailfind }).then((res) => {
         if (res.data.result === 1) {
-          this.findid = "존재하지 않는 회원입니다.";
+          this.emailcome = "존재하지 않는 회원입니다.";
         } else {
-          alert("인증되었습니다.");
-          this.findid = "찾으시는 아이디는 :" + res.data + " 입니다";
+          this.emailcome = res.data;
         }
       });
+    },
+    mypage: function () {
+      window.location.href = "/about2";
     },
   },
 };
 </script>
 
 <style>
-.Emsg {
-  display: none;
+.idf-doc {
+  padding: 20px;
+}
+.idf-input {
+  padding: 10px 15px;
+  border: 1px solid #eee;
+  border-radius: 2.5px;
+}
+.idf-p {
+  padding: 10px;
+}
+.idf-span {
+  margin: 5px;
+  padding: 5px;
+}
+.idf-btn {
+  margin-left: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  color: #888;
+  border: 2px solid #888;
+  background: #ddd;
+  padding: 8px 5px;
 }
 </style>
