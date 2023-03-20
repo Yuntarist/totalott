@@ -39,7 +39,7 @@
     <br />
     <br />
     <div class="DARKSOUL">
-      <img src="../assets/다크소울3.jpg" class="Dark_soul_3_img" />
+      <img src="../assets/darksouls.png" class="Dark_soul_3_img" />
       <span class="DARKSOULtxt"> 이 게임의 다음 예상 할인 값:</span>
       <button @click="tensor4" class="DARKSOULbtn">분석시작</button>
       <br />
@@ -49,7 +49,7 @@
     <br />
     <br />
     <div class="Terraria">
-      <img src="../assets/terraria.jpg" class="Terraria_img" />
+      <img src="../assets/terraria.png" class="Terraria_img" />
       <span class="Terrariatxt"> 이 게임의 다음 예상 할인 값:</span>
       <button @click="tensor5" class="Terrariabtn">분석시작</button>
       <br />
