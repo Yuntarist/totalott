@@ -9,6 +9,30 @@
 .result1 {
   display: flex;
 }
+.cookies_delete {
+  margin-right: 250px;
+}
+.login-user {
+  display: flex;
+  font-weight: bold;
+  margin-left: 10px;
+}
+#result1 {
+  margin-left: 50px;
+}
+#result2 {
+  margin-left: 50px;
+}
+#result3 {
+  margin-left: 50px;
+}
+#result4 {
+  margin-left: 50px;
+}
+#result5 {
+  margin-left: 50px;
+}
+
 /* RedDeadRedemtion 2 */
 .reddead {
   display: flex;
@@ -27,4 +51,100 @@
 }
 .reddeadbtn:hover {
   background: rgba(228, 225, 225, 0.678);
+}
+.red_dead_redemtion_2_img {
+  width: 270px;
+  height: 70px;
+}
+/* Battle Ground */
+.PUBG {
+  display: flex;
+}
+.PUBGbtn {
+  width: 100px;
+  height: 35px;
+  font-size: 15px;
+  padding: 8px;
+  background: rgba(160, 160, 158, 0.72);
+  border: none;
+  color: white;
+  border-radius: 5px;
+  float: right;
+  margin-left: 10px;
+}
+.PUBGbtn:hover {
+  background: rgba(228, 225, 225, 0.678);
+}
+.PUBG_img {
+  width: 270px;
+  height: 70px;
+}
+/* SKYRIM */
+.SKYRIM {
+  display: flex;
+}
+.SKYRIMbtn {
+  width: 100px;
+  height: 35px;
+  font-size: 15px;
+  padding: 8px;
+  background: rgba(160, 160, 158, 0.72);
+  border: none;
+  color: white;
+  border-radius: 5px;
+  float: right;
+  margin-left: 10px;
+}
+.SKYRIMbtn:hover {
+  background: rgba(228, 225, 225, 0.678);
+}
+.Sky_rim_img {
+  width: 270px;
+  height: 70px;
+}
+/* DARK SOULS 3 */
+.DARKSOUL {
+  display: flex;
+}
+.DARKSOULbtn {
+  width: 100px;
+  height: 35px;
+  font-size: 15px;
+  padding: 8px;
+  background: rgba(160, 160, 158, 0.72);
+  border: none;
+  color: white;
+  border-radius: 5px;
+  float: right;
+  margin-left: 10px;
+}
+.DARKSOULbtn:hover {
+  background: rgba(228, 225, 225, 0.678);
+}
+.Dark_soul_3_img {
+  width: 270px;
+  height: 70px;
+}
+/* Terraria */
+.Terraria {
+  display: flex;
+}
+.Terrariabtn {
+  width: 100px;
+  height: 35px;
+  font-size: 15px;
+  padding: 8px;
+  background: rgba(160, 160, 158, 0.72);
+  border: none;
+  color: white;
+  border-radius: 5px;
+  float: right;
+  margin-left: 10px;
+}
+.Terrariabtn:hover {
+  background: rgba(228, 225, 225, 0.678);
+}
+.Terraria_img {
+  width: 270px;
+  height: 70px;
 }

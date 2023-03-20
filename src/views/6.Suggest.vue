@@ -2,59 +2,59 @@
   <br />
   <div class="login-user">{{ user }}님의 페이지</div>
   <button class="cookies_delete" @click="mypage">메인페이지</button>
-  <div>스테디 셀러 게임들의 다음 할인 값 예측하기</div>
+  <br />
+  <br />
+  <h3>판매량 높은 게임들의 다음할인율 예측하기</h3>
+  <h5>분석에 시간이 걸리니 잠시 기다려 주세요</h5>
+  <br />
   <div class="mainpage">
     <div class="reddead">
-      <img
-        src="../assets/red_dead_redemtion_2_img.jpg"
-        class="red_dead_redemtion_2_img"
-        style="width: 250px; height: 250px"
-      />
+      <img src="../assets/레데리2.jpg" class="red_dead_redemtion_2_img" />
       <span class="reddeadtxt"> 이 게임의 다음 예상 할인 값:</span>
       <button class="reddeadbtn" @click="tensor1">분석시작</button>
       <br />
       <span id="result1"></span>
     </div>
     <br />
-    <img
-      src="../assets/PUBG.png"
-      class="PUBG_img"
-      style="width: 250px; height: 250px"
-    />
-    <span> 이 게임의 다음 예상 할인 값:</span>
-    <button @click="tensor2">분석시작</button>
     <br />
-    <span id="result2"></span>
     <br />
-    <img
-      src="../assets/SKYRIM.png"
-      class="Sky_rim_img"
-      style="width: 250px; height: 250px"
-    />
-    <span> 이 게임의 다음 예상 할인 값:</span>
-    <button @click="tensor3">분석시작</button>
+    <div class="PUBG">
+      <img src="../assets/배틀그라운드.png" class="PUBG_img" />
+      <span class="PUBGtxt"> 이 게임의 다음 예상 할인 값:</span>
+      <button @click="tensor2" class="PUBGbtn">분석시작</button>
+      <br />
+      <span id="result2"></span>
+    </div>
     <br />
-    <span id="result3"></span>
     <br />
-    <img
-      src="../assets/DARKSOUL3.png"
-      class="Dark_soul_3_img"
-      style="width: 250px; height: 250px"
-    />
-    <span> 이 게임의 다음 예상 할인 값:</span>
-    <button @click="tensor4">분석시작</button>
     <br />
-    <span id="result4"></span>
+    <div class="SKYRIM">
+      <img src="../assets/스카이림로고.png" class="Sky_rim_img" />
+      <span class="SKYRIMtxt"> 이 게임의 다음 예상 할인 값:</span>
+      <button @click="tensor3" class="SKYRIMbtn">분석시작</button>
+      <br />
+      <span id="result3"></span>
+    </div>
     <br />
-    <img
-      src="../assets/Terraria.png"
-      class="Terraria_img"
-      style="width: 250px; height: 250px"
-    />
-    <span> 이 게임의 다음 예상 할인 값:</span>
-    <button @click="tensor5">분석시작</button>
     <br />
-    <span id="result5"></span>
+    <br />
+    <div class="DARKSOUL">
+      <img src="../assets/다크소울3.jpg" class="Dark_soul_3_img" />
+      <span class="DARKSOULtxt"> 이 게임의 다음 예상 할인 값:</span>
+      <button @click="tensor4" class="DARKSOULbtn">분석시작</button>
+      <br />
+      <span id="result4"></span>
+    </div>
+    <br />
+    <br />
+    <br />
+    <div class="Terraria">
+      <img src="../assets/terraria.jpg" class="Terraria_img" />
+      <span class="Terrariatxt"> 이 게임의 다음 예상 할인 값:</span>
+      <button @click="tensor5" class="Terrariabtn">분석시작</button>
+      <br />
+      <span id="result5"></span>
+    </div>
     <br />
   </div>
 </template>
@@ -338,4 +338,4 @@ export default {
 }
 </script>
 
-<style src="../assets/6.Suggest.css"></style>
+<style scoped src="../assets/6.Suggest.css"></style>
