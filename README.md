@@ -1,24 +1,2 @@
-# totalott
-
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+마지막 팀 프로젝트 입니다
+주요 게임 유통 플랫폼 4곳의 현재 할인중인 게임 top10개 품목을 크롤링하여 한 눈에 확인 할 수 있도록 만든 웹 사이트입니다.
